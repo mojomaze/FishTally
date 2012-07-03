@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
 		57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1215A3302A00D1682C /* Foundation.framework */; };
 		57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1415A3302A00D1682C /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		576E92BF15A373F600C93BAB /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
+		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		57952A0C15A3302A00D1682C /* FishTally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishTally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57952A1015A3302A00D1682C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57952A1215A3302A00D1682C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +105,10 @@
 				57952A1F15A3302A00D1682C /* AppDelegate.h */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57952A4A15A347E800D1682C /* GamesViewController.h */,
+				57952A4B15A347E800D1682C /* GamesViewController.m */,
+				576E92BF15A373F600C93BAB /* GameDetailViewController.h */,
+				576E92C015A373F600C93BAB /* GameDetailViewController.m */,
 				57952A2C15A3302A00D1682C /* SecondViewController.h */,
 				57952A2D15A3302A00D1682C /* SecondViewController.m */,
 				57952A2F15A3302A00D1682C /* second.png */,
@@ -112,8 +119,6 @@
 				57952A4415A340FF00D1682C /* Game.m */,
 				57952A4015A340AD00D1682C /* Player.h */,
 				57952A4115A340AD00D1682C /* Player.m */,
-				57952A4A15A347E800D1682C /* GamesViewController.h */,
-				57952A4B15A347E800D1682C /* GamesViewController.m */,
 				57952A5015A360DA00D1682C /* GameCell.h */,
 				57952A5115A360DA00D1682C /* GameCell.m */,
 			);
@@ -203,6 +208,7 @@
 				57952A4515A340FF00D1682C /* Game.m in Sources */,
 				57952A4C15A347E900D1682C /* GamesViewController.m in Sources */,
 				57952A5215A360DA00D1682C /* GameCell.m in Sources */,
+				576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +320,7 @@
 				57952A3715A3302A00D1682C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

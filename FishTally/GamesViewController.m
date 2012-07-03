@@ -9,10 +9,11 @@
 #import "GamesViewController.h"
 #import "Game.h"
 #import "GameCell.h"
+#import "GameDetailViewController.h"
 
 
 @implementation GamesViewController {
-    NSArray *games;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -36,46 +37,56 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (NSFetchedResultsController *)fetchedResultsController
 {
-    [super viewDidLoad];
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    
+    if (fetchedResultsController == nil) {
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        [fetchRequest setFetchBatchSize:20];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc]
+                                    initWithFetchRequest:fetchRequest
+                                    managedObjectContext:self.managedObjectContext
+                                    sectionNameKeyPath:nil
+                                    cacheName:@"Games"];
+        
+        fetchedResultsController.delegate = self;
+    }
+    return fetchedResultsController;
+}
+
+- (void)performFetch
+{
     NSError *error;
-    NSArray *foundObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (foundObjects == nil) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         FATAL_CORE_DATA_ERROR(error);
         return;
     }
-    
-    games = foundObjects;
-    
-//    if ([games count] == 0) {
-//        Game *game = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
-//        
-//        game.name = @"New Game";
-//        game.date = [NSDate date];
-//        
-//        NSError *error;
-//        if (![self.managedObjectContext save:&error]) {
-//            FATAL_CORE_DATA_ERROR(error);
-//            return;
-//        }
-//        
-//    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];    
+    [self performFetch];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    games = nil;
+    fetchedResultsController.delegate = nil;
+    fetchedResultsController = nil;
+}
+
+- (void)dealloc
+{
+    fetchedResultsController.delegate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,13 +119,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [games count];
-}
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     GameCell *gameCell = (GameCell *)cell;
-    Game *game = [games objectAtIndex:indexPath.row];
+    Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     gameCell.nameLabel.text = game.name;
     
@@ -132,4 +143,90 @@
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:game];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            FATAL_CORE_DATA_ERROR(error);
+            return;
+        }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AddGame"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    NSLog(@"*** controllerWillChangeContent");
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeInsert");
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeDelete");
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeUpdate");
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeMove");
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"*** controllerDidChangeSection - NSFetchedResultsChangeInsert");
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"*** controllerDidChangeSection - NSFetchedResultsChangeDelete");
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    NSLog(@"*** controllerDidChangeContent");
+    [self.tableView endUpdates];
+}
+
 @end
