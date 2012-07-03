@@ -14,12 +14,15 @@
 		57952A1D15A3302A00D1682C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A1C15A3302A00D1682C /* main.m */; };
 		57952A2115A3302A00D1682C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2015A3302A00D1682C /* AppDelegate.m */; };
 		57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2215A3302A00D1682C /* MainStoryboard.storyboard */; };
-		57952A2715A3302A00D1682C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2615A3302A00D1682C /* FirstViewController.m */; };
-		57952A2915A3302A00D1682C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2815A3302A00D1682C /* first.png */; };
-		57952A2B15A3302A00D1682C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2A15A3302A00D1682C /* first@2x.png */; };
 		57952A2E15A3302A00D1682C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2D15A3302A00D1682C /* SecondViewController.m */; };
 		57952A3015A3302A00D1682C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2F15A3302A00D1682C /* second.png */; };
 		57952A3215A3302A00D1682C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A3115A3302A00D1682C /* second@2x.png */; };
+		57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A3815A33B6400D1682C /* CoreData.framework */; };
+		57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */; };
+		57952A4215A340AD00D1682C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4115A340AD00D1682C /* Player.m */; };
+		57952A4515A340FF00D1682C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4415A340FF00D1682C /* Game.m */; };
+		57952A4C15A347E900D1682C /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4B15A347E800D1682C /* GamesViewController.m */; };
+		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,21 +30,27 @@
 		57952A1015A3302A00D1682C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57952A1215A3302A00D1682C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57952A1415A3302A00D1682C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		57952A1815A3302A00D1682C /* FishTally-Info.plist */ = {isa = PBXFileReference; path = "FishTally-Info.plist"; sourceTree = "<group>"; };
+		57952A1815A3302A00D1682C /* FishTally-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FishTally-Info.plist"; sourceTree = "<group>"; };
 		57952A1A15A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57952A1C15A3302A00D1682C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		57952A1E15A3302A00D1682C /* FishTally-Prefix.pch */ = {isa = PBXFileReference; path = "FishTally-Prefix.pch"; sourceTree = "<group>"; };
-		57952A1F15A3302A00D1682C /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		57952A1E15A3302A00D1682C /* FishTally-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FishTally-Prefix.pch"; sourceTree = "<group>"; };
+		57952A1F15A3302A00D1682C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57952A2015A3302A00D1682C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		57952A2315A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		57952A2515A3302A00D1682C /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		57952A2615A3302A00D1682C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		57952A2815A3302A00D1682C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		57952A2A15A3302A00D1682C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		57952A2C15A3302A00D1682C /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		57952A2C15A3302A00D1682C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		57952A2D15A3302A00D1682C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		57952A2F15A3302A00D1682C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		57952A3115A3302A00D1682C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		57952A3815A33B6400D1682C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		57952A4015A340AD00D1682C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		57952A4115A340AD00D1682C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		57952A4315A340FF00D1682C /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		57952A4415A340FF00D1682C /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		57952A4A15A347E800D1682C /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
+		57952A4B15A347E800D1682C /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
+		57952A5015A360DA00D1682C /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
+		57952A5115A360DA00D1682C /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */,
 				57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */,
 				57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */,
 				57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */,
@@ -61,6 +71,7 @@
 		57952A0115A3302A00D1682C = {
 			isa = PBXGroup;
 			children = (
+				57952A3815A33B6400D1682C /* CoreData.framework */,
 				57952A1615A3302A00D1682C /* FishTally */,
 				57952A0F15A3302A00D1682C /* Frameworks */,
 				57952A0D15A3302A00D1682C /* Products */,
@@ -91,15 +102,20 @@
 				57952A1F15A3302A00D1682C /* AppDelegate.h */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
-				57952A2515A3302A00D1682C /* FirstViewController.h */,
-				57952A2615A3302A00D1682C /* FirstViewController.m */,
-				57952A2815A3302A00D1682C /* first.png */,
-				57952A2A15A3302A00D1682C /* first@2x.png */,
 				57952A2C15A3302A00D1682C /* SecondViewController.h */,
 				57952A2D15A3302A00D1682C /* SecondViewController.m */,
 				57952A2F15A3302A00D1682C /* second.png */,
 				57952A3115A3302A00D1682C /* second@2x.png */,
 				57952A1715A3302A00D1682C /* Supporting Files */,
+				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
+				57952A4315A340FF00D1682C /* Game.h */,
+				57952A4415A340FF00D1682C /* Game.m */,
+				57952A4015A340AD00D1682C /* Player.h */,
+				57952A4115A340AD00D1682C /* Player.m */,
+				57952A4A15A347E800D1682C /* GamesViewController.h */,
+				57952A4B15A347E800D1682C /* GamesViewController.m */,
+				57952A5015A360DA00D1682C /* GameCell.h */,
+				57952A5115A360DA00D1682C /* GameCell.m */,
 			);
 			path = FishTally;
 			sourceTree = "<group>";
@@ -167,8 +183,6 @@
 			files = (
 				57952A1B15A3302A00D1682C /* InfoPlist.strings in Resources */,
 				57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */,
-				57952A2915A3302A00D1682C /* first.png in Resources */,
-				57952A2B15A3302A00D1682C /* first@2x.png in Resources */,
 				57952A3015A3302A00D1682C /* second.png in Resources */,
 				57952A3215A3302A00D1682C /* second@2x.png in Resources */,
 			);
@@ -183,8 +197,12 @@
 			files = (
 				57952A1D15A3302A00D1682C /* main.m in Sources */,
 				57952A2115A3302A00D1682C /* AppDelegate.m in Sources */,
-				57952A2715A3302A00D1682C /* FirstViewController.m in Sources */,
 				57952A2E15A3302A00D1682C /* SecondViewController.m in Sources */,
+				57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */,
+				57952A4215A340AD00D1682C /* Player.m in Sources */,
+				57952A4515A340FF00D1682C /* Game.m in Sources */,
+				57952A4C15A347E900D1682C /* GamesViewController.m in Sources */,
+				57952A5215A360DA00D1682C /* GameCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +316,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 57952A0315A3302A00D1682C /* Project object */;
 }
