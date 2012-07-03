@@ -46,6 +46,7 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
+        self.nameTextField.text = self.gameToEdit.name;
     }
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]

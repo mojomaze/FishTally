@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "GameCell.h"
 #import "GameDetailViewController.h"
+#import "PlayersViewController.h"
 
 
 @implementation GamesViewController {
@@ -73,7 +74,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.tableView.allowsSelectionDuringEditing = YES;
     [self performFetch];
 }
 
@@ -144,6 +147,26 @@
     return cell;
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.section == 0) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (self.editing) {
+            [self performSegueWithIdentifier:@"EditGame"
+                                      sender:cell];
+        } else {
+            [self performSegueWithIdentifier:@"GamePlayers"
+                                      sender:cell];        
+        }
+        
+    }
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -161,9 +184,30 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"AddGame"]) {
+        // turn off editing if invoked
+        [self.tableView setEditing:NO animated:YES];
+        self.editing = NO;
         UINavigationController *navigationController = segue.destinationViewController;
         GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([segue.identifier isEqualToString:@"EditGame"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.gameToEdit = game;
+    }
+    
+    if ([segue.identifier isEqualToString:@"GamePlayers"]) {
+    
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        PlayersViewController *viewController = segue.destinationViewController;
+        [viewController setTitle:game.name];
     }
 }
 
