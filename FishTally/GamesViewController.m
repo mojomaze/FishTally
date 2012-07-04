@@ -207,6 +207,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
         PlayersViewController *viewController = segue.destinationViewController;
+        viewController.managedObjectContext = self.managedObjectContext;
+        viewController.game = game;
         [viewController setTitle:game.name];
     }
 }

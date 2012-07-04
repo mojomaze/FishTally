@@ -6,8 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+@class Game;
+
 #import <UIKit/UIKit.h>
 
-@interface PlayersViewController : UITableViewController
+@interface PlayersViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) Game *game;
 
 @end

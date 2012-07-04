@@ -25,6 +25,7 @@
 		57952A4515A340FF00D1682C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4415A340FF00D1682C /* Game.m */; };
 		57952A4C15A347E900D1682C /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4B15A347E800D1682C /* GamesViewController.m */; };
 		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
+		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		57952A4B15A347E800D1682C /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
 		57952A5015A360DA00D1682C /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
 		57952A5115A360DA00D1682C /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
+		57CE30EC15A4BFA500A6F508 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		57CE30ED15A4BFA500A6F508 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +113,10 @@
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
 				57952A4A15A347E800D1682C /* GamesViewController.h */,
 				57952A4B15A347E800D1682C /* GamesViewController.m */,
-				576E92C715A3AA0100C93BAB /* PlayersViewController.h */,
-				576E92C815A3AA0100C93BAB /* PlayersViewController.m */,
 				576E92BF15A373F600C93BAB /* GameDetailViewController.h */,
 				576E92C015A373F600C93BAB /* GameDetailViewController.m */,
+				576E92C715A3AA0100C93BAB /* PlayersViewController.h */,
+				576E92C815A3AA0100C93BAB /* PlayersViewController.m */,
 				57952A2C15A3302A00D1682C /* SecondViewController.h */,
 				57952A2D15A3302A00D1682C /* SecondViewController.m */,
 				57952A2F15A3302A00D1682C /* second.png */,
@@ -126,6 +129,8 @@
 				57952A4115A340AD00D1682C /* Player.m */,
 				57952A5015A360DA00D1682C /* GameCell.h */,
 				57952A5115A360DA00D1682C /* GameCell.m */,
+				57CE30EC15A4BFA500A6F508 /* PlayerCell.h */,
+				57CE30ED15A4BFA500A6F508 /* PlayerCell.m */,
 			);
 			path = FishTally;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				57952A5215A360DA00D1682C /* GameCell.m in Sources */,
 				576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */,
 				576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */,
+				57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
