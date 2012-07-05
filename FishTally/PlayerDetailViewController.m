@@ -17,6 +17,7 @@
 
 @implementation PlayerDetailViewController {
     NSString *playerName;
+    NSString *defaultLureName;
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
@@ -29,6 +30,26 @@
 @synthesize photoImageView = _photoImageView;
 @synthesize lureLabel = _lureLabel;
 @synthesize photoLabel = _photoLabel;
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        playerName = @"";
+        defaultLureName = @"No Lure";
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidEnterBackground)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidEnterBackgroundNotification
+                                                  object:nil];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,6 +75,21 @@
         
         playerName = _playerToEdit.name;
     }
+}
+
+- (void)applicationDidEnterBackground
+{
+    if (imagePicker != nil) {
+        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+        imagePicker = nil;
+    }
+    
+    if (actionSheet != nil) {
+        [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:NO];
+        actionSheet = nil;
+    }
+    
+    [self.nameTextField resignFirstResponder];
 }
 
 #pragma mark - View lifecycle
