@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "PlayerCell.h"
 #import "Game.h"
+#import "PlayerDetailViewController.h"
 
 
 @implementation PlayersViewController {
@@ -61,7 +62,7 @@
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
                                     sectionNameKeyPath:nil
-                                    cacheName:@"Players"];
+                                    cacheName:nil];
         
         fetchedResultsController.delegate = self;
     }
@@ -80,18 +81,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    Player *player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-//    player.name = @"Elvis Presley";
-//
-//    NSError *error;
-//    if (![self.managedObjectContext save:&error]) {
-//        FATAL_CORE_DATA_ERROR(error);
-//        return;
-//    }
-//    
-//    [self.game addPlayersObject:player];
-
     [self performFetch];
 }
 
@@ -181,27 +170,25 @@
         Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self.managedObjectContext deleteObject:player];
         
+        [self.game removePlayersObject:player];
+        
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
             FATAL_CORE_DATA_ERROR(error);
             return;
         }
-        
-        [self.game removePlayersObject:player];
     }
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"AddGame"]) {
-//        // turn off editing if invoked
-//        [self.tableView setEditing:NO animated:YES];
-//        self.editing = NO;
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
-//        controller.managedObjectContext = self.managedObjectContext;
-//    }
-//    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        PlayerDetailViewController *controller = (PlayerDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.game = self.game;
+    }
+    
 //    if ([segue.identifier isEqualToString:@"EditGame"]) {
 //        UINavigationController *navigationController = segue.destinationViewController;
 //        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
@@ -219,7 +206,7 @@
 //        PlayersViewController *viewController = segue.destinationViewController;
 //        [viewController setTitle:game.name];
 //    }
-//}
+}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

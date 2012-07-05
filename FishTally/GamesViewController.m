@@ -209,7 +209,8 @@
         PlayersViewController *viewController = segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
         viewController.game = game;
-        [viewController setTitle:game.name];
+        // using Players for title
+        //[viewController setTitle:[NSString stringWithFormat:@"Players:%@", game.name]];
     }
 }
 

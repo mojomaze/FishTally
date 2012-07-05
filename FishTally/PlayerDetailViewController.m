@@ -1,20 +1,27 @@
 //
-//  GameDetailViewController.m
+//  PlayerDetailViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/3/12.
+//  Created by Mark Winkler on 7/5/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameDetailViewController.h"
+#import "PlayerDetailViewController.h"
+#import "Player.h"
 #import "Game.h"
 
 
-@implementation GameDetailViewController
+@implementation PlayerDetailViewController {
+    NSString *playerName;
+    
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize gameToEdit = _gameToEdit;
+@synthesize playerToEdit = _playerToEdit;
+@synthesize game = _game;
 @synthesize nameTextField = _nameTextField;
+@synthesize photoImageView = _photoImageView;
+@synthesize lureLabel = _lureLabel;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,21 +40,33 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)setPlayerToEdit:(Player *)newPlayerToEdit
+{
+    if (_playerToEdit != newPlayerToEdit) {
+        _playerToEdit = newPlayerToEdit;
+        
+        playerName = _playerToEdit.name;
+    }
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    if (self.gameToEdit != nil) {
-        self.title = @"Edit Game";
+    
+    if (self.playerToEdit != nil) {
+        self.title = @"Edit Player";
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
-        self.nameTextField.text = self.gameToEdit.name;
+    } else {
+        [self.nameTextField becomeFirstResponder];
     }
+    
+    self.nameTextField.text = playerName;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(hideKeyboard:)];
@@ -55,13 +74,14 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
     
-    [self.nameTextField becomeFirstResponder];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     self.nameTextField = nil;
+    self.photoImageView = nil;
+    self.lureLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,6 +119,21 @@
     }
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    playerName = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
+    NSLog(@"%@",playerName);
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)theTextField
+{
+    playerName = theTextField.text;
+    NSLog(@"%@",playerName);
+}
+
 - (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
 {
     CGPoint point = [gestureRecognizer locationInView:self.tableView];
@@ -118,14 +153,15 @@
 
 - (IBAction)done:(id)sender
 {
-    Game *game = nil;
-    if (self.gameToEdit != nil) {
-        game = self.gameToEdit;
+    Player *player = nil;
+    if (self.playerToEdit != nil) {
+        player = self.playerToEdit;
     } else {
-        game = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
-        game.date = [NSDate date];
+        player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
     }
-    game.name = self.nameTextField.text;
+    player.name = playerName;
+    
+    [self.game addPlayersObject:player];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

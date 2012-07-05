@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */; };
 		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C815A3AA0100C93BAB /* PlayersViewController.m */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailViewController.h; sourceTree = "<group>"; };
+		5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
 		576E92BF15A373F600C93BAB /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
 		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		576E92C715A3AA0100C93BAB /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				576E92C015A373F600C93BAB /* GameDetailViewController.m */,
 				576E92C715A3AA0100C93BAB /* PlayersViewController.h */,
 				576E92C815A3AA0100C93BAB /* PlayersViewController.m */,
+				5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */,
+				5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */,
 				57952A2C15A3302A00D1682C /* SecondViewController.h */,
 				57952A2D15A3302A00D1682C /* SecondViewController.m */,
 				57952A2F15A3302A00D1682C /* second.png */,
@@ -221,6 +226,7 @@
 				576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */,
 				576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */,
 				57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */,
+				5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
