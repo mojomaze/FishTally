@@ -120,6 +120,7 @@
     }
     
     self.nameTextField.text = playerName;
+    self.lureLabel.text = defaultLureName;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(hideKeyboard:)];

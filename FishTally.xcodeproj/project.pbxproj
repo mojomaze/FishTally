@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */; };
 		5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */; };
+		5723CFEE15A63B1700A5AA13 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFED15A63B1700A5AA13 /* SettingsViewController.m */; };
+		5723CFF515A6438A00A5AA13 /* LuresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFF415A6438A00A5AA13 /* LuresViewController.m */; };
+		5723CFFC15A64B5700A5AA13 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFFB15A64B5600A5AA13 /* Player.m */; };
+		5723D00215A651C000A5AA13 /* Lure.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00115A651C000A5AA13 /* Lure.m */; };
+		5723D00515A651E500A5AA13 /* Catch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00415A651E400A5AA13 /* Catch.m */; };
+		5723D00815A6526500A5AA13 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00715A6526500A5AA13 /* Fish.m */; };
 		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C815A3AA0100C93BAB /* PlayersViewController.m */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
@@ -18,12 +24,8 @@
 		57952A1D15A3302A00D1682C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A1C15A3302A00D1682C /* main.m */; };
 		57952A2115A3302A00D1682C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2015A3302A00D1682C /* AppDelegate.m */; };
 		57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2215A3302A00D1682C /* MainStoryboard.storyboard */; };
-		57952A2E15A3302A00D1682C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2D15A3302A00D1682C /* SecondViewController.m */; };
-		57952A3015A3302A00D1682C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2F15A3302A00D1682C /* second.png */; };
-		57952A3215A3302A00D1682C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57952A3115A3302A00D1682C /* second@2x.png */; };
 		57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A3815A33B6400D1682C /* CoreData.framework */; };
 		57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */; };
-		57952A4215A340AD00D1682C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4115A340AD00D1682C /* Player.m */; };
 		57952A4515A340FF00D1682C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4415A340FF00D1682C /* Game.m */; };
 		57952A4C15A347E900D1682C /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4B15A347E800D1682C /* GamesViewController.m */; };
 		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
@@ -35,6 +37,18 @@
 		5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
 		5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		5723CFEC15A63B1600A5AA13 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5723CFED15A63B1700A5AA13 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5723CFF315A6438A00A5AA13 /* LuresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuresViewController.h; sourceTree = "<group>"; };
+		5723CFF415A6438A00A5AA13 /* LuresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuresViewController.m; sourceTree = "<group>"; };
+		5723CFFA15A64B5600A5AA13 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		5723CFFB15A64B5600A5AA13 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		5723D00015A651C000A5AA13 /* Lure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lure.h; sourceTree = "<group>"; };
+		5723D00115A651C000A5AA13 /* Lure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lure.m; sourceTree = "<group>"; };
+		5723D00315A651E400A5AA13 /* Catch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catch.h; sourceTree = "<group>"; };
+		5723D00415A651E400A5AA13 /* Catch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catch.m; sourceTree = "<group>"; };
+		5723D00615A6526500A5AA13 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fish.h; sourceTree = "<group>"; };
+		5723D00715A6526500A5AA13 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fish.m; sourceTree = "<group>"; };
 		576E92BF15A373F600C93BAB /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
 		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		576E92C715A3AA0100C93BAB /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
@@ -50,14 +64,8 @@
 		57952A1F15A3302A00D1682C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57952A2015A3302A00D1682C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		57952A2315A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		57952A2C15A3302A00D1682C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		57952A2D15A3302A00D1682C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		57952A2F15A3302A00D1682C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		57952A3115A3302A00D1682C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		57952A3815A33B6400D1682C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		57952A4015A340AD00D1682C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		57952A4115A340AD00D1682C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		57952A4315A340FF00D1682C /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		57952A4415A340FF00D1682C /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		57952A4A15A347E800D1682C /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
@@ -119,6 +127,10 @@
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				5723CFF315A6438A00A5AA13 /* LuresViewController.h */,
+				5723CFF415A6438A00A5AA13 /* LuresViewController.m */,
+				5723CFEC15A63B1600A5AA13 /* SettingsViewController.h */,
+				5723CFED15A63B1700A5AA13 /* SettingsViewController.m */,
 				57952A4A15A347E800D1682C /* GamesViewController.h */,
 				57952A4B15A347E800D1682C /* GamesViewController.m */,
 				576E92BF15A373F600C93BAB /* GameDetailViewController.h */,
@@ -127,16 +139,18 @@
 				576E92C815A3AA0100C93BAB /* PlayersViewController.m */,
 				5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */,
 				5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */,
-				57952A2C15A3302A00D1682C /* SecondViewController.h */,
-				57952A2D15A3302A00D1682C /* SecondViewController.m */,
-				57952A2F15A3302A00D1682C /* second.png */,
-				57952A3115A3302A00D1682C /* second@2x.png */,
 				57952A1715A3302A00D1682C /* Supporting Files */,
 				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
+				5723D00615A6526500A5AA13 /* Fish.h */,
+				5723D00715A6526500A5AA13 /* Fish.m */,
+				5723D00315A651E400A5AA13 /* Catch.h */,
+				5723D00415A651E400A5AA13 /* Catch.m */,
+				5723D00015A651C000A5AA13 /* Lure.h */,
+				5723D00115A651C000A5AA13 /* Lure.m */,
+				5723CFFA15A64B5600A5AA13 /* Player.h */,
+				5723CFFB15A64B5600A5AA13 /* Player.m */,
 				57952A4315A340FF00D1682C /* Game.h */,
 				57952A4415A340FF00D1682C /* Game.m */,
-				57952A4015A340AD00D1682C /* Player.h */,
-				57952A4115A340AD00D1682C /* Player.m */,
 				57952A5015A360DA00D1682C /* GameCell.h */,
 				57952A5115A360DA00D1682C /* GameCell.m */,
 				57CE30EC15A4BFA500A6F508 /* PlayerCell.h */,
@@ -208,8 +222,6 @@
 			files = (
 				57952A1B15A3302A00D1682C /* InfoPlist.strings in Resources */,
 				57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */,
-				57952A3015A3302A00D1682C /* second.png in Resources */,
-				57952A3215A3302A00D1682C /* second@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,9 +234,7 @@
 			files = (
 				57952A1D15A3302A00D1682C /* main.m in Sources */,
 				57952A2115A3302A00D1682C /* AppDelegate.m in Sources */,
-				57952A2E15A3302A00D1682C /* SecondViewController.m in Sources */,
 				57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */,
-				57952A4215A340AD00D1682C /* Player.m in Sources */,
 				57952A4515A340FF00D1682C /* Game.m in Sources */,
 				57952A4C15A347E900D1682C /* GamesViewController.m in Sources */,
 				57952A5215A360DA00D1682C /* GameCell.m in Sources */,
@@ -233,6 +243,12 @@
 				57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */,
 				5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */,
 				5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */,
+				5723CFEE15A63B1700A5AA13 /* SettingsViewController.m in Sources */,
+				5723CFF515A6438A00A5AA13 /* LuresViewController.m in Sources */,
+				5723CFFC15A64B5700A5AA13 /* Player.m in Sources */,
+				5723D00215A651C000A5AA13 /* Lure.m in Sources */,
+				5723D00515A651E500A5AA13 /* Catch.m in Sources */,
+				5723D00815A6526500A5AA13 /* Fish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

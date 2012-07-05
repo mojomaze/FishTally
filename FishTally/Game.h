@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSSet *players;
+@property (nonatomic, retain) NSSet * players;
 @end
 
 @interface Game (CoreDataGeneratedAccessors)

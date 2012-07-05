@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Catch" representedClassName="Catch" syncable="YES">
+        <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="fish" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Fish" inverseName="catches" inverseEntity="Fish" syncable="YES"/>
+        <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="catches" inverseEntity="Lure" syncable="YES"/>
+        <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="catches" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <entity name="Fish" representedClassName="Fish" syncable="YES">
+        <attribute name="largePointValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="smallPointValue" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="catches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Catch" inverseName="fish" inverseEntity="Catch" syncable="YES"/>
+    </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Player" inverseName="game" inverseEntity="Player" syncable="YES"/>
     </entity>
-    <entity name="Player" representedClassName="Player" syncable="YES">
+    <entity name="Lure" representedClassName="Lure" syncable="YES">
+        <attribute name="multiplier" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="catches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Catch" inverseName="lure" inverseEntity="Catch" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="lure" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="catchCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="catches" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Catch" inverseName="player" inverseEntity="Catch" syncable="YES"/>
         <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="players" inverseEntity="Game" syncable="YES"/>
+        <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="players" inverseEntity="Lure" syncable="YES"/>
     </entity>
     <elements>
         <element name="Game" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Player" positionX="-56" positionY="195" width="128" height="90"/>
+        <element name="Lure" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Fish" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Catch" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>
