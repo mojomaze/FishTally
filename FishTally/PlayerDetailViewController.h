@@ -10,13 +10,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerDetailViewController : UITableViewController <UITextFieldDelegate>
+@interface PlayerDetailViewController : UITableViewController 
+<
+    UITextFieldDelegate,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate,
+    UIActionSheetDelegate
+>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Player *playerToEdit;
 @property (nonatomic, strong) Game *game;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, strong) IBOutlet UILabel *photoLabel;
 @property (nonatomic, strong) IBOutlet UILabel *lureLabel;
 
 -(IBAction)done:(id)sender;

@@ -12,6 +12,7 @@
 
 @synthesize nameLabel = _nameLabel;
 @synthesize scoreLabel = _scoreLabel;
+@synthesize photoImageView = _photoImageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

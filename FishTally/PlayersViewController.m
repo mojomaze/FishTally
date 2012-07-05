@@ -11,6 +11,7 @@
 #import "PlayerCell.h"
 #import "Game.h"
 #import "PlayerDetailViewController.h"
+#import "UIImage+Resize.h"
 
 
 @implementation PlayersViewController {
@@ -135,6 +136,15 @@
     Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     playerCell.nameLabel.text = player.name;
+    
+    UIImage *image = nil;
+    if ([player hasPhoto]) {
+        image = [player photoImage];
+        if (image != nil) {
+            image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFill];
+        }
+    }
+    playerCell.photoImageView.image = image;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,21 +158,11 @@
     [super setEditing:editing animated:animated];
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	if (indexPath.section == 0) {
-//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//        if (self.editing) {
-//            [self performSegueWithIdentifier:@"EditPlayer"
-//                                      sender:cell];
-//        } else {
-//            [self performSegueWithIdentifier:@"PlayerCatches"
-//                                      sender:cell];        
-//        }
-//        
-//    }
-//}
-
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"EditPlayer"
+                              sender:cell]; 
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -182,6 +182,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // add player called from nav button
     if ([segue.identifier isEqualToString:@"AddPlayer"]) {
         UINavigationController *navigationController = segue.destinationViewController;
         PlayerDetailViewController *controller = (PlayerDetailViewController *)navigationController.topViewController;
@@ -189,15 +190,17 @@
         controller.game = self.game;
     }
     
-//    if ([segue.identifier isEqualToString:@"EditGame"]) {
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
-//        controller.managedObjectContext = self.managedObjectContext;
-//        
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-//        Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//        controller.gameToEdit = game;
-//    }
+    // edit player called from accessory button
+    if ([segue.identifier isEqualToString:@"EditPlayer"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        PlayerDetailViewController *controller = (PlayerDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.playerToEdit = player;
+        controller.game = self.game;
+    }
 //    
 //    if ([segue.identifier isEqualToString:@"GamePlayers"]) {
 //        

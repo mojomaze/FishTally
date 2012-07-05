@@ -15,5 +15,12 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Game *game;
+@property (nonatomic, retain) NSNumber * photoId;
+
+- (BOOL)hasPhoto;
+- (NSString *)photoPath;
+- (UIImage *)photoImage;
+- (void)removePhotoFile;
+
 
 @end

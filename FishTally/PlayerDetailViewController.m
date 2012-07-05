@@ -10,10 +10,16 @@
 #import "Player.h"
 #import "Game.h"
 
+@interface PlayerDetailViewController()
+- (void)showPhotoMenu;
+- (void)showImage:(UIImage *)theImage;
+@end
 
 @implementation PlayerDetailViewController {
     NSString *playerName;
-    
+    UIImage *image;
+    UIActionSheet *actionSheet;
+    UIImagePickerController *imagePicker;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -22,6 +28,7 @@
 @synthesize nameTextField = _nameTextField;
 @synthesize photoImageView = _photoImageView;
 @synthesize lureLabel = _lureLabel;
+@synthesize photoLabel = _photoLabel;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -62,8 +69,18 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
+        if ([self.playerToEdit hasPhoto] && image == nil) {
+            UIImage *existingImage = [self.playerToEdit photoImage];
+            if (existingImage != nil) {
+                [self showImage:existingImage];
+            }
+        }
     } else {
         [self.nameTextField becomeFirstResponder];
+    }
+    
+    if (image != nil) {
+        [self showImage:image];
     }
     
     self.nameTextField.text = playerName;
@@ -112,10 +129,22 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)theTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2 && indexPath.row == 0 && !self.photoImageView.hidden) {
+        return self.photoImageView.frame.size.height+20;
+    } else {
+        return 44;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self.nameTextField becomeFirstResponder];
+    }else if (indexPath.section == 2 && indexPath.row == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self showPhotoMenu];
     }
 }
 
@@ -151,6 +180,14 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (int)nextPhotoId
+{
+    int photoId = [[NSUserDefaults standardUserDefaults] integerForKey:@"PlayerPhotoID"];
+    [[NSUserDefaults standardUserDefaults] setInteger:photoId+1 forKey:@"PlayerPhotoID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return photoId;
+}
+
 - (IBAction)done:(id)sender
 {
     Player *player = nil;
@@ -158,8 +195,21 @@
         player = self.playerToEdit;
     } else {
         player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+        player.photoId = [NSNumber numberWithInt:-1];
     }
     player.name = playerName;
+    
+    if (image != nil) {
+        if (![player hasPhoto]) {
+            player.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
+        }
+        
+        NSData *data = UIImagePNGRepresentation(image);
+        NSError *error;
+        if (![data writeToFile:[player photoPath] options:NSDataWritingAtomic error:&error]) {
+            NSLog(@"Error writing file: %@", error);
+        }
+    }
     
     [self.game addPlayersObject:player];
     
@@ -175,6 +225,86 @@
 - (IBAction)cancel:(id)sender
 {
     [self closeScreen];
+}
+
+- (void)takePhoto
+{
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)choosePhotoFromLibrary
+{
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)showPhotoMenu
+{
+    //if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    if (YES) {
+        actionSheet = [[UIActionSheet alloc]
+                       initWithTitle:nil
+                       delegate:self
+                       cancelButtonTitle:@"Cancel"
+                       destructiveButtonTitle:nil
+                       otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
+        
+        [actionSheet showInView:self.view];
+    } else {
+        [self choosePhotoFromLibrary];
+    }
+}
+
+- (void)showImage:(UIImage *)theImage
+{
+    // get aspect ratio of image
+    float aspectRatio = theImage.size.width / theImage.size.height;
+    float height = 260 / aspectRatio;
+    
+    self.photoImageView.image = theImage;
+    self.photoImageView.hidden = NO;
+    self.photoImageView.frame = CGRectMake(10, 10, 260, lroundf(height));
+    self.photoLabel.hidden = YES;
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if ([self isViewLoaded]) {
+        [self showImage:image];
+        [self.tableView reloadData];
+    }
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    imagePicker = nil;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    imagePicker = nil;
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)theActionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self takePhoto];
+    } else if (buttonIndex == 1) {
+        [self choosePhotoFromLibrary];
+    }
+    actionSheet = nil;
 }
 
 @end

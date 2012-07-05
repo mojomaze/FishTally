@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */; };
+		5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */; };
 		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C815A3AA0100C93BAB /* PlayersViewController.m */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailViewController.h; sourceTree = "<group>"; };
 		5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
+		5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		576E92BF15A373F600C93BAB /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
 		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		576E92C715A3AA0100C93BAB /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				57952A1F15A3302A00D1682C /* AppDelegate.h */,
+				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
+				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
 				57952A4A15A347E800D1682C /* GamesViewController.h */,
@@ -227,6 +232,7 @@
 				576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */,
 				57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */,
 				5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */,
+				5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
