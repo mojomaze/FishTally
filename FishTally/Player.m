@@ -7,6 +7,7 @@
 //
 
 #import "Player.h"
+#import "Catch.h"
 #import "Game.h"
 #import "Lure.h"
 
@@ -19,6 +20,7 @@
 @dynamic score;
 @dynamic game;
 @dynamic lure;
+@dynamic catches;
 
 - (BOOL)hasPhoto
 {

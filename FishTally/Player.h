@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Game, Lure;
+@class Catch, Game, Lure;
 
 @interface Player : NSManagedObject
 
@@ -19,10 +19,19 @@
 @property (nonatomic, retain) NSNumber * score;
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) Lure *lure;
+@property (nonatomic, retain) NSSet *catches;
 
 - (BOOL)hasPhoto;
 - (NSString *)photoPath;
 - (UIImage *)photoImage;
 - (void)removePhotoFile;
 
+@end
+
+@interface Player (CoreDataGeneratedAccessors)
+
+- (void)addCatchesObject:(Catch *)value;
+- (void)removeCatchesObject:(Catch *)value;
+- (void)addCatches:(NSSet *)values;
+- (void)removeCatches:(NSSet *)values;
 @end
