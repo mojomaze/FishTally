@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "LuresViewController.h"
+#import "FishViewController.h"
 
 @implementation SettingsViewController
 
@@ -80,12 +81,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([segue.identifier isEqualToString:@"FishSettings"]) {
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
-//        controller.managedObjectContext = self.managedObjectContext;
-//    }
-//    
+    if ([segue.identifier isEqualToString:@"FishSettings"]) {
+        FishViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+    
     if ([segue.identifier isEqualToString:@"LureSettings"]) {
         LuresViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;

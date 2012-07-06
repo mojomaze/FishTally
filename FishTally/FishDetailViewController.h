@@ -1,16 +1,16 @@
 //
-//  LureDetailViewController.h
+//  FishDetailViewController.h
 //  FishTally
 //
 //  Created by Mark Winkler on 7/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class Lure;
+@class Fish;
 
 #import <UIKit/UIKit.h>
 
-@interface LureDetailViewController : UITableViewController
+@interface FishDetailViewController : UITableViewController
 <
 UITextFieldDelegate,
 UIImagePickerControllerDelegate,
@@ -22,11 +22,14 @@ UIActionSheetDelegate
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, strong) IBOutlet UILabel *photoLabel;
-@property (nonatomic, strong) IBOutlet UILabel *multiplierLabel;
-@property (nonatomic, strong) IBOutlet UIStepper *multiplierStepper;
-@property (nonatomic, strong) Lure *lureToEdit;
+@property (nonatomic, strong) IBOutlet UILabel *smallPointLabel;
+@property (nonatomic, strong) IBOutlet UIStepper *smallPointStepper;
+@property (nonatomic, strong) IBOutlet UILabel *largePointLabel;
+@property (nonatomic, strong) IBOutlet UIStepper *largePointStepper;
+@property (nonatomic, strong) Fish *fishToEdit;
 
-- (IBAction)changePointMultiplierStepper:(UIStepper *)sender;
+- (IBAction)changeSmallPointStepper:(UIStepper *)sender;
+- (IBAction)changeLargePointStepper:(UIStepper *)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
 

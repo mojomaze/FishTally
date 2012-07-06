@@ -1,0 +1,257 @@
+//
+//  FishViewController.m
+//  FishTally
+//
+//  Created by Mark Winkler on 7/6/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "FishViewController.h"
+#import "Fish.h"
+#import "FishDetailViewController.h"
+#import "UIImage+Resize.h"
+
+
+@implementation FishViewController {
+    NSFetchedResultsController *fetchedResultsController;
+}
+
+@synthesize managedObjectContext = _managedObjectContext;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - View lifecycle
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (fetchedResultsController == nil) {
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fish" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        [fetchRequest setFetchBatchSize:20];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc]
+                                    initWithFetchRequest:fetchRequest
+                                    managedObjectContext:self.managedObjectContext
+                                    sectionNameKeyPath:nil
+                                    cacheName:@"Fish"];
+        
+        fetchedResultsController.delegate = self;
+    }
+    return fetchedResultsController;
+}
+
+- (void)performFetch
+{
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        FATAL_CORE_DATA_ERROR(error);
+        return;
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self performFetch];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    fetchedResultsController.delegate = nil;
+    fetchedResultsController = nil;
+}
+
+- (void)dealloc
+{
+    fetchedResultsController.delegate = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    Fish *fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = fish.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d/%d points", [fish.smallPointValue intValue], [fish.largePointValue intValue]]; 
+
+    
+    UIImage *image = nil;
+    if ([fish hasPhoto]) {
+        image = [fish photoImage];
+        if (image != nil) {
+            image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFill];
+        }
+    }
+    cell.imageView.image = image;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Fish"];
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"EditFish"
+                              sender:cell]; 
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Fish *Fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:Fish];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            FATAL_CORE_DATA_ERROR(error);
+            return;
+        }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // add Fish called from nav button
+    if ([segue.identifier isEqualToString:@"AddFish"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        FishDetailViewController *controller = (FishDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+    
+    // edit Fish called from accessory button
+    if ([segue.identifier isEqualToString:@"EditFish"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        FishDetailViewController *controller = (FishDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Fish *Fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.fishToEdit = Fish;
+    }
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    NSLog(@"*** controllerWillChangeContent");
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeInsert");
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeDelete");
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeUpdate");
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeMove");
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"*** controllerDidChangeSection - NSFetchedResultsChangeInsert");
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"*** controllerDidChangeSection - NSFetchedResultsChangeDelete");
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    NSLog(@"*** controllerDidChangeContent");
+    [self.tableView endUpdates];
+}
+
+@end
