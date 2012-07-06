@@ -202,7 +202,7 @@
         controller.game = self.game;
     }
 //    
-//    if ([segue.identifier isEqualToString:@"GamePlayers"]) {
+//    if ([segue.identifier isEqualToString:@"PlayerCatches"]) {
 //        
 //        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
 //        Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];

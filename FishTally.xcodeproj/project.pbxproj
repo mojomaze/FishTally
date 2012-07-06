@@ -34,6 +34,7 @@
 		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
 		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
 		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
+		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		57CE30ED15A4BFA500A6F508 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		57CF891515A786FB00496637 /* LurePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LurePickerViewController.h; sourceTree = "<group>"; };
 		57CF891615A786FB00496637 /* LurePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LurePickerViewController.m; sourceTree = "<group>"; };
+		57CF891915A79B2700496637 /* CatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchCell.h; sourceTree = "<group>"; };
+		57CF891A15A79B2800496637 /* CatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57CF891915A79B2700496637 /* CatchCell.h */,
+				57CF891A15A79B2800496637 /* CatchCell.m */,
 				57CF891515A786FB00496637 /* LurePickerViewController.h */,
 				57CF891615A786FB00496637 /* LurePickerViewController.m */,
 				5775E26F15A7795200E302CE /* FishViewController.h */,
@@ -273,6 +278,7 @@
 				5775E27115A7795300E302CE /* FishViewController.m in Sources */,
 				5775E27415A7796600E302CE /* FishDetailViewController.m in Sources */,
 				57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */,
+				57CF891B15A79B2800496637 /* CatchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

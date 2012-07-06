@@ -110,6 +110,7 @@
                                     <outlet property="nameLabel" destination="nD5-NI-CCi" id="aVS-rs-liC"/>
                                     <outlet property="photoImageView" destination="mu6-uy-EJu" id="fE7-44-qCp"/>
                                     <outlet property="scoreLabel" destination="b1X-Vx-A3w" id="Adp-Ch-Zf0"/>
+                                    <segue destination="izC-bl-0k5" kind="push" identifier="PlayerCatches" id="Iv3-1G-4Cm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -253,6 +254,60 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2760" y="570"/>
+        </scene>
+        <scene sceneID="Axe-9Y-MS5">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkK-wo-qUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="izC-bl-0k5" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="oIa-vs-eyx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Catch" rowHeight="66" id="ZhN-Mj-6ij" customClass="CatchCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Name" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="EXH-A2-kLV">
+                                            <rect key="frame" x="74" y="12" width="203" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="score" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="qB4-WC-Cme">
+                                            <rect key="frame" x="74" y="33" width="203" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pRq-PW-MdC">
+                                            <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="nameLabel" destination="EXH-A2-kLV" id="yFF-N6-XZJ"/>
+                                    <outlet property="photoImageView" destination="pRq-PW-MdC" id="uhQ-dv-pR1"/>
+                                    <outlet property="scoreLabel" destination="qB4-WC-Cme" id="zMQ-0b-dcu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="izC-bl-0k5" id="s6s-U2-tAY"/>
+                            <outlet property="delegate" destination="izC-bl-0k5" id="upD-Wx-pvK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Catches" id="Q9s-g4-Hei"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2315" y="-110"/>
         </scene>
         <scene sceneID="wq9-12-JCG">
             <objects>
@@ -937,6 +992,14 @@
         </scene>
     </scenes>
     <classes>
+        <class className="CatchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CatchCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="FishDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FishDetailViewController.h"/>
             <relationships>
