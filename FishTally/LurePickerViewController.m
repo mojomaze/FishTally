@@ -8,6 +8,7 @@
 
 #import "LurePickerViewController.h"
 #import "Lure.h"
+#import "UIImage+Resize.h"
 
 
 @implementation LurePickerViewController {
@@ -111,6 +112,14 @@
     
     Lure *lure = [lures objectAtIndex:indexPath.row];
     cell.textLabel.text = lure.name;
+    UIImage *image = nil;
+    if ([lure hasPhoto]) {
+        image = [lure photoImage];
+        if (image != nil) {
+            image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFill];
+        }
+    }
+    cell.imageView.image = image;
     
     if ([lure isEqual:self.selectedLure]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
