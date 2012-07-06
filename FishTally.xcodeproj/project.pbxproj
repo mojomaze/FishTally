@@ -17,6 +17,7 @@
 		5723D00B15A653DA00A5AA13 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00A15A653DA00A5AA13 /* Player.m */; };
 		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C815A3AA0100C93BAB /* PlayersViewController.m */; };
+		5775E26915A75E0A00E302CE /* LureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775E26815A75E0A00E302CE /* LureDetailViewController.m */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
 		57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1215A3302A00D1682C /* Foundation.framework */; };
 		57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1415A3302A00D1682C /* CoreGraphics.framework */; };
@@ -53,6 +54,8 @@
 		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		576E92C715A3AA0100C93BAB /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
 		576E92C815A3AA0100C93BAB /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
+		5775E26715A75E0A00E302CE /* LureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LureDetailViewController.h; sourceTree = "<group>"; };
+		5775E26815A75E0A00E302CE /* LureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LureDetailViewController.m; sourceTree = "<group>"; };
 		57952A0C15A3302A00D1682C /* FishTally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishTally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57952A1015A3302A00D1682C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57952A1215A3302A00D1682C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,8 @@
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
 				5723CFF315A6438A00A5AA13 /* LuresViewController.h */,
 				5723CFF415A6438A00A5AA13 /* LuresViewController.m */,
+				5775E26715A75E0A00E302CE /* LureDetailViewController.h */,
+				5775E26815A75E0A00E302CE /* LureDetailViewController.m */,
 				5723CFEC15A63B1600A5AA13 /* SettingsViewController.h */,
 				5723CFED15A63B1700A5AA13 /* SettingsViewController.m */,
 				57952A4A15A347E800D1682C /* GamesViewController.h */,
@@ -249,6 +254,7 @@
 				5723D00515A651E500A5AA13 /* Catch.m in Sources */,
 				5723D00815A6526500A5AA13 /* Fish.m in Sources */,
 				5723D00B15A653DA00A5AA13 /* Player.m in Sources */,
+				5775E26915A75E0A00E302CE /* LureDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

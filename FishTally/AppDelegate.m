@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GamesViewController.h"
+#import "SettingsViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -26,9 +27,16 @@
 {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     
+    // Pass managed object context to top level controllers
+    // Games
     UINavigationController *navigationController = (UINavigationController *)[[tabBarController viewControllers] objectAtIndex:0];
     GamesViewController *currentLocationViewController = (GamesViewController *)[[navigationController viewControllers] objectAtIndex:0];
     currentLocationViewController.managedObjectContext = self.managedObjectContext;
+    
+    // Settings
+    navigationController = (UINavigationController *)[[tabBarController viewControllers] objectAtIndex:1];
+    SettingsViewController *settingsViewController = (SettingsViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    settingsViewController.managedObjectContext = self.managedObjectContext;
     
     return YES;
 }

@@ -7,9 +7,11 @@
 //
 
 #import "SettingsViewController.h"
-
+#import "LuresViewController.h"
 
 @implementation SettingsViewController
+
+@synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -76,20 +78,18 @@
 
 #pragma mark - Table view delegate
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
 //    if ([segue.identifier isEqualToString:@"FishSettings"]) {
 //        UINavigationController *navigationController = segue.destinationViewController;
 //        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
 //        controller.managedObjectContext = self.managedObjectContext;
 //    }
 //    
-//    if ([segue.identifier isEqualToString:@"LureSettings"]) {
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
-//        controller.managedObjectContext = self.managedObjectContext;
-//        
-//    }
-//}
+    if ([segue.identifier isEqualToString:@"LureSettings"]) {
+        LuresViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+}
 
 @end

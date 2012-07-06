@@ -1,41 +1,40 @@
 //
-//  PlayerDetailViewController.m
+//  LureDetailViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/5/12.
+//  Created by Mark Winkler on 7/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PlayerDetailViewController.h"
-#import "Player.h"
-#import "Game.h"
+#import "LureDetailViewController.h"
+#import "Lure.h"
 
-@interface PlayerDetailViewController()
+@interface LureDetailViewController()
 - (void)showPhotoMenu;
 - (void)showImage:(UIImage *)theImage;
 @end
 
-@implementation PlayerDetailViewController {
-    NSString *playerName;
-    NSString *defaultLureName;
+@implementation LureDetailViewController {
+    NSString *lureName;
+    double multiplier;
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize playerToEdit = _playerToEdit;
-@synthesize game = _game;
+@synthesize lureToEdit = _lureToEdit;
 @synthesize nameTextField = _nameTextField;
 @synthesize photoImageView = _photoImageView;
-@synthesize lureLabel = _lureLabel;
 @synthesize photoLabel = _photoLabel;
+@synthesize multiplierLabel = _multiplierLabel;
+@synthesize multiplierStepper = _multiplierStepper;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        playerName = @"";
-        defaultLureName = @"No Lure";
+        lureName = @"";
+        multiplier = 1.0f;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidEnterBackground)
                                                      name:UIApplicationDidEnterBackgroundNotification
@@ -68,12 +67,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)setPlayerToEdit:(Player *)newPlayerToEdit
+- (void)setLureToEdit:(Lure *)newLureToEdit
 {
-    if (_playerToEdit != newPlayerToEdit) {
-        _playerToEdit = newPlayerToEdit;
+    if (_lureToEdit != newLureToEdit) {
+        _lureToEdit = newLureToEdit;
         
-        playerName = _playerToEdit.name;
+        lureName = _lureToEdit.name;
     }
 }
 
@@ -98,19 +97,20 @@
 {
     [super viewDidLoad];
     
-    if (self.playerToEdit != nil) {
-        self.title = @"Edit Player";
+    if (self.lureToEdit != nil) {
+        self.title = @"Edit Lure";
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
-        if ([self.playerToEdit hasPhoto] && image == nil) {
-            UIImage *existingImage = [self.playerToEdit photoImage];
+        if ([self.lureToEdit hasPhoto] && image == nil) {
+            UIImage *existingImage = [self.lureToEdit photoImage];
             if (existingImage != nil) {
                 [self showImage:existingImage];
             }
         }
+        multiplier = [self.lureToEdit.multiplier doubleValue];
     } else {
         [self.nameTextField becomeFirstResponder];
     }
@@ -119,8 +119,9 @@
         [self showImage:image];
     }
     
-    self.nameTextField.text = playerName;
-    self.lureLabel.text = defaultLureName;
+    self.nameTextField.text = lureName;
+    self.multiplierStepper.value = multiplier;
+    self.multiplierLabel.text = [NSString stringWithFormat:@"%.1f %@", multiplier, NSLocalizedString(@"x catch points", nil)];
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(hideKeyboard:)];
@@ -135,7 +136,8 @@
     [super viewDidUnload];
     self.nameTextField = nil;
     self.photoImageView = nil;
-    self.lureLabel = nil;
+    self.multiplierStepper = nil;
+    self.multiplierLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -189,13 +191,13 @@
 
 - (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    playerName = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
+    lureName = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)theTextField
 {
-    playerName = theTextField.text;
+    lureName = theTextField.text;
 }
 
 - (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
@@ -210,6 +212,14 @@
     [self.nameTextField resignFirstResponder];
 }
 
+#pragma mark - point stepper values
+
+- (IBAction)changePointMultiplierStepper:(UIStepper *)sender {
+    double value = (double)[sender value];
+    multiplier = value;
+    self.multiplierLabel.text = [NSString stringWithFormat:@"%.1f %@", multiplier, NSLocalizedString(@"x catch points", nil)];
+}
+
 - (void)closeScreen
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -217,36 +227,35 @@
 
 - (int)nextPhotoId
 {
-    int photoId = [[NSUserDefaults standardUserDefaults] integerForKey:@"PlayerPhotoID"];
-    [[NSUserDefaults standardUserDefaults] setInteger:photoId+1 forKey:@"PlayerPhotoID"];
+    int photoId = [[NSUserDefaults standardUserDefaults] integerForKey:@"LurePhotoID"];
+    [[NSUserDefaults standardUserDefaults] setInteger:photoId+1 forKey:@"LurePhotoID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     return photoId;
 }
 
 - (IBAction)done:(id)sender
 {
-    Player *player = nil;
-    if (self.playerToEdit != nil) {
-        player = self.playerToEdit;
+    Lure *lure = nil;
+    if (self.lureToEdit != nil) {
+        lure = self.lureToEdit;
     } else {
-        player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-        player.photoId = [NSNumber numberWithInt:-1];
+        lure = [NSEntityDescription insertNewObjectForEntityForName:@"Lure" inManagedObjectContext:self.managedObjectContext];
+        lure.photoId = [NSNumber numberWithInt:-1];
     }
-    player.name = playerName;
+    lure.name = lureName;
+    lure.multiplier = [NSNumber numberWithFloat:multiplier];
     
     if (image != nil) {
-        if (![player hasPhoto]) {
-            player.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
+        if (![lure hasPhoto]) {
+            lure.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
         }
         
         NSData *data = UIImagePNGRepresentation(image);
         NSError *error;
-        if (![data writeToFile:[player photoPath] options:NSDataWritingAtomic error:&error]) {
+        if (![data writeToFile:[lure photoPath] options:NSDataWritingAtomic error:&error]) {
             NSLog(@"Error writing file: %@", error);
         }
     }
-    
-    [self.game addPlayersObject:player];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

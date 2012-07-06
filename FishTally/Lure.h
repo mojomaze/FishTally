@@ -18,6 +18,12 @@
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSSet *players;
 @property (nonatomic, retain) NSSet *catches;
+
+- (BOOL)hasPhoto;
+- (NSString *)photoPath;
+- (UIImage *)photoImage;
+- (void)removePhotoFile;
+
 @end
 
 @interface Lure (CoreDataGeneratedAccessors)

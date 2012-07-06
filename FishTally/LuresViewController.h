@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LuresViewController : UITableViewController
+@interface LuresViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

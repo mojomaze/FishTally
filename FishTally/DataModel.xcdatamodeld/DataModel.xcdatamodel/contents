@@ -37,10 +37,10 @@
         <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="players" inverseEntity="Lure" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Game" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Player" positionX="-56" positionY="195" width="128" height="90"/>
-        <element name="Lure" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Fish" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Catch" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Game" positionX="-54" positionY="63" width="128" height="90"/>
+        <element name="Player" positionX="-45" positionY="234" width="117" height="90"/>
+        <element name="Lure" positionX="342" positionY="234" width="128" height="120"/>
+        <element name="Fish" positionX="342" positionY="393" width="128" height="120"/>
+        <element name="Catch" positionX="-36" positionY="450" width="128" height="135"/>
     </elements>
 </model>
