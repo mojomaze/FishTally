@@ -6,16 +6,18 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class Player, Game;
-
 #import <UIKit/UIKit.h>
+#import "LurePickerViewController.h"
+
+@class Player, Game;
 
 @interface PlayerDetailViewController : UITableViewController 
 <
     UITextFieldDelegate,
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate,
-    UIActionSheetDelegate
+    UIActionSheetDelegate,
+    LurePickerViewDelegate
 >
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

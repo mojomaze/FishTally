@@ -33,6 +33,7 @@
 		57952A4C15A347E900D1682C /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4B15A347E800D1682C /* GamesViewController.m */; };
 		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
 		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
+		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		57952A5115A360DA00D1682C /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		57CE30EC15A4BFA500A6F508 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		57CE30ED15A4BFA500A6F508 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		57CF891515A786FB00496637 /* LurePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LurePickerViewController.h; sourceTree = "<group>"; };
+		57CF891615A786FB00496637 /* LurePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LurePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57CF891515A786FB00496637 /* LurePickerViewController.h */,
+				57CF891615A786FB00496637 /* LurePickerViewController.m */,
 				5775E26F15A7795200E302CE /* FishViewController.h */,
 				5775E27015A7795200E302CE /* FishViewController.m */,
 				5775E27215A7796600E302CE /* FishDetailViewController.h */,
@@ -267,6 +272,7 @@
 				5775E26915A75E0A00E302CE /* LureDetailViewController.m in Sources */,
 				5775E27115A7795300E302CE /* FishViewController.m in Sources */,
 				5775E27415A7796600E302CE /* FishDetailViewController.m in Sources */,
+				57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

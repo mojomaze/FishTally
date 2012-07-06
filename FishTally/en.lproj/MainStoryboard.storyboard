@@ -193,6 +193,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="uNq-Ng-Ksa" kind="push" identifier="PickLure" id="uUM-1f-Ic1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -250,6 +253,44 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2760" y="570"/>
+        </scene>
+        <scene sceneID="wq9-12-JCG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PqG-OO-Stg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="uNq-Ng-Ksa" customClass="LurePickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vcr-2Z-ujP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Lure" textLabel="AFn-64-VpF" style="IBUITableViewCellStyleDefault" id="2cH-gU-SFk">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFn-64-VpF">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uNq-Ng-Ksa" id="8Yf-5k-7MQ"/>
+                            <outlet property="delegate" destination="uNq-Ng-Ksa" id="k7k-Nh-Gq2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Lure" id="Tk1-vC-32t"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="3310" y="69"/>
         </scene>
         <scene sceneID="LKu-Xp-4l7">
             <objects>
@@ -945,6 +986,9 @@
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="photoLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="LurePickerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LurePickerViewController.h"/>
         </class>
         <class className="LuresViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LuresViewController.h"/>

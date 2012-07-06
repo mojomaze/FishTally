@@ -9,6 +9,7 @@
 #import "PlayerDetailViewController.h"
 #import "Player.h"
 #import "Game.h"
+#import "Lure.h"
 
 @interface PlayerDetailViewController()
 - (void)showPhotoMenu;
@@ -21,6 +22,7 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
+    Lure *playerLure;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -111,6 +113,11 @@
                 [self showImage:existingImage];
             }
         }
+        
+        playerLure = self.playerToEdit.lure;
+        if (playerLure != nil) {
+            defaultLureName = playerLure.name;
+        }
     } else {
         [self.nameTextField becomeFirstResponder];
     }
@@ -185,6 +192,16 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PickLure"]) {
+        LurePickerViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
+        controller.selectedLure = playerLure;
+    }
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -244,6 +261,14 @@
         if (![data writeToFile:[player photoPath] options:NSDataWritingAtomic error:&error]) {
             NSLog(@"Error writing file: %@", error);
         }
+    }
+    
+    if (player.lure != nil) {
+        [playerLure removePlayersObject:player];
+    }
+    
+    if (playerLure != nil) {
+        [playerLure addPlayersObject:player];   
     }
     
     [self.game addPlayersObject:player];
@@ -340,6 +365,14 @@
         [self choosePhotoFromLibrary];
     }
     actionSheet = nil;
+}
+
+#pragma mark - LurePickerViewControllerDelegate
+- (void)lurePicker:(LurePickerViewController *)picker didPickLure:(Lure *)lure
+{
+    playerLure = lure;
+    self.lureLabel.text = playerLure.name;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
