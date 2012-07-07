@@ -1177,7 +1177,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi3-gr-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="6hB-Qa-WxK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="L80-Wt-HvR"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tacklebox.png" id="L80-Wt-HvR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="fJ1-RB-V1B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1245,6 +1245,7 @@
     </scenes>
     <resources>
         <image name="fish.png" width="30" height="30"/>
+        <image name="tacklebox.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="CatchCell" superclassName="UITableViewCell">
