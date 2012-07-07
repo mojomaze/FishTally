@@ -1,43 +1,52 @@
 //
-//  PlayerDetailViewController.m
+//  CatchDetailViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/5/12.
+//  Created by Mark Winkler on 7/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PlayerDetailViewController.h"
+#import "CatchDetailViewController.h"
+#import "Catch.h"
 #import "Player.h"
-#import "Game.h"
 #import "Lure.h"
+#import "Fish.h"
 
-@interface PlayerDetailViewController()
+@interface CatchDetailViewController()
 - (void)showPhotoMenu;
 - (void)showImage:(UIImage *)theImage;
+- (void)displayCatchPointValue;
+- (void)calculateScore;
 @end
 
-@implementation PlayerDetailViewController {
-    NSString *playerName;
-    NSString *defaultLureName;
+@implementation CatchDetailViewController {
+    NSString *fishName;
+    NSString *lureName;
+    double score;
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
-    Lure *playerLure;
+    int size;
+    Lure *catchLure;
+    Fish *catchFish;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize playerToEdit = _playerToEdit;
-@synthesize game = _game;
-@synthesize nameTextField = _nameTextField;
+@synthesize catchToEdit = _catchToEdit;
+@synthesize player = _player;
+@synthesize fishLabel = _fishLabel;
+@synthesize pointsLabel = _pointsLabel;
 @synthesize photoImageView = _photoImageView;
 @synthesize lureLabel = _lureLabel;
 @synthesize photoLabel = _photoLabel;
+@synthesize sizeControl = _sizeControl;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        playerName = @"";
-        defaultLureName = @"No Lure";
+        fishName = @"No Fish";
+        lureName = @"No Lure";
+        score = 0.0f;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidEnterBackground)
                                                      name:UIApplicationDidEnterBackgroundNotification
@@ -70,12 +79,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)setPlayerToEdit:(Player *)newPlayerToEdit
+- (void)setCatchToEdit:(Catch *)newCatchToEdit
 {
-    if (_playerToEdit != newPlayerToEdit) {
-        _playerToEdit = newPlayerToEdit;
+    if (_catchToEdit != newCatchToEdit) {
+        _catchToEdit = newCatchToEdit;
         
-        playerName = _playerToEdit.name;
+        if (_catchToEdit.fish != nil) {
+            fishName = _catchToEdit.fish.name;
+        }
+        if (_catchToEdit.lure != nil) {
+            lureName = _catchToEdit.lure.name;
+        }
+        score = [_catchToEdit.score doubleValue];
     }
 }
 
@@ -90,8 +105,6 @@
         [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:NO];
         actionSheet = nil;
     }
-    
-    [self.nameTextField resignFirstResponder];
 }
 
 #pragma mark - View lifecycle
@@ -100,49 +113,50 @@
 {
     [super viewDidLoad];
     
-    if (self.playerToEdit != nil) {
-        self.title = @"Edit Player";
+    if (self.catchToEdit != nil) {
+        self.title = @"Edit Catch";
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
-        if ([self.playerToEdit hasPhoto] && image == nil) {
-            UIImage *existingImage = [self.playerToEdit photoImage];
+        if ([self.catchToEdit hasPhoto] && image == nil) {
+            UIImage *existingImage = [self.catchToEdit photoImage];
             if (existingImage != nil) {
                 [self showImage:existingImage];
             }
         }
         
-        playerLure = self.playerToEdit.lure;
-        if (playerLure != nil) {
-            defaultLureName = playerLure.name;
+        catchFish = self.catchToEdit.fish;
+        if (catchFish != nil) {
+            fishName = catchFish.name;
         }
-    } else {
-        [self.nameTextField becomeFirstResponder];
+        
+        catchLure = self.catchToEdit.lure;
+        if (catchFish != nil) {
+            lureName= catchLure.name;
+        }
+        size = [self.catchToEdit.size intValue];
     }
     
     if (image != nil) {
         [self showImage:image];
     }
     
-    self.nameTextField.text = playerName;
-    self.lureLabel.text = defaultLureName;
-    
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
-                                                 initWithTarget:self action:@selector(hideKeyboard:)];
-    
-    gestureRecognizer.cancelsTouchesInView = NO;
-    [self.tableView addGestureRecognizer:gestureRecognizer];
-    
+    self.fishLabel.text = fishName;
+    self.lureLabel.text = lureName;
+    self.sizeControl.selectedSegmentIndex = size;
+    [self displayCatchPointValue];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.nameTextField = nil;
-    self.photoImageView = nil;
+    self.fishLabel = nil;
     self.lureLabel = nil;
+    self.photoImageView = nil;
+    self.pointsLabel = nil;
+    self.sizeControl = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -175,7 +189,7 @@
 
 - (CGFloat)tableView:(UITableView *)theTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2 && indexPath.row == 0 && !self.photoImageView.hidden) {
+    if (indexPath.section == 4 && indexPath.row == 0 && !self.photoImageView.hidden) {
         return self.photoImageView.frame.size.height+20;
     } else {
         return 44;
@@ -184,9 +198,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        [self.nameTextField becomeFirstResponder];
-    }else if (indexPath.section == 2 && indexPath.row == 0) {
+    if (indexPath.section == 4 && indexPath.row == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self showPhotoMenu];
     }
@@ -198,33 +210,8 @@
         LurePickerViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
         controller.delegate = self;
-        controller.selectedLure = playerLure;
+        controller.selectedLure = catchLure;
     }
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    playerName = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
-    return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)theTextField
-{
-    playerName = theTextField.text;
-}
-
-- (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
-{
-    CGPoint point = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
-    
-    if (indexPath != nil && indexPath.section == 0 && indexPath.row == 0) {
-        return;
-    }
-    
-    [self.nameTextField resignFirstResponder];
 }
 
 - (void)closeScreen
@@ -234,45 +221,71 @@
 
 - (int)nextPhotoId
 {
-    int photoId = [[NSUserDefaults standardUserDefaults] integerForKey:@"PlayerPhotoID"];
-    [[NSUserDefaults standardUserDefaults] setInteger:photoId+1 forKey:@"PlayerPhotoID"];
+    int photoId = [[NSUserDefaults standardUserDefaults] integerForKey:@"CatchPhotoID"];
+    [[NSUserDefaults standardUserDefaults] setInteger:photoId+1 forKey:@"CatchPhotoID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     return photoId;
 }
 
 - (IBAction)done:(id)sender
 {
-    Player *player = nil;
-    if (self.playerToEdit != nil) {
-        player = self.playerToEdit;
+    // fish and lure are required
+    if (catchFish == nil || catchLure == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete"
+                                                        message:@"Add catch and lure"
+                                                       delegate: self
+                                              cancelButtonTitle:@"Ok" 
+                                              otherButtonTitles:nil ];
+        [alert show];
+        return;
+    }    
+    
+    Catch *catch = nil;
+    if (self.catchToEdit != nil) {
+        catch = self.catchToEdit;
     } else {
-        player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-        player.photoId = [NSNumber numberWithInt:-1];
+        catch = [NSEntityDescription insertNewObjectForEntityForName:@"Catch" inManagedObjectContext:self.managedObjectContext];
+        catch.photoId = [NSNumber numberWithInt:-1];
+        catch.date = [NSDate date];
     }
-    player.name = playerName;
+    catch.fish = catchFish;
+    catch.lure = catchLure;
+    catch.score = [NSNumber numberWithDouble:score];
+    catch.size = [NSNumber numberWithInt:size];
     
     if (image != nil) {
-        if (![player hasPhoto]) {
-            player.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
+        if (![catch hasPhoto]) {
+            catch.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
         }
         
         NSData *data = UIImagePNGRepresentation(image);
         NSError *error;
-        if (![data writeToFile:[player photoPath] options:NSDataWritingAtomic error:&error]) {
+        if (![data writeToFile:[catch photoPath] options:NSDataWritingAtomic error:&error]) {
             NSLog(@"Error writing file: %@", error);
         }
     }
     
-    if (player.lure != nil) {
-        [player.lure removePlayersObject:player];
+    // update or add Fish
+    if (catch.fish != nil) {
+        [catch.fish removeCatchesObject:catch];
     }
-    player.lure = playerLure;
+    catch.fish = catchFish;
     
-    if (playerLure != nil) {
-        [playerLure addPlayersObject:player];   
+    if (catchFish != nil) {
+        [catchFish addCatchesObject:catch];   
     }
     
-    [self.game addPlayersObject:player];
+    // update or add lure
+    if (catch.lure != nil) {
+        [catch.lure removeCatchesObject:catch];
+    }
+    catch.lure = catchLure;
+    
+    if (catchLure != nil) {
+        [catchLure addCatchesObject:catch];   
+    }
+    
+    [self.player addCatchesObject:catch];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -368,12 +381,46 @@
     actionSheet = nil;
 }
 
+-(void) updateCatchPointValue {
+    [self calculateScore];
+    [self displayCatchPointValue];
+}
+
+- (void)displayCatchPointValue {
+    self.pointsLabel.text = [NSString stringWithFormat:@"%.1f", score];
+}
+
+- (void)calculateScore {
+    float points;
+    float multiplier;
+    
+    // lure and fish are required
+    if (catchFish && catchLure) {
+        if (size == 1) {
+            points = [catchFish.largePointValue floatValue];
+        } else {
+            points = [catchFish.smallPointValue floatValue];
+        }
+        multiplier = [catchLure.multiplier floatValue];
+        score = points * multiplier;
+    } else {
+        score = 0.0f;
+    }
+    
+}
+
+- (IBAction)changeCatchSize:(UISegmentedControl *)segmentedControl {
+    size = segmentedControl.selectedSegmentIndex;
+    [self updateCatchPointValue];
+}
+
 #pragma mark - LurePickerViewControllerDelegate
 - (void)lurePicker:(LurePickerViewController *)picker didPickLure:(Lure *)lure
 {
-    playerLure = lure;
-    self.lureLabel.text = playerLure.name;
+    catchLure = lure;
+    self.lureLabel.text = catchLure.name;
+    [self updateCatchPointValue];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+     
 @end

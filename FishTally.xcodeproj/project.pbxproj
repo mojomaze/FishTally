@@ -35,6 +35,8 @@
 		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
 		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
+		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
+		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,10 @@
 		57CF891615A786FB00496637 /* LurePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LurePickerViewController.m; sourceTree = "<group>"; };
 		57CF891915A79B2700496637 /* CatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchCell.h; sourceTree = "<group>"; };
 		57CF891A15A79B2800496637 /* CatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCell.m; sourceTree = "<group>"; };
+		57E03A3715A885C400921585 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchesViewController.h; sourceTree = "<group>"; };
+		57E03A3815A885C400921585 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchesViewController.m; sourceTree = "<group>"; };
+		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
+		57E03A4315A8875700921585 /* CatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +148,6 @@
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
-				57CF891915A79B2700496637 /* CatchCell.h */,
-				57CF891A15A79B2800496637 /* CatchCell.m */,
 				57CF891515A786FB00496637 /* LurePickerViewController.h */,
 				57CF891615A786FB00496637 /* LurePickerViewController.m */,
 				5775E26F15A7795200E302CE /* FishViewController.h */,
@@ -160,6 +164,10 @@
 				57952A4B15A347E800D1682C /* GamesViewController.m */,
 				576E92BF15A373F600C93BAB /* GameDetailViewController.h */,
 				576E92C015A373F600C93BAB /* GameDetailViewController.m */,
+				57E03A3715A885C400921585 /* CatchesViewController.h */,
+				57E03A3815A885C400921585 /* CatchesViewController.m */,
+				57E03A4215A8875700921585 /* CatchDetailViewController.h */,
+				57E03A4315A8875700921585 /* CatchDetailViewController.m */,
 				576E92C715A3AA0100C93BAB /* PlayersViewController.h */,
 				576E92C815A3AA0100C93BAB /* PlayersViewController.m */,
 				5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */,
@@ -180,6 +188,8 @@
 				57952A5115A360DA00D1682C /* GameCell.m */,
 				57CE30EC15A4BFA500A6F508 /* PlayerCell.h */,
 				57CE30ED15A4BFA500A6F508 /* PlayerCell.m */,
+				57CF891915A79B2700496637 /* CatchCell.h */,
+				57CF891A15A79B2800496637 /* CatchCell.m */,
 			);
 			path = FishTally;
 			sourceTree = "<group>";
@@ -279,6 +289,8 @@
 				5775E27415A7796600E302CE /* FishDetailViewController.m in Sources */,
 				57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */,
 				57CF891B15A79B2800496637 /* CatchCell.m in Sources */,
+				57E03A3915A885C400921585 /* CatchesViewController.m in Sources */,
+				57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

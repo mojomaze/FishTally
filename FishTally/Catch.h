@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Lure, Player;
+@class Lure, Player, Fish;
 
 @interface Catch : NSManagedObject
 
@@ -17,7 +17,13 @@
 @property (nonatomic, retain) NSNumber * size;
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) Lure *lure;
-@property (nonatomic, retain) NSManagedObject *fish;
+@property (nonatomic, retain) Fish *fish;
 @property (nonatomic, retain) Player *player;
+@property (nonatomic, retain) NSDate * date;
+
+- (BOOL)hasPhoto;
+- (NSString *)photoPath;
+- (UIImage *)photoImage;
+- (void)removePhotoFile;
 
 @end

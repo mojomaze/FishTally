@@ -1,26 +1,26 @@
 //
-//  PlayersViewController.m
+//  CatchesViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/3/12.
+//  Created by Mark Winkler on 7/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PlayersViewController.h"
-#import "Player.h"
-#import "PlayerCell.h"
-#import "Game.h"
-#import "PlayerDetailViewController.h"
 #import "CatchesViewController.h"
+#import "Catch.h"
+#import "Fish.h"
+#import "Player.h"
+#import "CatchCell.h"
+#import "CatchDetailViewController.h"
 #import "UIImage+Resize.h"
 
 
-@implementation PlayersViewController {
+@implementation CatchesViewController {
     NSFetchedResultsController *fetchedResultsController;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize game = _game;
+@synthesize player = _player;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,15 +47,15 @@
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Catch" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
-        if (self.game != nil) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"game == %@", self.game];
+        if (self.player != nil) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"player == %@", self.player];
             [fetchRequest setPredicate:predicate];
         }
         
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
         [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
         [fetchRequest setFetchBatchSize:20];
@@ -133,24 +133,32 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    PlayerCell *playerCell = (PlayerCell *)cell;
-    Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    CatchCell *catchCell = (CatchCell *)cell;
+    Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    playerCell.nameLabel.text = player.name;
+    catchCell.nameLabel.text = catch.fish.name;
     
     UIImage *image = nil;
-    if ([player hasPhoto]) {
-        image = [player photoImage];
+    if ([catch hasPhoto]) {
+        image = [catch photoImage];
         if (image != nil) {
             image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFill];
         }
+    } else {
+        if ([catch.fish hasPhoto]) {
+            image = [catch.fish photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFill];
+            }
+        }
     }
-    playerCell.photoImageView.image = image;
+    catchCell.scoreLabel.text = [NSString stringWithFormat:@"%.1f %@", [catch.score doubleValue], NSLocalizedString(@" points", nil)];
+    catchCell.photoImageView.image = image;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Player"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Catch"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -161,17 +169,17 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"EditPlayer"
+    [self performSegueWithIdentifier:@"EditCatch"
                               sender:cell]; 
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:player];
+        Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:catch];
         
-        [self.game removePlayersObject:player];
+        [self.player removeCatchesObject:catch];
         
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
@@ -183,33 +191,24 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // add player called from nav button
-    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+    // add catch called from nav button
+    if ([segue.identifier isEqualToString:@"AddCatch"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        PlayerDetailViewController *controller = (PlayerDetailViewController *)navigationController.topViewController;
+        CatchDetailViewController *controller = (CatchDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
-        controller.game = self.game;
+        controller.player = self.player;
     }
     
-    // edit player called from accessory button
-    if ([segue.identifier isEqualToString:@"EditPlayer"]) {
+    // edit catch called from accessory button
+    if ([segue.identifier isEqualToString:@"EditCatch"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        PlayerDetailViewController *controller = (PlayerDetailViewController *)navigationController.topViewController;
+        CatchDetailViewController *controller = (CatchDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        controller.playerToEdit = player;
-        controller.game = self.game;
-    }
-    
-    if ([segue.identifier isEqualToString:@"PlayerCatches"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Player *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        CatchesViewController *viewController = segue.destinationViewController;
-        viewController.managedObjectContext = self.managedObjectContext;
-        viewController.player = player;
-        [viewController setTitle:player.name];
+        Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.catchToEdit = catch;
+        controller.player = self.player;
     }
 }
 
