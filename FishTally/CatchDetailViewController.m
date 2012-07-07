@@ -137,6 +137,12 @@
             lureName= catchLure.name;
         }
         size = [self.catchToEdit.size intValue];
+    } else {
+        if (self.player.lure != nil) {
+            catchLure = self.player.lure;
+            lureName = catchLure.name;
+        }
+        
     }
     
     if (image != nil) {
@@ -211,6 +217,13 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.delegate = self;
         controller.selectedLure = catchLure;
+    }
+    
+    if ([segue.identifier isEqualToString:@"PickFish"]) {
+        FishPickerViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
+        controller.selectedFish = catchFish;
     }
 }
 
@@ -419,6 +432,15 @@
 {
     catchLure = lure;
     self.lureLabel.text = catchLure.name;
+    [self updateCatchPointValue];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - LurePickerViewControllerDelegate
+- (void)fishPicker:(FishPickerViewController *)picker didPickFish:(Fish *)fish
+{
+    catchFish = fish;
+    self.fishLabel.text = catchFish.name;
     [self updateCatchPointValue];
     [self.navigationController popViewControllerAnimated:YES];
 }

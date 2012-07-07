@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LurePickerViewController.h"
+#import "FishPickerViewController.h"
 
 @class Player, Catch;
 
@@ -17,7 +18,8 @@
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate,
     UIActionSheetDelegate,
-    LurePickerViewDelegate
+    LurePickerViewDelegate,
+    FishPickerViewDelegate
 >
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
