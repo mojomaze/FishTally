@@ -733,7 +733,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eB3-yX-qJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="CYT-f1-ebi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" id="Q7I-Ro-kYb"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="fish.png" id="Q7I-Ro-kYb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="m3u-JN-ayq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1243,6 +1243,9 @@
             <point key="canvasLocation" x="2784" y="-110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fish.png" width="30" height="30"/>
+    </resources>
     <classes>
         <class className="CatchCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CatchCell.h"/>
