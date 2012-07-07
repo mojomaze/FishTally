@@ -56,7 +56,7 @@
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
                                     sectionNameKeyPath:nil
-                                    cacheName:@"Games"];
+                                    cacheName:nil];
         
         fetchedResultsController.delegate = self;
     }

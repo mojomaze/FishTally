@@ -264,7 +264,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Catch" rowHeight="66" id="ZhN-Mj-6ij" customClass="CatchCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Catch" rowHeight="66" id="ZhN-Mj-6ij" customClass="CatchCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -735,7 +735,7 @@
                 <navigationController id="CYT-f1-ebi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Games" id="Q7I-Ro-kYb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m3u-JN-ayq">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="m3u-JN-ayq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -752,7 +752,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3c-tw-CaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="SN6-fx-Rn2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Bfz-eP-BW6">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Bfz-eP-BW6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -769,8 +769,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLj-GL-zOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="fPi-k6-EV4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Cja-La-KZE"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="K13-g4-gjK">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="K13-g4-gjK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1180,7 +1179,7 @@
                 <navigationController id="6hB-Qa-WxK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="L80-Wt-HvR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fJ1-RB-V1B">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="fJ1-RB-V1B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1197,7 +1196,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lxi-z6-FBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="7RW-4j-VB1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5cY-7W-3lZ">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="5cY-7W-3lZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1214,7 +1213,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8f-TZ-gK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="s27-p2-HO0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MvT-0D-0hW">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="MvT-0D-0hW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1231,7 +1230,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0w1-RA-7Bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Qma-yP-oZV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4xc-gf-xvZ">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="4xc-gf-xvZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1356,7 +1355,7 @@
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
@@ -1365,7 +1364,7 @@
         <segue reference="0Hh-4C-ca8"/>
         <segue reference="efb-8Z-CLj"/>
         <segue reference="Xl1-3f-MlF"/>
+        <segue reference="uUM-1f-Ic1"/>
         <segue reference="k89-qL-IHY"/>
-        <segue reference="E1g-Uj-wYM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -299,6 +299,7 @@
     }
     
     [self.player addCatchesObject:catch];
+    [self.player calculatePlayerScore];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

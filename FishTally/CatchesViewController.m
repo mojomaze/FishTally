@@ -180,6 +180,7 @@
         [self.managedObjectContext deleteObject:catch];
         
         [self.player removeCatchesObject:catch];
+        [self.player calculatePlayerScore];
         
         NSError *error;
         if (![self.managedObjectContext save:&error]) {

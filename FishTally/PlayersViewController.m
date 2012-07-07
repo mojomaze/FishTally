@@ -55,8 +55,9 @@
             [fetchRequest setPredicate:predicate];
         }
         
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        NSSortDescriptor *primarySort = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
+        NSSortDescriptor *secondarySort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:primarySort, secondarySort, nil]];
         
         [fetchRequest setFetchBatchSize:20];
         
@@ -146,6 +147,7 @@
         }
     }
     playerCell.photoImageView.image = image;
+    playerCell.scoreLabel.text = [NSString stringWithFormat:@"%.1f %@", [player.score doubleValue], NSLocalizedString(@" points", nil)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

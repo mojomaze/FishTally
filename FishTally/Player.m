@@ -60,4 +60,12 @@
     }
 }
 
+- (void) calculatePlayerScore {
+    double score = 0;
+    for (Catch *catch in self.catches) {
+        score += [catch.score doubleValue];
+    }
+    self.score = [NSNumber numberWithDouble:score];
+}
+
 @end

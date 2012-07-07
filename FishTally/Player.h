@@ -25,6 +25,7 @@
 - (NSString *)photoPath;
 - (UIImage *)photoImage;
 - (void)removePhotoFile;
+- (void)calculatePlayerScore;
 
 @end
 
