@@ -17,6 +17,7 @@
 @dynamic photoId;
 @dynamic players;
 @dynamic catches;
+@dynamic category;
 
 - (BOOL)hasPhoto
 {

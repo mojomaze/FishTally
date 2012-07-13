@@ -6,16 +6,18 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class Fish;
-
 #import <UIKit/UIKit.h>
+#import "FamilyPickerViewController.h"
+
+@class Fish;
 
 @interface FishDetailViewController : UITableViewController
 <
 UITextFieldDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIActionSheetDelegate
+UIActionSheetDelegate,
+FamilyPickerViewDelegate
 >
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -27,6 +29,7 @@ UIActionSheetDelegate
 @property (nonatomic, strong) IBOutlet UILabel *largePointLabel;
 @property (nonatomic, strong) IBOutlet UIStepper *largePointStepper;
 @property (nonatomic, strong) Fish *fishToEdit;
+@property (nonatomic, strong) IBOutlet UILabel *familyLabel;
 
 - (IBAction)changeSmallPointStepper:(UIStepper *)sender;
 - (IBAction)changeLargePointStepper:(UIStepper *)sender;

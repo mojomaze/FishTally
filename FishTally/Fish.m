@@ -17,6 +17,7 @@
 @dynamic largePointValue;
 @dynamic photoId;
 @dynamic catches;
+@dynamic family;
 
 - (BOOL)hasPhoto
 {

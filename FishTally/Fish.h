@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * largePointValue;
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSSet *catches;
+@property (nonatomic, retain) NSString *family;
 
 - (BOOL)hasPhoto;
 - (NSString *)photoPath;

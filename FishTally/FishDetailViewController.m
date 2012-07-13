@@ -8,6 +8,7 @@
 
 #import "FishDetailViewController.h"
 #import "Fish.h"
+#import "FamilyPickerViewController.h"
 
 @interface FishDetailViewController()
 - (void)showPhotoMenu;
@@ -21,6 +22,7 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
+    NSString *family;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -32,6 +34,7 @@
 @synthesize smallPointStepper = _smallPointStepper;
 @synthesize largePointLabel = _largePointLabel;
 @synthesize largePointStepper = _largePointStepper;
+@synthesize familyLabel = _familyLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -39,6 +42,7 @@
         fishName = @"";
         smallPoints = 0;
         largePoints = 0;
+        family = @"No Family";
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidEnterBackground)
@@ -117,6 +121,7 @@
         }
         smallPoints = [self.fishToEdit.smallPointValue intValue];
         largePoints = [self.fishToEdit.largePointValue intValue];
+        family = self.fishToEdit.family;
 
     } else {
         [self.nameTextField becomeFirstResponder];
@@ -131,6 +136,7 @@
     self.largePointStepper.value = largePoints;
     self.smallPointLabel.text = [NSString stringWithFormat:@"%d %@", smallPoints, NSLocalizedString(@"points", nil)];
     self.largePointLabel.text = [NSString stringWithFormat:@"%d %@", largePoints, NSLocalizedString(@"points", nil)];
+    self.familyLabel.text = family;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(hideKeyboard:)];
@@ -174,7 +180,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 #pragma mark - Table view delegate
@@ -195,6 +201,15 @@
     }else if (indexPath.section == 2 && indexPath.row == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self showPhotoMenu];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PickFamily"]) {
+        FamilyPickerViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.selectedFamilyName = family;
     }
 }
 
@@ -262,6 +277,7 @@
     fish.name = fishName;
     fish.smallPointValue = [NSNumber numberWithFloat:smallPoints];
     fish.largePointValue = [NSNumber numberWithFloat:largePoints];
+    fish.family = family;
     
     if (image != nil) {
         if (![fish hasPhoto]) {
@@ -367,6 +383,14 @@
         [self choosePhotoFromLibrary];
     }
     actionSheet = nil;
+}
+
+#pragma mark - FamilyPickerViewDelegate
+
+- (void)familyPicker:(FamilyPickerViewController *)picker didPickFamily:(NSString *)familyName {
+    family = familyName;
+    self.familyLabel.text = family;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

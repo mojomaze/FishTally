@@ -19,6 +19,7 @@
 		575BD31B15A8E6D4007BC668 /* fish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 575BD31915A8E6D4007BC668 /* fish@2x.png */; };
 		575BD32215A8F743007BC668 /* tacklebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 575BD32015A8F743007BC668 /* tacklebox.png */; };
 		575BD32315A8F743007BC668 /* tacklebox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 575BD32115A8F743007BC668 /* tacklebox@2x.png */; };
+		576D51D215B0B608000429DB /* FamilyPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576D51D115B0B608000429DB /* FamilyPickerViewController.m */; };
 		576E92C115A373F600C93BAB /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C015A373F600C93BAB /* GameDetailViewController.m */; };
 		576E92C915A3AA0100C93BAB /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E92C815A3AA0100C93BAB /* PlayersViewController.m */; };
 		5775E26915A75E0A00E302CE /* LureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775E26815A75E0A00E302CE /* LureDetailViewController.m */; };
@@ -47,7 +48,7 @@
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
-		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
+		57E03A4C15A8AB2400921585 /* FishPickerViewControllerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewControllerController.m */; };
 		57E998BA15A9D14A00807120 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E998B815A9D14A00807120 /* Default.png */; };
 		57E998BB15A9D14A00807120 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E998B915A9D14A00807120 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,8 @@
 		575BD31915A8E6D4007BC668 /* fish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fish@2x.png"; sourceTree = "<group>"; };
 		575BD32015A8F743007BC668 /* tacklebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tacklebox.png; sourceTree = "<group>"; };
 		575BD32115A8F743007BC668 /* tacklebox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tacklebox@2x.png"; sourceTree = "<group>"; };
+		576D51D015B0B607000429DB /* FamilyPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyPickerViewController.h; sourceTree = "<group>"; };
+		576D51D115B0B608000429DB /* FamilyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyPickerViewController.m; sourceTree = "<group>"; };
 		576E92BF15A373F600C93BAB /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
 		576E92C015A373F600C93BAB /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		576E92C715A3AA0100C93BAB /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
@@ -119,7 +122,7 @@
 		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
 		57E03A4315A8875700921585 /* CatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchDetailViewController.m; sourceTree = "<group>"; };
 		57E03A4A15A8AB2300921585 /* FishPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishPickerViewController.h; sourceTree = "<group>"; };
-		57E03A4B15A8AB2300921585 /* FishPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishPickerViewController.m; sourceTree = "<group>"; };
+		57E03A4B15A8AB2300921585 /* FishPickerViewControllerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishPickerViewControllerController.m; sourceTree = "<group>"; };
 		57E998B815A9D14A00807120 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		57E998B915A9D14A00807120 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,14 +186,16 @@
 			children = (
 				57B67BF615AA368800F20369 /* icon */,
 				57952A1F15A3302A00D1682C /* AppDelegate.h */,
+				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
-				57952A2015A3302A00D1682C /* AppDelegate.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				576D51D015B0B607000429DB /* FamilyPickerViewController.h */,
+				576D51D115B0B608000429DB /* FamilyPickerViewController.m */,
 				57E998B715A9D14A00807120 /* Launch Images */,
 				575BD31215A8D756007BC668 /* images */,
 				57E03A4A15A8AB2300921585 /* FishPickerViewController.h */,
-				57E03A4B15A8AB2300921585 /* FishPickerViewController.m */,
+				57E03A4B15A8AB2300921585 /* FishPickerViewControllerController.m */,
 				57CF891515A786FB00496637 /* LurePickerViewController.h */,
 				57CF891615A786FB00496637 /* LurePickerViewController.m */,
 				5775E26F15A7795200E302CE /* FishViewController.h */,
@@ -296,7 +301,7 @@
 		57952A0315A3302A00D1682C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 57952A0615A3302A00D1682C /* Build configuration list for PBXProject "FishTally" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -368,7 +373,8 @@
 				57CF891B15A79B2800496637 /* CatchCell.m in Sources */,
 				57E03A3915A885C400921585 /* CatchesViewController.m in Sources */,
 				57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */,
-				57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */,
+				57E03A4C15A8AB2400921585 /* FishPickerViewControllerController.m in Sources */,
+				576D51D215B0B608000429DB /* FamilyPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

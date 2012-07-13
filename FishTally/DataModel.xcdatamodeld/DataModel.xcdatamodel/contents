@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Catch" representedClassName="Catch" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -10,6 +10,7 @@
         <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="catches" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="Fish" representedClassName="Fish" syncable="YES">
+        <attribute name="family" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="largePointValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -22,6 +23,7 @@
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Player" inverseName="game" inverseEntity="Player" syncable="YES"/>
     </entity>
     <entity name="Lure" representedClassName="Lure" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="multiplier" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -39,9 +41,9 @@
     </entity>
     <elements>
         <element name="Catch" positionX="-36" positionY="450" width="128" height="150"/>
-        <element name="Fish" positionX="342" positionY="393" width="128" height="120"/>
+        <element name="Fish" positionX="342" positionY="393" width="128" height="135"/>
         <element name="Game" positionX="-54" positionY="63" width="128" height="90"/>
-        <element name="Lure" positionX="342" positionY="234" width="128" height="120"/>
+        <element name="Lure" positionX="342" positionY="234" width="128" height="135"/>
         <element name="Player" positionX="-45" positionY="234" width="117" height="90"/>
     </elements>
 </model>

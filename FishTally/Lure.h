@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSSet *players;
 @property (nonatomic, retain) NSSet *catches;
+@property (nonatomic, retain) NSString *category;
 
 - (BOOL)hasPhoto;
 - (NSString *)photoPath;
