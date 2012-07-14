@@ -8,6 +8,7 @@
 
 #import "LureDetailViewController.h"
 #import "Lure.h"
+#import "CategoryPickerViewController.h"
 
 @interface LureDetailViewController()
 - (void)showPhotoMenu;
@@ -20,6 +21,7 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
+    NSString *category;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -29,12 +31,14 @@
 @synthesize photoLabel = _photoLabel;
 @synthesize multiplierLabel = _multiplierLabel;
 @synthesize multiplierStepper = _multiplierStepper;
+@synthesize categoryLabel = _categoryLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
         lureName = @"";
         multiplier = 1.0f;
+        category = @"No Category";
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidEnterBackground)
                                                      name:UIApplicationDidEnterBackgroundNotification
@@ -111,6 +115,7 @@
             }
         }
         multiplier = [self.lureToEdit.multiplier doubleValue];
+        category = self.lureToEdit.category;
     } else {
         [self.nameTextField becomeFirstResponder];
     }
@@ -120,6 +125,7 @@
     }
     
     self.nameTextField.text = lureName;
+    self.categoryLabel.text = category;
     self.multiplierStepper.value = multiplier;
     self.multiplierLabel.text = [NSString stringWithFormat:@"%.1f %@", multiplier, NSLocalizedString(@"x catch points", nil)];
     
@@ -138,6 +144,7 @@
     self.photoImageView = nil;
     self.multiplierStepper = nil;
     self.multiplierLabel = nil;
+    self.categoryLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -212,6 +219,15 @@
     [self.nameTextField resignFirstResponder];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PickCategory"]) {
+        CategoryPickerViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.selectedCategoryName = category;
+    }
+}
+
 #pragma mark - point stepper values
 
 - (IBAction)changePointMultiplierStepper:(UIStepper *)sender {
@@ -244,6 +260,7 @@
     }
     lure.name = lureName;
     lure.multiplier = [NSNumber numberWithFloat:multiplier];
+    lure.category = category;
     
     if (image != nil) {
         if (![lure hasPhoto]) {
@@ -349,6 +366,14 @@
         [self choosePhotoFromLibrary];
     }
     actionSheet = nil;
+}
+
+#pragma mark - CategoryPickerViewDelegate
+
+- (void) categoryPicker:(CategoryPickerViewController *)picker didPickCategory:(NSString *)categoryName {
+    category = categoryName;
+    self.categoryLabel.text = category;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

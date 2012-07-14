@@ -155,6 +155,7 @@
     self.smallPointLabel = nil;
     self.largePointStepper = nil;
     self.largePointLabel = nil;
+    self.familyLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated

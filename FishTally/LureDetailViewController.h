@@ -6,16 +6,18 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class Lure;
-
 #import <UIKit/UIKit.h>
+#import "CategoryPickerViewController.h"
+
+@class Lure;
 
 @interface LureDetailViewController : UITableViewController
 <
 UITextFieldDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIActionSheetDelegate
+UIActionSheetDelegate,
+CategoryPickerViewDelegate
 >
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -25,6 +27,7 @@ UIActionSheetDelegate
 @property (nonatomic, strong) IBOutlet UILabel *multiplierLabel;
 @property (nonatomic, strong) IBOutlet UIStepper *multiplierStepper;
 @property (nonatomic, strong) Lure *lureToEdit;
+@property (nonatomic, strong) IBOutlet UILabel *categoryLabel;
 
 - (IBAction)changePointMultiplierStepper:(UIStepper *)sender;
 - (IBAction)done:(id)sender;
