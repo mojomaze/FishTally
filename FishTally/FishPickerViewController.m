@@ -13,6 +13,7 @@
 @implementation FishPickerViewController {
     NSArray *fishs;
     NSIndexPath *selectedIndexPath;
+    NSMutableArray *families;
 }
 
 @synthesize delegate = _delegate;
@@ -47,13 +48,21 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fish" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"family" ascending:YES];
+    NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
     
     [fetchRequest setFetchBatchSize:20];
     
     NSError *error;
     fishs = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    families = [[NSMutableArray alloc] init];
+    for (Fish *fish in fishs) {
+        if(![families containsObject:fish.family]) {
+            [families addObject:fish.family];
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -92,12 +101,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [families count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [families objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [fishs count];
+    NSString *family = [families objectAtIndex:section];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
+    NSArray *fish = [fishs filteredArrayUsingPredicate:predicate];
+    return [fish count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,24 +125,30 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Fish *fish = [fishs objectAtIndex:indexPath.row];
-    cell.textLabel.text = fish.name;
-    UIImage *image = nil;
-    if ([fish hasPhoto]) {
-        image = [fish photoImage];
-        if (image != nil) {
-            image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFill];
+    // get section family
+    NSString *family = [families objectAtIndex:[indexPath section]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
+    NSArray *fishInSection = [fishs filteredArrayUsingPredicate:predicate];
+    if ([fishInSection count] > 0) {
+        // get the fish at the current row
+        Fish *fish = [fishInSection objectAtIndex:indexPath.row];
+        cell.textLabel.text = fish.name;
+        UIImage *image = nil;
+        if ([fish hasPhoto]) {
+            image = [fish photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFill];
+            }
+        }
+        cell.imageView.image = image;
+        
+        if ([fish isEqual:self.selectedFish]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            selectedIndexPath = indexPath;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
-    cell.imageView.image = image;
-    
-    if ([fish isEqual:self.selectedFish]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        selectedIndexPath = indexPath;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
     return cell;
 }
 
@@ -134,7 +156,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row != selectedIndexPath.row) {
+    if (indexPath != selectedIndexPath) {
         UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
         newCell.accessoryType = UITableViewCellAccessoryCheckmark;
         
@@ -144,7 +166,11 @@
         selectedIndexPath = indexPath;
     }
     
-    Fish *fish = [fishs objectAtIndex:indexPath.row];
+    NSString *family = [families objectAtIndex:[indexPath section]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
+    NSArray *fishInSection = [fishs filteredArrayUsingPredicate:predicate];
+    
+    Fish *fish = [fishInSection objectAtIndex:indexPath.row];
     [self.delegate fishPicker:self didPickFish:fish];
 }
 
