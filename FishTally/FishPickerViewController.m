@@ -57,6 +57,7 @@
     NSError *error;
     fishs = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    // setup sections using fish.family property
     families = [[NSMutableArray alloc] init];
     for (Fish *fish in fishs) {
         if(![families containsObject:fish.family]) {
@@ -97,6 +98,11 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (NSArray *)fishInFamily:(NSString *)family {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
+    return [fishs filteredArrayUsingPredicate:predicate];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -111,9 +117,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSString *family = [families objectAtIndex:section];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
-    NSArray *fish = [fishs filteredArrayUsingPredicate:predicate];
-    return [fish count];
+    return [[self fishInFamily:family] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,9 +130,7 @@
     }
     
     // get section family
-    NSString *family = [families objectAtIndex:[indexPath section]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
-    NSArray *fishInSection = [fishs filteredArrayUsingPredicate:predicate];
+    NSArray *fishInSection = [self fishInFamily:[families objectAtIndex:[indexPath section]]];
     if ([fishInSection count] > 0) {
         // get the fish at the current row
         Fish *fish = [fishInSection objectAtIndex:indexPath.row];
@@ -166,9 +168,7 @@
         selectedIndexPath = indexPath;
     }
     
-    NSString *family = [families objectAtIndex:[indexPath section]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
-    NSArray *fishInSection = [fishs filteredArrayUsingPredicate:predicate];
+    NSArray *fishInSection = [self fishInFamily:[families objectAtIndex:[indexPath section]]];
     
     Fish *fish = [fishInSection objectAtIndex:indexPath.row];
     [self.delegate fishPicker:self didPickFish:fish];
