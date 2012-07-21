@@ -159,7 +159,7 @@
                                                     <rect key="frame" x="8" y="7" width="284" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="DKM-5G-lIg" id="ahP-uk-uTo"/>
                                                     </connections>
@@ -290,7 +290,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pRq-PW-MdC">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" id="pRq-PW-MdC">
                                             <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -614,7 +614,7 @@
                                                     <rect key="frame" x="11" y="7" width="283" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -873,7 +873,7 @@
                                                     <rect key="frame" x="8" y="7" width="284" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="Bqp-Dc-C3q" id="8Ln-ed-8YN"/>
                                                     </connections>
@@ -1120,7 +1120,7 @@
                                                     <rect key="frame" x="8" y="7" width="284" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="LD6-7F-Vay" id="ISH-Oc-BP7"/>
                                                     </connections>
@@ -1535,8 +1535,8 @@
         <segue reference="efb-8Z-CLj"/>
         <segue reference="Xl1-3f-MlF"/>
         <segue reference="k89-qL-IHY"/>
-        <segue reference="E1g-Uj-wYM"/>
-        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="uUM-1f-Ic1"/>
         <segue reference="9bF-ts-QbO"/>
+        <segue reference="0Hh-4C-ca8"/>
     </inferredMetricsTieBreakers>
 </document>

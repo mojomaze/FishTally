@@ -142,13 +142,13 @@
     if ([catch hasPhoto]) {
         image = [catch photoImage];
         if (image != nil) {
-            image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFill];
+            image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFit];
         }
     } else {
         if ([catch.fish hasPhoto]) {
             image = [catch.fish photoImage];
             if (image != nil) {
-                image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFill];
+                image = [image resizedImageWithBounds:CGSizeMake(66, 66) withAspectType:ImageAspectTypeFit];
             }
         }
     }

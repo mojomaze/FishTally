@@ -139,7 +139,7 @@
         if ([fish hasPhoto]) {
             image = [fish photoImage];
             if (image != nil) {
-                image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFill];
+                image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFit];
             }
         }
         cell.imageView.image = image;
