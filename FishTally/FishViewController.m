@@ -11,7 +11,6 @@
 #import "FishDetailViewController.h"
 #import "UIImage+Resize.h"
 
-
 @implementation FishViewController {
     NSFetchedResultsController *fetchedResultsController;
 }
