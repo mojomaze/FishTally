@@ -8,7 +8,7 @@
 
 #import "Fish.h"
 #import "Catch.h"
-
+#import "FishFamily.h"
 
 @implementation Fish
 
@@ -57,4 +57,11 @@
     }
 }
 
+- (NSString *)familyName
+{
+    if (self.family) {
+        return self.family.name;
+    }
+    return @"No Family";
+}
 @end

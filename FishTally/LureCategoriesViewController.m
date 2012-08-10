@@ -1,18 +1,20 @@
 //
-//  LuresViewController.m
+//  LureCategoriesViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/5/12.
+//  Created by Mark Winkler on 8/10/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "LuresViewController.h"
-#import "Lure.h"
-#import "LureDetailViewController.h"
-#import "UIImage+Resize.h"
+#import "LureCategoriesViewController.h"
+#import "LureCategoryDetailViewController.h"
+#import "LureType.h"
 
+@interface LureCategoriesViewController ()
 
-@implementation LuresViewController {
+@end
+
+@implementation LureCategoriesViewController {
     NSFetchedResultsController *fetchedResultsController;
 }
 
@@ -43,20 +45,19 @@
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Lure" inManagedObjectContext:self.managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"LureType" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
-        NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"lureType.name" ascending:YES];
-        NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
         [fetchRequest setFetchBatchSize:20];
         
         fetchedResultsController = [[NSFetchedResultsController alloc]
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
-                                    sectionNameKeyPath:@"lureType.name"
-                                    cacheName:@"Lures"];
+                                    sectionNameKeyPath:nil
+                                    cacheName:nil];
         
         fetchedResultsController.delegate = self;
     }
@@ -75,6 +76,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.allowsSelectionDuringEditing = YES;
     [self performFetch];
 }
 
@@ -118,42 +120,22 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [[self.fetchedResultsController sections] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];}
+    return [sectionInfo numberOfObjects];
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Lure *lure = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.text = lure.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f %@", [lure.multiplier doubleValue], NSLocalizedString(@"x points", nil)];
-    
-    UIImage *image = nil;
-    if ([lure hasPhoto]) {
-        image = [lure photoImage];
-        if (image != nil) {
-            image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFit];
-        }
-    }
-    cell.imageView.image = image;
+    LureType *lureType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = lureType.name;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Lure"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -164,15 +146,15 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"EditLure"
+    [self performSegueWithIdentifier:@"EditCategory"
                               sender:cell]; 
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Lure *lure = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:lure];
+        LureType *lureType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:lureType];
         
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
@@ -184,22 +166,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // add lure called from nav button
-    if ([segue.identifier isEqualToString:@"AddLure"]) {
+    if ([segue.identifier isEqualToString:@"AddCategory"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        LureDetailViewController *controller = (LureDetailViewController *)navigationController.topViewController;
+        LureCategoryDetailViewController *controller = (LureCategoryDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
     
-    // edit lure called from accessory button
-    if ([segue.identifier isEqualToString:@"EditLure"]) {
+    if ([segue.identifier isEqualToString:@"EditCategory"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        LureDetailViewController *controller = (LureDetailViewController *)navigationController.topViewController;
+        LureCategoryDetailViewController *controller = (LureCategoryDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Lure *lure = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        controller.lureToEdit = lure;
+        LureType *lureType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.lureCategoryToEdit = lureType;
     }
 }
 

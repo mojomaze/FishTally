@@ -245,7 +245,7 @@
     // fish and lure are required
     if (catchFish == nil || catchLure == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete"
-                                                        message:@"Add catch and lure"
+                                                        message:@"Add fish and lure"
                                                        delegate: self
                                               cancelButtonTitle:@"Ok" 
                                               otherButtonTitles:nil ];

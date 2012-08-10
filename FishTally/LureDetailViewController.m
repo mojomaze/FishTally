@@ -9,6 +9,7 @@
 #import "LureDetailViewController.h"
 #import "Lure.h"
 #import "CategoryPickerViewController.h"
+#import "LureType.h"
 
 @interface LureDetailViewController()
 - (void)showPhotoMenu;
@@ -22,6 +23,7 @@
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
     NSString *category;
+    LureType *lureType;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -115,7 +117,8 @@
             }
         }
         multiplier = [self.lureToEdit.multiplier doubleValue];
-        category = self.lureToEdit.category;
+        category = self.lureToEdit.lureCategory;
+        lureType = self.lureToEdit.lureType;
     } else {
         [self.nameTextField becomeFirstResponder];
     }
@@ -224,7 +227,8 @@
     if ([segue.identifier isEqualToString:@"PickCategory"]) {
         CategoryPickerViewController *controller = segue.destinationViewController;
         controller.delegate = self;
-        controller.selectedCategoryName = category;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.selectedCategory = lureType;
     }
 }
 
@@ -251,6 +255,18 @@
 
 - (IBAction)done:(id)sender
 {
+    // lureType is required
+    if (lureType == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete"
+                                                        message:@"Add category"
+                                                       delegate: self
+                                              cancelButtonTitle:@"Ok" 
+                                              otherButtonTitles:nil ];
+        [alert show];
+        return;
+    }    
+
+    
     Lure *lure = nil;
     if (self.lureToEdit != nil) {
         lure = self.lureToEdit;
@@ -260,7 +276,7 @@
     }
     lure.name = lureName;
     lure.multiplier = [NSNumber numberWithFloat:multiplier];
-    lure.category = category;
+    lure.lureType = lureType;
     
     if (image != nil) {
         if (![lure hasPhoto]) {
@@ -370,8 +386,9 @@
 
 #pragma mark - CategoryPickerViewDelegate
 
-- (void) categoryPicker:(CategoryPickerViewController *)picker didPickCategory:(NSString *)categoryName {
-    category = categoryName;
+- (void) categoryPicker:(CategoryPickerViewController *)picker didPickLureType:(LureType *)selectedLureType {
+    lureType = selectedLureType;
+    category = selectedLureType.name;
     self.categoryLabel.text = category;
     [self.navigationController popViewControllerAnimated:YES];
 }

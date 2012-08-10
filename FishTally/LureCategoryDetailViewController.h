@@ -1,21 +1,21 @@
 //
-//  GameDetailViewController.h
+//  LureCategoryDetailViewController.h
 //  FishTally
 //
-//  Created by Mark Winkler on 7/3/12.
+//  Created by Mark Winkler on 8/10/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class Game;
+@class LureType;
 
-@interface GameDetailViewController : UITableViewController
+@interface LureCategoryDetailViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) Game *gameToEdit;
+@property (nonatomic, strong) LureType *lureCategoryToEdit;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
-           
+
 -(IBAction)done:(id)sender;
 -(IBAction)cancel:(id)sender;
 

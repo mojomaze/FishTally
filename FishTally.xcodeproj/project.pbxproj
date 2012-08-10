@@ -44,6 +44,10 @@
 		57B67C0015AA368800F20369 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B67BFA15AA368800F20369 /* Icon-Small@2x.png */; };
 		57B67C0115AA368800F20369 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B67BFB15AA368800F20369 /* Icon.png */; };
 		57B67C0215AA368800F20369 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B67BFC15AA368800F20369 /* Icon@2x.png */; };
+		57CCCB1B15D54DEF00BFB3BB /* FishFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCB1A15D54DEF00BFB3BB /* FishFamily.m */; };
+		57CCCB1E15D54E1600BFB3BB /* LureType.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCB1D15D54E1600BFB3BB /* LureType.m */; };
+		57CCCB2115D579F900BFB3BB /* LureCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCB2015D579F900BFB3BB /* LureCategoriesViewController.m */; };
+		57CCCB2415D58F7800BFB3BB /* LureCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCB2315D58F7700BFB3BB /* LureCategoryDetailViewController.m */; };
 		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
 		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
@@ -114,6 +118,14 @@
 		57B67BFA15AA368800F20369 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		57B67BFB15AA368800F20369 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		57B67BFC15AA368800F20369 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		57CCCB1915D54DEF00BFB3BB /* FishFamily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamily.h; sourceTree = "<group>"; };
+		57CCCB1A15D54DEF00BFB3BB /* FishFamily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishFamily.m; sourceTree = "<group>"; };
+		57CCCB1C15D54E1600BFB3BB /* LureType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LureType.h; sourceTree = "<group>"; };
+		57CCCB1D15D54E1600BFB3BB /* LureType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LureType.m; sourceTree = "<group>"; };
+		57CCCB1F15D579F900BFB3BB /* LureCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LureCategoriesViewController.h; sourceTree = "<group>"; };
+		57CCCB2015D579F900BFB3BB /* LureCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LureCategoriesViewController.m; sourceTree = "<group>"; };
+		57CCCB2215D58F7700BFB3BB /* LureCategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LureCategoryDetailViewController.h; sourceTree = "<group>"; };
+		57CCCB2315D58F7700BFB3BB /* LureCategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LureCategoryDetailViewController.m; sourceTree = "<group>"; };
 		57CE30EC15A4BFA500A6F508 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		57CE30ED15A4BFA500A6F508 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		57CF891515A786FB00496637 /* LurePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LurePickerViewController.h; sourceTree = "<group>"; };
@@ -193,6 +205,10 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57CCCB2215D58F7700BFB3BB /* LureCategoryDetailViewController.h */,
+				57CCCB2315D58F7700BFB3BB /* LureCategoryDetailViewController.m */,
+				57CCCB1F15D579F900BFB3BB /* LureCategoriesViewController.h */,
+				57CCCB2015D579F900BFB3BB /* LureCategoriesViewController.m */,
 				575A3A3315B1F0A2005349B8 /* CategoryPickerViewController.h */,
 				575A3A3415B1F0A2005349B8 /* CategoryPickerViewController.m */,
 				576D51D015B0B607000429DB /* FamilyPickerViewController.h */,
@@ -227,6 +243,10 @@
 				5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */,
 				57952A1715A3302A00D1682C /* Supporting Files */,
 				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
+				57CCCB1C15D54E1600BFB3BB /* LureType.h */,
+				57CCCB1D15D54E1600BFB3BB /* LureType.m */,
+				57CCCB1915D54DEF00BFB3BB /* FishFamily.h */,
+				57CCCB1A15D54DEF00BFB3BB /* FishFamily.m */,
 				5723D00915A653DA00A5AA13 /* Player.h */,
 				5723D00A15A653DA00A5AA13 /* Player.m */,
 				5723D00615A6526500A5AA13 /* Fish.h */,
@@ -381,6 +401,10 @@
 				57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */,
 				576D51D215B0B608000429DB /* FamilyPickerViewController.m in Sources */,
 				575A3A3515B1F0A2005349B8 /* CategoryPickerViewController.m in Sources */,
+				57CCCB1B15D54DEF00BFB3BB /* FishFamily.m in Sources */,
+				57CCCB1E15D54E1600BFB3BB /* LureType.m in Sources */,
+				57CCCB2115D579F900BFB3BB /* LureCategoriesViewController.m in Sources */,
+				57CCCB2415D58F7800BFB3BB /* LureCategoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,7 +49,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Lure" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES];
+    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"lureType.name" ascending:YES];
     NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
     
@@ -61,8 +61,8 @@
     // Setup sections using lure.category
     categories = [[NSMutableArray alloc] init]; 
     for (Lure *lure in lures) {
-        if (![categories containsObject:lure.category]) {
-            [categories addObject:lure.category];
+        if (![categories containsObject:lure.lureCategory]) {
+            [categories addObject:lure.lureCategory];
         }
     }
 }

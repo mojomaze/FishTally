@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class CategoryPickerViewController;
+@class CategoryPickerViewController, LureType;
 
 @protocol CategoryPickerViewDelegate <NSObject>
-- (void)categoryPicker:(CategoryPickerViewController *)picker didPickCategory:(NSString*)categoryName;
+- (void)categoryPicker:(CategoryPickerViewController *)picker didPickLureType:(LureType *)selectedLureType;
 @end
 
 @interface CategoryPickerViewController : UITableViewController
 
 @property (nonatomic, weak) id <CategoryPickerViewDelegate> delegate;
-@property (nonatomic, strong) NSString *selectedCategoryName;
+@property (nonatomic, strong) LureType *selectedCategory;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 @end

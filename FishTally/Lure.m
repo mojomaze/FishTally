@@ -8,7 +8,7 @@
 
 #import "Lure.h"
 #import "Player.h"
-
+#import "LureType.h"
 
 @implementation Lure
 
@@ -17,7 +17,7 @@
 @dynamic photoId;
 @dynamic players;
 @dynamic catches;
-@dynamic category;
+@dynamic lureType;
 
 - (BOOL)hasPhoto
 {
@@ -55,6 +55,14 @@
             NSLog(@"Error removing file: %@", error);
         }
     }
+}
+
+- (NSString *)lureCategory
+{
+    if (self.lureType) {
+        return self.lureType.name;
+    }
+    return @"No Category";
 }
 
 @end

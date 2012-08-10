@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Catch;
+@class Catch, FishFamily;
 
 @interface Fish : NSManagedObject
 
@@ -18,12 +18,13 @@
 @property (nonatomic, retain) NSNumber * largePointValue;
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSSet *catches;
-@property (nonatomic, retain) NSString *family;
+@property (nonatomic, retain) FishFamily *family;
 
 - (BOOL)hasPhoto;
 - (NSString *)photoPath;
 - (UIImage *)photoImage;
 - (void)removePhotoFile;
+- (NSString *)familyName;
 
 @end
 

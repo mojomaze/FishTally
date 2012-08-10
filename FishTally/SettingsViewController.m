@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "LuresViewController.h"
 #import "FishViewController.h"
+#import "LureCategoriesViewController.h"
 
 @implementation SettingsViewController
 
@@ -90,6 +91,12 @@
         LuresViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+    if ([segue.identifier isEqualToString:@"LureCategories"]) {
+        LureCategoriesViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+
 }
 
 @end

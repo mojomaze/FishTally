@@ -7,6 +7,8 @@
 //
 
 #import "CategoryPickerViewController.h"
+#import "LureType.h"
+#import "LureCategoryDetailViewController.h"
 
 @interface CategoryPickerViewController ()
 
@@ -14,11 +16,12 @@
 
 @implementation CategoryPickerViewController {
     NSIndexPath *selectedIndexPath;
-    NSMutableArray *categories;
+    NSArray *categories;
 }
 
 @synthesize delegate = _delegate;
-@synthesize selectedCategoryName = _selectedCategoryName;
+@synthesize selectedCategory = _selectedCategory;
+@synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,17 +35,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    categories = [NSArray arrayWithObjects:
-                  @"No Category",
-                  @"Fly/Popper",
-                  @"Livebait",
-                  @"Plastic",
-                  @"Plug",
-                  @"Spinner",
-                  @"Spinnerbait",
-                  @"Spoon",
-                  Nil ];
     
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"LureType" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSError *error;
+    categories = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 - (void)viewDidUnload
@@ -78,10 +83,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSString *categoryName = [categories objectAtIndex:indexPath.row];
+    LureType *category = [categories objectAtIndex:indexPath.row];
+    NSString *categoryName = category.name;
     cell.textLabel.text = categoryName;
     
-    if ([categoryName isEqualToString:self.selectedCategoryName]) {
+    if ([categoryName isEqualToString:self.selectedCategory.name]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         selectedIndexPath = indexPath;
     } else {
@@ -105,8 +111,8 @@
         selectedIndexPath = indexPath;
     }
     
-    NSString *categoryName = [categories objectAtIndex:indexPath.row];
-    [self.delegate categoryPicker:self didPickCategory:categoryName];
+    LureType *lureType = [categories objectAtIndex:indexPath.row];
+    [self.delegate categoryPicker:self didPickLureType:lureType];
 }
 
 @end
