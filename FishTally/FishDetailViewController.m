@@ -9,6 +9,7 @@
 #import "FishDetailViewController.h"
 #import "Fish.h"
 #import "FamilyPickerViewController.h"
+#import "FishFamily.h"
 
 @interface FishDetailViewController()
 - (void)showPhotoMenu;
@@ -22,7 +23,8 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
-    NSString *family;
+    NSString *familyName;
+    FishFamily *fishFamily;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -42,7 +44,7 @@
         fishName = @"";
         smallPoints = 0;
         largePoints = 0;
-        family = @"No Family";
+        familyName = @"No Family";
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidEnterBackground)
@@ -121,7 +123,8 @@
         }
         smallPoints = [self.fishToEdit.smallPointValue intValue];
         largePoints = [self.fishToEdit.largePointValue intValue];
-        family = self.fishToEdit.family;
+        fishFamily = self.fishToEdit.fishFamily;
+        familyName = [self.fishToEdit familyName];
 
     } else {
         [self.nameTextField becomeFirstResponder];
@@ -136,7 +139,7 @@
     self.largePointStepper.value = largePoints;
     self.smallPointLabel.text = [NSString stringWithFormat:@"%d %@", smallPoints, NSLocalizedString(@"points", nil)];
     self.largePointLabel.text = [NSString stringWithFormat:@"%d %@", largePoints, NSLocalizedString(@"points", nil)];
-    self.familyLabel.text = family;
+    self.familyLabel.text = familyName;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(hideKeyboard:)];
@@ -210,7 +213,8 @@
     if ([segue.identifier isEqualToString:@"PickFamily"]) {
         FamilyPickerViewController *controller = segue.destinationViewController;
         controller.delegate = self;
-        controller.selectedFamilyName = family;
+        controller.selectedFamily = fishFamily;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -278,7 +282,7 @@
     fish.name = fishName;
     fish.smallPointValue = [NSNumber numberWithFloat:smallPoints];
     fish.largePointValue = [NSNumber numberWithFloat:largePoints];
-    fish.family = family;
+    fish.fishFamily = fishFamily;
     
     if (image != nil) {
         if (![fish hasPhoto]) {
@@ -388,9 +392,10 @@
 
 #pragma mark - FamilyPickerViewDelegate
 
-- (void)familyPicker:(FamilyPickerViewController *)picker didPickFamily:(NSString *)familyName {
-    family = familyName;
-    self.familyLabel.text = family;
+- (void)familyPicker:(FamilyPickerViewController *)picker didPickFamily:(FishFamily *)selectedFishFamily {
+    fishFamily = selectedFishFamily;
+    familyName = selectedFishFamily.name;
+    self.familyLabel.text = familyName;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

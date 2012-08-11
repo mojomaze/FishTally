@@ -9,6 +9,7 @@
 #import "FishPickerViewController.h"
 #import "Fish.h"
 #import "UIImage+Resize.h"
+#import "FishFamily.h"
 
 @implementation FishPickerViewController {
     NSArray *fishs;
@@ -60,8 +61,8 @@
     // setup sections using fish.family property
     families = [[NSMutableArray alloc] init];
     for (Fish *fish in fishs) {
-        if(![families containsObject:fish.family]) {
-            [families addObject:fish.family];
+        if(![families containsObject:fish.fishFamily]) {
+            [families addObject:fish.fishFamily.name];
         }
     }
 }

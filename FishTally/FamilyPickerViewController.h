@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class FamilyPickerViewController;
+@class FamilyPickerViewController, FishFamily;
 
 @protocol FamilyPickerViewDelegate <NSObject>
-- (void)familyPicker:(FamilyPickerViewController *)picker didPickFamily:(NSString *)familyName;
+- (void)familyPicker:(FamilyPickerViewController *)picker didPickFamily:(FishFamily *)selectedFishFamily;
 @end
 
 @interface FamilyPickerViewController : UITableViewController
 
 @property (nonatomic, weak) id <FamilyPickerViewDelegate> delegate;
-@property (nonatomic, strong) NSString *selectedFamilyName;
-
+@property (nonatomic, strong) FishFamily *selectedFamily;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

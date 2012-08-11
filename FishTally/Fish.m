@@ -17,7 +17,7 @@
 @dynamic largePointValue;
 @dynamic photoId;
 @dynamic catches;
-@dynamic family;
+@dynamic fishFamily;
 
 - (BOOL)hasPhoto
 {
@@ -59,8 +59,8 @@
 
 - (NSString *)familyName
 {
-    if (self.family) {
-        return self.family.name;
+    if (self.fishFamily) {
+        return self.fishFamily.name;
     }
     return @"No Family";
 }

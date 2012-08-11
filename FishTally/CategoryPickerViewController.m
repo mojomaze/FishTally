@@ -8,7 +8,6 @@
 
 #import "CategoryPickerViewController.h"
 #import "LureType.h"
-#import "LureCategoryDetailViewController.h"
 
 @interface CategoryPickerViewController ()
 

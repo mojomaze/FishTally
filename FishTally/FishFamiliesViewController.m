@@ -1,17 +1,20 @@
 //
-//  FishViewController.m
+//  FishFamiliesViewController.m
 //  FishTally
 //
-//  Created by Mark Winkler on 7/6/12.
+//  Created by Mark Winkler on 8/11/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FishViewController.h"
-#import "Fish.h"
-#import "FishDetailViewController.h"
-#import "UIImage+Resize.h"
+#import "FishFamiliesViewController.h"
+#import "FishFamilyDetailViewController.h"
+#import "FishFamily.h"
 
-@implementation FishViewController {
+@interface FishFamiliesViewController ()
+
+@end
+
+@implementation FishFamiliesViewController {
     NSFetchedResultsController *fetchedResultsController;
 }
 
@@ -42,20 +45,19 @@
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fish" inManagedObjectContext:self.managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"FishFamily" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
-        NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"fishFamily.name" ascending:YES];
-        NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
         [fetchRequest setFetchBatchSize:20];
         
         fetchedResultsController = [[NSFetchedResultsController alloc]
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
-                                    sectionNameKeyPath:@"fishFamily.name"
-                                    cacheName:@"Fish"];
+                                    sectionNameKeyPath:nil
+                                    cacheName:nil];
         
         fetchedResultsController.delegate = self;
     }
@@ -74,6 +76,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.allowsSelectionDuringEditing = YES;
     [self performFetch];
 }
 
@@ -117,43 +120,22 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [[self.fetchedResultsController sections] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];}
+    return [sectionInfo numberOfObjects];
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Fish *fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.text = fish.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d/%d points", [fish.smallPointValue intValue], [fish.largePointValue intValue]]; 
-
-    
-    UIImage *image = nil;
-    if ([fish hasPhoto]) {
-        image = [fish photoImage];
-        if (image != nil) {
-            image = [image resizedImageWithBounds:CGSizeMake(44, 44) withAspectType:ImageAspectTypeFit];
-        }
-    }
-    cell.imageView.image = image;
+    FishFamily *fishFamily = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = fishFamily.name;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Fish"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -164,15 +146,15 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"EditFish"
+    [self performSegueWithIdentifier:@"EditFamily"
                               sender:cell]; 
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Fish *Fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:Fish];
+        FishFamily *fishFamily = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:fishFamily];
         
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
@@ -184,22 +166,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // add Fish called from nav button
-    if ([segue.identifier isEqualToString:@"AddFish"]) {
+    if ([segue.identifier isEqualToString:@"AddFamily"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        FishDetailViewController *controller = (FishDetailViewController *)navigationController.topViewController;
+        FishFamilyDetailViewController *controller = (FishFamilyDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
     
-    // edit Fish called from accessory button
-    if ([segue.identifier isEqualToString:@"EditFish"]) {
+    if ([segue.identifier isEqualToString:@"EditFamily"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        FishDetailViewController *controller = (FishDetailViewController *)navigationController.topViewController;
+        FishFamilyDetailViewController *controller = (FishFamilyDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Fish *Fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        controller.fishToEdit = Fish;
+        FishFamily *fishFamily = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.fishFamilyToEdit = fishFamily;
     }
 }
 

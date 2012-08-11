@@ -96,7 +96,11 @@
         LureCategoriesViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
-
+    
+    if ([segue.identifier isEqualToString:@"FishFamilies"]) {
+        LureCategoriesViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
 }
 
 @end

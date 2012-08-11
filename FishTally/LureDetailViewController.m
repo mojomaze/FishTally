@@ -117,7 +117,7 @@
             }
         }
         multiplier = [self.lureToEdit.multiplier doubleValue];
-        category = self.lureToEdit.lureCategory;
+        category = [self.lureToEdit lureCategory];
         lureType = self.lureToEdit.lureType;
     } else {
         [self.nameTextField becomeFirstResponder];

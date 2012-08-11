@@ -7,18 +7,20 @@
 //
 
 #import "FamilyPickerViewController.h"
+#import "FishFamily.h"
 
 @interface FamilyPickerViewController ()
 
 @end
 
 @implementation FamilyPickerViewController {
-    NSMutableArray *families;
+    NSArray *families;
     NSIndexPath *selectedIndexPath;
 }
 
 @synthesize delegate = _delegate;
-@synthesize selectedFamilyName = _selectedFamilyName;
+@synthesize selectedFamily = _selectedFamily;
+@synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,14 +34,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    families = [NSArray arrayWithObjects:
-                @"No Family",
-                @"Bass",
-                @"Perch",
-                @"Salmon",
-                @"Sunfish",
-                @"Trout",
-                nil];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FishFamily" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSError *error;
+    families = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 - (void)viewDidUnload
@@ -75,16 +82,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSString *familyName = [families objectAtIndex:indexPath.row];
+    FishFamily *family = [families objectAtIndex:indexPath.row];
+    NSString *familyName = family.name;
     cell.textLabel.text = familyName;
     
-    if ([familyName isEqualToString:self.selectedFamilyName]) {
+    if ([familyName isEqualToString:self.selectedFamily.name]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         selectedIndexPath = indexPath;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-
     
     return cell;
 }
@@ -103,8 +110,8 @@
         selectedIndexPath = indexPath;
     }
     
-    NSString *familyName = [families objectAtIndex:indexPath.row];
-    [self.delegate familyPicker:self didPickFamily:familyName];
+    FishFamily *family = [families objectAtIndex:indexPath.row];
+    [self.delegate familyPicker:self didPickFamily:family];
 }
 
 @end
