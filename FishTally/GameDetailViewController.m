@@ -33,6 +33,15 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)toggleSaveButtonWithText:(NSString *)text
+{
+    if ([text length] > 0) {
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    } else {
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -54,7 +63,7 @@
     
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
-    
+    [self toggleSaveButtonWithText:self.nameTextField.text];
     [self.nameTextField becomeFirstResponder];
 }
 
@@ -97,6 +106,20 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self.nameTextField becomeFirstResponder];
     }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newText = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
+    [self toggleSaveButtonWithText:newText];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)theTextField
+{
+    [self toggleSaveButtonWithText:theTextField.text];
 }
 
 - (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer

@@ -10,7 +10,7 @@
 
 @class Game;
 
-@interface GameDetailViewController : UITableViewController
+@interface GameDetailViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Game *gameToEdit;
