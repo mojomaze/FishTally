@@ -43,8 +43,6 @@
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     
-    [fetchRequest setFetchBatchSize:20];
-    
     NSError *error;
     categories = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }

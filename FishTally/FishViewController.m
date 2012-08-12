@@ -16,6 +16,7 @@
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize delegate = _delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -221,11 +222,14 @@
         case NSFetchedResultsChangeInsert:
             NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeInsert");
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+            [self.delegate listDidChangeCountForEntity:@"Fish"];
             break;
             
         case NSFetchedResultsChangeDelete:
             NSLog(@"*** controllerDidChangeObject - NSFetchedResultsChangeDelete");
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.delegate listDidChangeCountForEntity:@"Fish"];
             break;
             
         case NSFetchedResultsChangeUpdate:

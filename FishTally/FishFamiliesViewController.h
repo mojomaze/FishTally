@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsListViewDelegate.h"
 
 @interface FishFamiliesViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, weak) id <SettingsListViewDelegate> delegate;
 
 @end

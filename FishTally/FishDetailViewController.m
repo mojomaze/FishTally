@@ -272,6 +272,17 @@
 
 - (IBAction)done:(id)sender
 {
+    // fishFamily is required
+    if (fishFamily == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete"
+                                                        message:@"Add family"
+                                                       delegate: self
+                                              cancelButtonTitle:@"Ok" 
+                                              otherButtonTitles:nil ];
+        [alert show];
+        return;
+    }
+    
     Fish *fish = nil;
     if (self.fishToEdit != nil) {
         fish = self.fishToEdit;

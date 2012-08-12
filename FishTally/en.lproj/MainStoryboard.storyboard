@@ -864,6 +864,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="r7N-uU-Spo"/>
+                    <connections>
+                        <outlet property="catchSizesLabel" destination="ts1-8e-s7p" id="xYi-Zh-vrU"/>
+                        <outlet property="fishFamiliesLabel" destination="PDV-7k-4h2" id="iJA-Tz-hew"/>
+                        <outlet property="fishLabel" destination="K60-DZ-xIr" id="jKb-GQ-oB3"/>
+                        <outlet property="lureCategoriesLabel" destination="qnE-Gr-Qry" id="gfd-bl-xEv"/>
+                        <outlet property="luresLabel" destination="2D3-YO-zNB" id="1cZ-YP-kyq"/>
+                        <outlet property="measurementUnitLabel" destination="ZqU-Iy-LWQ" id="ft2-b5-W3G"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1178" y="1235"/>
@@ -1923,6 +1931,14 @@
         </class>
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="catchSizesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fishFamiliesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fishLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lureCategoriesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="luresLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="measurementUnitLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -11,9 +11,36 @@
 #import "FishViewController.h"
 #import "LureCategoriesViewController.h"
 
-@implementation SettingsViewController
+@interface SettingsViewController ()
+
+@property (nonatomic, strong) IBOutlet UILabel *fishLabel;
+@property (nonatomic, strong) IBOutlet UILabel *fishFamiliesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *luresLabel;
+@property (nonatomic, strong) IBOutlet UILabel *lureCategoriesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *catchSizesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *measurementUnitLabel;
+
+- (void)updateAllCounts;
+- (NSUInteger)getCountForEntity:(NSString *)entityName;
+- (void)updateCountLabelForEntity:(NSString *)entityName;
+
+@end
+
+@implementation SettingsViewController {
+    NSFetchRequest *fetchRequest;
+    int fishCount;
+    int familyCount;
+    int lureCount;
+    int categoryCount;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize fishLabel = _fishLabel;
+@synthesize fishFamiliesLabel = _fishFamiliesLabel;
+@synthesize luresLabel = _luresLabel;
+@synthesize lureCategoriesLabel = _lureCategoriesLabel;
+@synthesize catchSizesLabel = _catchSizesLabel;
+@synthesize measurementUnitLabel = _measurementUnitLabel;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,19 +64,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self updateAllCounts];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.fishFamiliesLabel = nil;
+    self.luresLabel = nil;
+    self.lureCategoriesLabel = nil;
+    self.catchSizesLabel = nil;
+    self.measurementUnitLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,6 +103,59 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)updateAllCounts
+{
+    if (fetchRequest == nil) {
+        fetchRequest = [[NSFetchRequest alloc] init];
+    }
+    NSUInteger count = [self getCountForEntity:@"Fish"];
+    if (count != NSNotFound) {
+        fishCount = count;
+        [self updateCountLabelForEntity:@"Fish"];
+    }
+    count = [self getCountForEntity:@"FishFamily"];
+    if (count != NSNotFound) {
+        familyCount = count;
+        [self updateCountLabelForEntity:@"FishFamily"];
+    }
+    count = [self getCountForEntity:@"Lure"];
+    if (count != NSNotFound) {
+        lureCount = count;
+        [self updateCountLabelForEntity:@"Lure"];
+    }
+    count = [self getCountForEntity:@"LureType"];
+    if (count != NSNotFound) {
+        categoryCount = count;
+        [self updateCountLabelForEntity:@"LureType"];
+    }
+}
+
+- (NSUInteger)getCountForEntity:(NSString *)entityName
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;    
+    NSUInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    return count;
+}
+
+- (void)updateCountLabelForEntity:(NSString *)entityName
+{    
+    if (entityName == @"Fish") {
+        self.fishLabel.text = [NSString stringWithFormat:@"%d", fishCount];
+    }
+    if (entityName == @"FishFamily") {
+        self.fishFamiliesLabel.text = [NSString stringWithFormat:@"%d", familyCount];
+    }
+    if (entityName == @"Lure") {
+        self.luresLabel.text = [NSString stringWithFormat:@"%d", lureCount];
+    }
+    if (entityName == @"LureType") {
+        self.lureCategoriesLabel.text = [NSString stringWithFormat:@"%d", categoryCount];
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -85,22 +163,54 @@
     if ([segue.identifier isEqualToString:@"FishSettings"]) {
         FishViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"LureSettings"]) {
         LuresViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"LureCategories"]) {
         LureCategoriesViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"FishFamilies"]) {
         LureCategoriesViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
     }
+}
+
+#pragma mark - SettingsListViewDelegate
+
+- (void)listDidChangeCountForEntity:(NSString *)entityName
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;    
+    NSUInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    if (count != NSNotFound) {
+        if (entityName == @"Fish") {
+            fishCount = count;
+        }
+        if (entityName == @"FishFamily") {
+            familyCount = count;
+        }
+        if (entityName == @"Lure") {
+            lureCount = count;
+        }
+        if (entityName == @"LureType") {
+            categoryCount = count;
+        }
+        
+        [self updateCountLabelForEntity:entityName];
+    }
+    
 }
 
 @end

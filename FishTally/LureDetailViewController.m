@@ -266,7 +266,6 @@
         return;
     }    
 
-    
     Lure *lure = nil;
     if (self.lureToEdit != nil) {
         lure = self.lureToEdit;

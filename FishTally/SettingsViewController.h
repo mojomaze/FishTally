@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsListViewDelegate.h"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <SettingsListViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

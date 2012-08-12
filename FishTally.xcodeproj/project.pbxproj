@@ -81,6 +81,7 @@
 		57417A8415D6B45B0003910D /* FishFamiliesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishFamiliesViewController.m; sourceTree = "<group>"; };
 		57417A8715D6B4980003910D /* FishFamilyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamilyDetailViewController.h; sourceTree = "<group>"; };
 		57417A8815D6B4980003910D /* FishFamilyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishFamilyDetailViewController.m; sourceTree = "<group>"; };
+		574391B715D7F0DF00BF8D31 /* SettingsListViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsListViewDelegate.h; sourceTree = "<group>"; };
 		575A3A3315B1F0A2005349B8 /* CategoryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryPickerViewController.h; sourceTree = "<group>"; };
 		575A3A3415B1F0A2005349B8 /* CategoryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryPickerViewController.m; sourceTree = "<group>"; };
 		575BD31815A8E6D4007BC668 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 				575A3A3415B1F0A2005349B8 /* CategoryPickerViewController.m */,
 				576D51D015B0B607000429DB /* FamilyPickerViewController.h */,
 				576D51D115B0B608000429DB /* FamilyPickerViewController.m */,
+				574391B715D7F0DF00BF8D31 /* SettingsListViewDelegate.h */,
 				57E998B715A9D14A00807120 /* Launch Images */,
 				575BD31215A8D756007BC668 /* images */,
 				57E03A4A15A8AB2300921585 /* FishPickerViewController.h */,
