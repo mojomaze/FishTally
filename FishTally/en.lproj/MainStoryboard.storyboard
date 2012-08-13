@@ -16,29 +16,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Game" rowHeight="66" id="tbB-Bi-c8L" customClass="GameCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Game" rowHeight="66" id="tbB-Bi-c8L" customClass="GameCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Name" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="56c-kO-4jc">
-                                            <rect key="frame" x="20" y="9" width="205" height="21"/>
+                                            <rect key="frame" x="20" y="9" width="192" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="date" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="aY4-qo-1El">
-                                            <rect key="frame" x="20" y="32" width="205" height="21"/>
+                                            <rect key="frame" x="20" y="32" width="192" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hz0-0C-vjU">
-                                            <rect key="frame" x="233" y="3" width="60" height="60"/>
+                                            <rect key="frame" x="220" y="3" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -63,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="SN6-fx-Rn2" kind="modal" identifier="EditGame" id="efb-8Z-CLj"/>
+                        <segue destination="SN6-fx-Rn2" kind="modal" identifier="EditGame" modalTransitionStyle="flipHorizontal" id="efb-8Z-CLj"/>
                         <segue destination="9yw-eo-Ddd" kind="push" identifier="GamePlayers" id="fy9-xe-Wf2"/>
                     </connections>
                 </tableViewController>
@@ -1950,13 +1950,13 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rf1-7m-T4K"/>
         <segue reference="9bF-ts-QbO"/>
-        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="Rf1-7m-T4K"/>
         <segue reference="JKd-Sk-BDw"/>
-        <segue reference="whz-yQ-haV"/>
+        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="efb-8Z-CLj"/>
         <segue reference="Xl1-3f-MlF"/>
-        <segue reference="uUM-1f-Ic1"/>
         <segue reference="k89-qL-IHY"/>
+        <segue reference="uUM-1f-Ic1"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -151,10 +151,37 @@
                               sender:cell]; 
 }
 
+- (bool)isDeletableWithParentFamily:(FishFamily *)family
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fish" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fishFamily == %@", family];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fish = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    int count = [fish count];
+    return (count == 0);
+}
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         FishFamily *fishFamily = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        // validate deletion
+        if (![self isDeletableWithParentFamily:fishFamily]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Delete Family"
+                                                            message:@"Family is used in Fish"
+                                                           delegate: self
+                                                  cancelButtonTitle:@"Ok" 
+                                                  otherButtonTitles:nil ];
+            [alert show];
+            return;
+        }
+        
+        
         [self.managedObjectContext deleteObject:fishFamily];
         
         NSError *error;

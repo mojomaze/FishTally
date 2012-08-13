@@ -75,8 +75,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.tableView.allowsSelectionDuringEditing = YES;
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //self.tableView.allowsSelectionDuringEditing = YES;
     [self performFetch];
 }
 
@@ -145,6 +145,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Game"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"EditGame"
+                              sender:cell]; 
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {

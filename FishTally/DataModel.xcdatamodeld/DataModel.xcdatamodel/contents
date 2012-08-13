@@ -19,7 +19,7 @@
     </entity>
     <entity name="FishFamily" representedClassName="FishFamily" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="fish" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fish" inverseName="fishFamily" inverseEntity="Fish" syncable="YES"/>
+        <relationship name="fish" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Fish" inverseName="fishFamily" inverseEntity="Fish" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
