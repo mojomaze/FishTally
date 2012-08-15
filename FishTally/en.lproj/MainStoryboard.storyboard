@@ -857,6 +857,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="n0N-BC-BxK" kind="push" identifier="PickUnits" id="pGM-1h-iTz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1036,6 +1039,45 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1655" y="2415"/>
+        </scene>
+        <!--Units Picker View Controller - Select Units-->
+        <scene sceneID="xe5-e2-xbV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EUU-yw-3T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="n0N-BC-BxK" customClass="UnitsPickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TmH-WF-lVF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Dod-Cg-HQv" style="IBUITableViewCellStyleDefault" id="aP9-xS-Zug">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dod-Cg-HQv">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n0N-BC-BxK" id="iJC-aM-F1u"/>
+                            <outlet property="delegate" destination="n0N-BC-BxK" id="1aX-cW-DAM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Units" id="pb5-OV-QOC"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1169" y="1838"/>
         </scene>
         <!--Fish Families View Controller - Fish Families-->
         <scene sceneID="yrX-ZC-sWb">
@@ -1942,6 +1984,9 @@
                 <relationship kind="outlet" name="luresLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="measurementUnitLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="UnitsPickerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitsPickerViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

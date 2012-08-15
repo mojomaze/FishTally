@@ -10,6 +10,7 @@
 #import "LuresViewController.h"
 #import "FishViewController.h"
 #import "LureCategoriesViewController.h"
+#import "UnitsPickerViewController.h"
 
 @interface SettingsViewController ()
 
@@ -23,6 +24,7 @@
 - (void)updateAllCounts;
 - (NSUInteger)getCountForEntity:(NSString *)entityName;
 - (void)updateCountLabelForEntity:(NSString *)entityName;
+- (void)updateMeasurementLabel;
 
 @end
 
@@ -32,6 +34,7 @@
     int familyCount;
     int lureCount;
     int categoryCount;
+    NSString *measurementUnits;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -65,6 +68,8 @@
 {
     [super viewDidLoad];
     [self updateAllCounts];
+    measurementUnits = [[NSUserDefaults standardUserDefaults] stringForKey:@"MeasurementUnits"];
+    [self updateMeasurementLabel];
 }
 
 - (void)viewDidUnload
@@ -183,6 +188,12 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.delegate = self;
     }
+    
+    if ([segue.identifier isEqualToString:@"PickUnits"]) {
+        UnitsPickerViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.selectedUnits = measurementUnits;
+    }
 }
 
 #pragma mark - SettingsListViewDelegate
@@ -211,6 +222,24 @@
         [self updateCountLabelForEntity:entityName];
     }
     
+}
+
+- (void)unitsPicker:(UnitsPickerViewController *)picker didPickUnits:(NSString *)units {
+    if (units != measurementUnits) {
+        measurementUnits = units;
+        [[NSUserDefaults standardUserDefaults] setObject:units forKey:@"MeasurementUnits"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self updateMeasurementLabel];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)updateMeasurementLabel {
+    if ([measurementUnits isEqualToString:@"Centimeters"]) {
+        self.measurementUnitLabel.text = @"cm";
+    } else {
+        self.measurementUnitLabel.text = @"in";
+    }
 }
 
 @end

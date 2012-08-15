@@ -53,6 +53,7 @@
 		57CE30EE15A4BFA500A6F508 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CE30ED15A4BFA500A6F508 /* PlayerCell.m */; };
 		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
+		57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */; };
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
@@ -139,6 +140,8 @@
 		57CF891615A786FB00496637 /* LurePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LurePickerViewController.m; sourceTree = "<group>"; };
 		57CF891915A79B2700496637 /* CatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchCell.h; sourceTree = "<group>"; };
 		57CF891A15A79B2800496637 /* CatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCell.m; sourceTree = "<group>"; };
+		57D68C8815DC1DA3007657CB /* UnitsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsPickerViewController.h; sourceTree = "<group>"; };
+		57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsPickerViewController.m; sourceTree = "<group>"; };
 		57E03A3715A885C400921585 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchesViewController.h; sourceTree = "<group>"; };
 		57E03A3815A885C400921585 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchesViewController.m; sourceTree = "<group>"; };
 		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57D68C8815DC1DA3007657CB /* UnitsPickerViewController.h */,
+				57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */,
 				57417A8315D6B45B0003910D /* FishFamiliesViewController.h */,
 				57417A8415D6B45B0003910D /* FishFamiliesViewController.m */,
 				57417A8715D6B4980003910D /* FishFamilyDetailViewController.h */,
@@ -419,6 +424,7 @@
 				57CCCB2415D58F7800BFB3BB /* LureCategoryDetailViewController.m in Sources */,
 				57417A8515D6B45B0003910D /* FishFamiliesViewController.m in Sources */,
 				57417A8915D6B4980003910D /* FishFamilyDetailViewController.m in Sources */,
+				57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

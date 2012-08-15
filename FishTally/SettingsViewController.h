@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsListViewDelegate.h"
+#import "UnitsPickerViewController.h"
 
-@interface SettingsViewController : UITableViewController <SettingsListViewDelegate>
+@interface SettingsViewController : UITableViewController 
+<
+SettingsListViewDelegate,
+UnitsPickerDelegate
+>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

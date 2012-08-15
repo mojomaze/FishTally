@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+- (void) setUserDefaults;
 @end
 
 @implementation AppDelegate
@@ -142,6 +143,14 @@
                               otherButtonTitles:nil];
     
     [alertView show];
+}
+
+- (void) setUserDefaults {
+    NSString *units = [[NSUserDefaults standardUserDefaults] stringForKey:@"MeasurementUnits"];
+    if (units == nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Inches" forKey:@"MeasurementUnits"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 @end
