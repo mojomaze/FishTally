@@ -14,8 +14,7 @@
 @interface Fish : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * smallPointValue;
-@property (nonatomic, retain) NSNumber * largePointValue;
+@property (nonatomic, retain) NSNumber * points;
 @property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSSet *catches;
 @property (nonatomic, retain) FishFamily *fishFamily;

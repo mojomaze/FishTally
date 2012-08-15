@@ -54,6 +54,7 @@
 		57CF891715A786FB00496637 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891615A786FB00496637 /* LurePickerViewController.m */; };
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
 		57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */; };
+		57D68C8E15DC3612007657CB /* CatchSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8D15DC3612007657CB /* CatchSize.m */; };
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
@@ -142,6 +143,8 @@
 		57CF891A15A79B2800496637 /* CatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCell.m; sourceTree = "<group>"; };
 		57D68C8815DC1DA3007657CB /* UnitsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsPickerViewController.h; sourceTree = "<group>"; };
 		57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsPickerViewController.m; sourceTree = "<group>"; };
+		57D68C8C15DC3612007657CB /* CatchSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchSize.h; sourceTree = "<group>"; };
+		57D68C8D15DC3612007657CB /* CatchSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSize.m; sourceTree = "<group>"; };
 		57E03A3715A885C400921585 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchesViewController.h; sourceTree = "<group>"; };
 		57E03A3815A885C400921585 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchesViewController.m; sourceTree = "<group>"; };
 		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */,
 				57952A1715A3302A00D1682C /* Supporting Files */,
 				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
+				57D68C8C15DC3612007657CB /* CatchSize.h */,
+				57D68C8D15DC3612007657CB /* CatchSize.m */,
 				57CCCB1C15D54E1600BFB3BB /* LureType.h */,
 				57CCCB1D15D54E1600BFB3BB /* LureType.m */,
 				57CCCB1915D54DEF00BFB3BB /* FishFamily.h */,
@@ -425,6 +430,7 @@
 				57417A8515D6B45B0003910D /* FishFamiliesViewController.m in Sources */,
 				57417A8915D6B4980003910D /* FishFamilyDetailViewController.m in Sources */,
 				57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */,
+				57D68C8E15DC3612007657CB /* CatchSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

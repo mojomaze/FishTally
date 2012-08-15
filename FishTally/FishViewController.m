@@ -139,7 +139,7 @@
     Fish *fish = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = fish.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d/%d points", [fish.smallPointValue intValue], [fish.largePointValue intValue]]; 
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d points", [fish.points intValue]]; 
 
     
     UIImage *image = nil;

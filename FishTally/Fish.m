@@ -13,8 +13,7 @@
 @implementation Fish
 
 @dynamic name;
-@dynamic smallPointValue;
-@dynamic largePointValue;
+@dynamic points;
 @dynamic photoId;
 @dynamic catches;
 @dynamic fishFamily;

@@ -1554,61 +1554,22 @@
                             <tableViewSection headerTitle="Points" id="EVr-VS-ywC">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Hdj-AZ-ZIn">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Small Fry:" lineBreakMode="tailTruncation" minimumFontSize="10" id="vky-cD-RHk">
-                                                    <rect key="frame" x="7" y="11" width="77" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" id="BSm-Aq-QAn">
                                                     <rect key="frame" x="197" y="8" width="94" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
+                                                        <action selector="changePointStepper:" destination="LD6-7F-Vay" eventType="valueChanged" id="WKk-5H-zX0"/>
                                                         <action selector="changeSmallPointStepper:" destination="LD6-7F-Vay" eventType="valueChanged" id="0HY-2D-Vxg"/>
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 points" lineBreakMode="tailTruncation" minimumFontSize="10" id="hFA-Sn-ELv">
-                                                    <rect key="frame" x="100" y="11" width="76" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4Ev-ea-ued">
-                                        <rect key="frame" x="0.0" y="227" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Whopper:" lineBreakMode="tailTruncation" minimumFontSize="10" id="6wH-d9-WzT">
-                                                    <rect key="frame" x="7" y="10" width="77" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" id="Fmz-yp-VMA">
-                                                    <rect key="frame" x="198" y="7" width="94" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <connections>
-                                                        <action selector="changeLargePointStepper:" destination="LD6-7F-Vay" eventType="valueChanged" id="Ne2-PW-9Fb"/>
-                                                    </connections>
-                                                </stepper>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 points" lineBreakMode="tailTruncation" minimumFontSize="10" id="Acv-3G-9Zy">
-                                                    <rect key="frame" x="100" y="10" width="76" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="76" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1624,7 +1585,7 @@
                             <tableViewSection headerTitle="" id="2hO-Oe-sj2">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SYk-iU-lxp">
-                                        <rect key="frame" x="0.0" y="292" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="248" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -1668,11 +1629,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="familyLabel" destination="xar-FZ-goe" id="Uml-l8-21c"/>
-                        <outlet property="largePointLabel" destination="Acv-3G-9Zy" id="rYZ-6d-TRo"/>
-                        <outlet property="largePointStepper" destination="Fmz-yp-VMA" id="Y9h-P6-2rQ"/>
                         <outlet property="nameTextField" destination="Vkl-mB-Q9F" id="1Ln-hP-ABd"/>
                         <outlet property="photoImageView" destination="qjm-Mu-xjH" id="uJL-Fn-dmw"/>
                         <outlet property="photoLabel" destination="gfc-k6-swS" id="ybR-SY-ngr"/>
+                        <outlet property="pointLabel" destination="hFA-Sn-ELv" id="dza-Ss-N7j"/>
+                        <outlet property="pointStepper" destination="BSm-Aq-QAn" id="Utt-jN-zZ3"/>
                         <outlet property="smallPointLabel" destination="hFA-Sn-ELv" id="iaF-cR-G4u"/>
                         <outlet property="smallPointStepper" destination="BSm-Aq-QAn" id="lMS-rE-Ye6"/>
                     </connections>
@@ -1873,17 +1834,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FishDetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="changeLargePointStepper:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="changeSmallPointStepper:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="changePointStepper:" candidateClass="UIStepper"/>
                 <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="familyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="largePointLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="largePointStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="photoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="smallPointLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="smallPointStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="pointLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointStepper" candidateClass="UIStepper"/>
             </relationships>
         </class>
         <class className="FishFamiliesViewController" superclassName="UITableViewController">

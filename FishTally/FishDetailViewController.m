@@ -18,8 +18,7 @@
 
 @implementation FishDetailViewController {
     NSString *fishName;
-    int smallPoints;
-    int largePoints;
+    int points;
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
@@ -32,18 +31,15 @@
 @synthesize nameTextField = _nameTextField;
 @synthesize photoImageView = _photoImageView;
 @synthesize photoLabel = _photoLabel;
-@synthesize smallPointLabel = _smallPointLabel;
-@synthesize smallPointStepper = _smallPointStepper;
-@synthesize largePointLabel = _largePointLabel;
-@synthesize largePointStepper = _largePointStepper;
+@synthesize pointLabel = _pointLabel;
+@synthesize pointStepper = _pointStepper;
 @synthesize familyLabel = _familyLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
         fishName = @"";
-        smallPoints = 0;
-        largePoints = 0;
+        points = 0;
         familyName = @"No Family";
         
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -121,8 +117,7 @@
                 [self showImage:existingImage];
             }
         }
-        smallPoints = [self.fishToEdit.smallPointValue intValue];
-        largePoints = [self.fishToEdit.largePointValue intValue];
+        points = [self.fishToEdit.points intValue];
         fishFamily = self.fishToEdit.fishFamily;
         familyName = [self.fishToEdit familyName];
 
@@ -135,10 +130,8 @@
     }
     
     self.nameTextField.text = fishName;
-    self.smallPointStepper.value = smallPoints;
-    self.largePointStepper.value = largePoints;
-    self.smallPointLabel.text = [NSString stringWithFormat:@"%d %@", smallPoints, NSLocalizedString(@"points", nil)];
-    self.largePointLabel.text = [NSString stringWithFormat:@"%d %@", largePoints, NSLocalizedString(@"points", nil)];
+    self.pointStepper.value = points;
+    self.pointLabel.text = [NSString stringWithFormat:@"%d %@", points, NSLocalizedString(@"points", nil)];
     self.familyLabel.text = familyName;
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
@@ -154,10 +147,8 @@
     [super viewDidUnload];
     self.nameTextField = nil;
     self.photoImageView = nil;
-    self.smallPointStepper = nil;
-    self.smallPointLabel = nil;
-    self.largePointStepper = nil;
-    self.largePointLabel = nil;
+    self.pointStepper = nil;
+    self.pointLabel = nil;
     self.familyLabel = nil;
 }
 
@@ -245,16 +236,10 @@
 
 #pragma mark - point stepper values
 
-- (IBAction)changeSmallPointStepper:(UIStepper *)sender {
+- (IBAction)changePointStepper:(UIStepper *)sender {
     double value = (double)[sender value];
-    smallPoints = value;
-    self.smallPointLabel.text = [NSString stringWithFormat:@"%d %@", smallPoints, NSLocalizedString(@"points", nil)];
-}
-
-- (IBAction)changeLargePointStepper:(UIStepper *)sender {
-    double value = (double)[sender value];
-    largePoints = value;
-    self.largePointLabel.text = [NSString stringWithFormat:@"%d %@", largePoints, NSLocalizedString(@"points", nil)];
+    points = value;
+    self.pointLabel.text = [NSString stringWithFormat:@"%d %@", points, NSLocalizedString(@"points", nil)];
 }
 
 - (void)closeScreen
@@ -291,8 +276,7 @@
         fish.photoId = [NSNumber numberWithInt:-1];
     }
     fish.name = fishName;
-    fish.smallPointValue = [NSNumber numberWithFloat:smallPoints];
-    fish.largePointValue = [NSNumber numberWithFloat:largePoints];
+    fish.points = [NSNumber numberWithFloat:points];
     fish.fishFamily = fishFamily;
     
     if (image != nil) {
