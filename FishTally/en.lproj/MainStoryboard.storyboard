@@ -1565,7 +1565,6 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
                                                         <action selector="changePointStepper:" destination="LD6-7F-Vay" eventType="valueChanged" id="WKk-5H-zX0"/>
-                                                        <action selector="changeSmallPointStepper:" destination="LD6-7F-Vay" eventType="valueChanged" id="0HY-2D-Vxg"/>
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 points" lineBreakMode="tailTruncation" minimumFontSize="10" id="hFA-Sn-ELv">
@@ -1634,8 +1633,6 @@
                         <outlet property="photoLabel" destination="gfc-k6-swS" id="ybR-SY-ngr"/>
                         <outlet property="pointLabel" destination="hFA-Sn-ELv" id="dza-Ss-N7j"/>
                         <outlet property="pointStepper" destination="BSm-Aq-QAn" id="Utt-jN-zZ3"/>
-                        <outlet property="smallPointLabel" destination="hFA-Sn-ELv" id="iaF-cR-G4u"/>
-                        <outlet property="smallPointStepper" destination="BSm-Aq-QAn" id="lMS-rE-Ye6"/>
                     </connections>
                 </tableViewController>
             </objects>

@@ -410,11 +410,8 @@
     
     // lure and fish are required
     if (catchFish && catchLure) {
-        if (size == 1) {
-            points = [catchFish.largePointValue floatValue];
-        } else {
-            points = [catchFish.smallPointValue floatValue];
-        }
+        // TODO: REFACTOR REQUIRED
+        points = [catchFish.points floatValue];
         multiplier = [catchLure.multiplier floatValue];
         score = points * multiplier;
     } else {
