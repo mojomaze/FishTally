@@ -11,6 +11,7 @@
 #import "Player.h"
 #import "Lure.h"
 #import "Fish.h"
+#import "CatchSize.h"
 
 @interface CatchDetailViewController()
 - (void)showPhotoMenu;
@@ -29,6 +30,8 @@
     int size;
     Lure *catchLure;
     Fish *catchFish;
+    NSMutableArray *sizeNames;
+    NSMutableArray *sizeMultipliers;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -107,11 +110,48 @@
     }
 }
 
+- (void)initSizeControl {
+    // get sizes and multipliers
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CatchSize" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"segmentedControlId" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSError *error;
+    NSArray *sizes = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    sizeNames = [[NSMutableArray alloc] init];
+    sizeMultipliers = [[NSMutableArray alloc] init];
+    
+    if ([sizes count] > 1) {
+        for (CatchSize *catchSize in sizes) {
+            [sizeNames addObject:catchSize.name];
+            [sizeMultipliers addObject:catchSize.multiplier];
+        }
+    } else { // add a single default size
+        [sizeNames addObject:@"Small Fry"];
+        [sizeMultipliers addObject:[NSNumber numberWithFloat:1.0f]];
+        [sizeNames addObject:@"Whopper"];
+        [sizeMultipliers addObject:[NSNumber numberWithFloat:1.5f]];
+    }
+    
+    [self.sizeControl removeAllSegments];
+    
+    for (int i = 0; i < [sizeNames count]; i++) {
+        [self.sizeControl insertSegmentWithTitle:[sizeNames objectAtIndex:i] atIndex:i animated:NO];
+    }
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self initSizeControl];
     
     if (self.catchToEdit != nil) {
         self.title = @"Edit Catch";
@@ -137,12 +177,14 @@
             lureName= catchLure.name;
         }
         size = [self.catchToEdit.size intValue];
+        
     } else {
         if (self.player.lure != nil) {
             catchLure = self.player.lure;
             lureName = catchLure.name;
+            // default size to first segment
+            size = 0;;
         }
-        
     }
     
     if (image != nil) {
@@ -406,18 +448,19 @@
 
 - (void)calculateScore {
     float points;
-    float multiplier;
+    float sizeMultiplier;
+    float lureMultiplier;
     
     // lure and fish are required
     if (catchFish && catchLure) {
         // TODO: REFACTOR REQUIRED
         points = [catchFish.points floatValue];
-        multiplier = [catchLure.multiplier floatValue];
-        score = points * multiplier;
+        sizeMultiplier = [[sizeMultipliers objectAtIndex:size] floatValue];
+        lureMultiplier = [catchLure.multiplier floatValue];
+        score = points * sizeMultiplier * lureMultiplier;
     } else {
         score = 0.0f;
     }
-    
 }
 
 - (IBAction)changeCatchSize:(UISegmentedControl *)segmentedControl {

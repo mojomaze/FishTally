@@ -55,6 +55,8 @@
 		57CF891B15A79B2800496637 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF891A15A79B2800496637 /* CatchCell.m */; };
 		57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */; };
 		57D68C8E15DC3612007657CB /* CatchSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8D15DC3612007657CB /* CatchSize.m */; };
+		57D68C9115DC49D8007657CB /* CatchSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C9015DC49D8007657CB /* CatchSizesViewController.m */; };
+		57D68C9415DC49F0007657CB /* CatchSizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C9315DC49F0007657CB /* CatchSizeDetailViewController.m */; };
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
@@ -145,6 +147,10 @@
 		57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsPickerViewController.m; sourceTree = "<group>"; };
 		57D68C8C15DC3612007657CB /* CatchSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchSize.h; sourceTree = "<group>"; };
 		57D68C8D15DC3612007657CB /* CatchSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSize.m; sourceTree = "<group>"; };
+		57D68C8F15DC49D8007657CB /* CatchSizesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchSizesViewController.h; sourceTree = "<group>"; };
+		57D68C9015DC49D8007657CB /* CatchSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSizesViewController.m; sourceTree = "<group>"; };
+		57D68C9215DC49F0007657CB /* CatchSizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchSizeDetailViewController.h; sourceTree = "<group>"; };
+		57D68C9315DC49F0007657CB /* CatchSizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSizeDetailViewController.m; sourceTree = "<group>"; };
 		57E03A3715A885C400921585 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchesViewController.h; sourceTree = "<group>"; };
 		57E03A3815A885C400921585 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchesViewController.m; sourceTree = "<group>"; };
 		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,10 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57D68C8F15DC49D8007657CB /* CatchSizesViewController.h */,
+				57D68C9015DC49D8007657CB /* CatchSizesViewController.m */,
+				57D68C9215DC49F0007657CB /* CatchSizeDetailViewController.h */,
+				57D68C9315DC49F0007657CB /* CatchSizeDetailViewController.m */,
 				57D68C8815DC1DA3007657CB /* UnitsPickerViewController.h */,
 				57D68C8915DC1DA3007657CB /* UnitsPickerViewController.m */,
 				57417A8315D6B45B0003910D /* FishFamiliesViewController.h */,
@@ -431,6 +441,8 @@
 				57417A8915D6B4980003910D /* FishFamilyDetailViewController.m in Sources */,
 				57D68C8A15DC1DA3007657CB /* UnitsPickerViewController.m in Sources */,
 				57D68C8E15DC3612007657CB /* CatchSize.m in Sources */,
+				57D68C9115DC49D8007657CB /* CatchSizesViewController.m in Sources */,
+				57D68C9415DC49F0007657CB /* CatchSizeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

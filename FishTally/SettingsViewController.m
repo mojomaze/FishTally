@@ -11,6 +11,7 @@
 #import "FishViewController.h"
 #import "LureCategoriesViewController.h"
 #import "UnitsPickerViewController.h"
+#import "CatchSizesViewController.h"
 
 @interface SettingsViewController ()
 
@@ -34,6 +35,7 @@
     int familyCount;
     int lureCount;
     int categoryCount;
+    int sizeCount;
     NSString *measurementUnits;
 }
 
@@ -133,6 +135,11 @@
         categoryCount = count;
         [self updateCountLabelForEntity:@"LureType"];
     }
+    count = [self getCountForEntity:@"CatchSize"];
+    if (count != NSNotFound) {
+        sizeCount = count;
+        [self updateCountLabelForEntity:@"CatchSize"];
+    }
 }
 
 - (NSUInteger)getCountForEntity:(NSString *)entityName
@@ -158,6 +165,10 @@
     }
     if (entityName == @"LureType") {
         self.lureCategoriesLabel.text = [NSString stringWithFormat:@"%d", categoryCount];
+    }
+    
+    if (entityName == @"CatchSize") {
+        self.catchSizesLabel.text = [NSString stringWithFormat:@"%d", sizeCount];
     }
 }
 
@@ -194,6 +205,12 @@
         controller.delegate = self;
         controller.selectedUnits = measurementUnits;
     }
+    
+    if ([segue.identifier isEqualToString:@"CatchSizes"]) {
+        CatchSizesViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
+    }
 }
 
 #pragma mark - SettingsListViewDelegate
@@ -217,6 +234,10 @@
         }
         if (entityName == @"LureType") {
             categoryCount = count;
+        }
+        
+        if (entityName == @"CatchSize") {
+            sizeCount = count;
         }
         
         [self updateCountLabelForEntity:entityName];
