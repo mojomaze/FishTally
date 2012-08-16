@@ -15,6 +15,7 @@
 		5723D00515A651E500A5AA13 /* Catch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00415A651E400A5AA13 /* Catch.m */; };
 		5723D00815A6526500A5AA13 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00715A6526500A5AA13 /* Fish.m */; };
 		5723D00B15A653DA00A5AA13 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00A15A653DA00A5AA13 /* Player.m */; };
+		573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573A6C6A15DC902200DF6F8B /* MapKit.framework */; };
 		57417A8515D6B45B0003910D /* FishFamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417A8415D6B45B0003910D /* FishFamiliesViewController.m */; };
 		57417A8915D6B4980003910D /* FishFamilyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417A8815D6B4980003910D /* FishFamilyDetailViewController.m */; };
 		575A3A3515B1F0A2005349B8 /* CategoryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 575A3A3415B1F0A2005349B8 /* CategoryPickerViewController.m */; };
@@ -81,6 +82,7 @@
 		5723D00715A6526500A5AA13 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fish.m; sourceTree = "<group>"; };
 		5723D00915A653DA00A5AA13 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		5723D00A15A653DA00A5AA13 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		573A6C6A15DC902200DF6F8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		57417A8315D6B45B0003910D /* FishFamiliesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamiliesViewController.h; sourceTree = "<group>"; };
 		57417A8415D6B45B0003910D /* FishFamiliesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishFamiliesViewController.m; sourceTree = "<group>"; };
 		57417A8715D6B4980003910D /* FishFamilyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamilyDetailViewController.h; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */,
 				57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */,
 				57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */,
 				57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */,
@@ -190,6 +193,7 @@
 		57952A0115A3302A00D1682C = {
 			isa = PBXGroup;
 			children = (
+				573A6C6A15DC902200DF6F8B /* MapKit.framework */,
 				57952A3815A33B6400D1682C /* CoreData.framework */,
 				57952A1615A3302A00D1682C /* FishTally */,
 				57952A0F15A3302A00D1682C /* Frameworks */,
