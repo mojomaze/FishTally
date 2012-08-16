@@ -49,7 +49,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fish" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"family" ascending:YES];
+    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"fishFamily.name" ascending:YES];
     NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
     
@@ -100,7 +100,7 @@
 }
 
 - (NSArray *)fishInFamily:(NSString *)family {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"family == %@", family];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fishFamily.name == %@", family];
     return [fishs filteredArrayUsingPredicate:predicate];
 }
 

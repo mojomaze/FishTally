@@ -100,7 +100,7 @@
 }
 
 - (NSArray *)luresInCategories:(NSString *)category {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", category];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lureType.name == %@", category];
     return [lures filteredArrayUsingPredicate:predicate];
 }
 
