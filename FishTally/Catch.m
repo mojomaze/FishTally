@@ -21,6 +21,9 @@
 @dynamic fish;
 @dynamic player;
 @dynamic date;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic comment;
 
 - (BOOL)hasPhoto
 {
@@ -58,6 +61,27 @@
             NSLog(@"Error removing file: %@", error);
         }
     }
+}
+
+- (NSString *)scoreString {
+   return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" points", nil)];
+}
+
+# pragma mark - MKAnnotation
+
+- (CLLocationCoordinate2D)coordinate
+{
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+- (NSString *)title
+{
+    return self.fish.name;
+}
+
+- (NSString *)subtitle
+{
+    return [self scoreString];
 }
 
 @end

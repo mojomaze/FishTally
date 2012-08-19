@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameLocationViewController.h"
 
 @class Game;
 
-@interface GameDetailViewController : UITableViewController <UITextFieldDelegate>
+@interface GameDetailViewController : UITableViewController 
+<
+UITextFieldDelegate,
+GameLocationDelegate
+>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Game *gameToEdit;

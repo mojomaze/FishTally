@@ -152,7 +152,7 @@
             }
         }
     }
-    catchCell.scoreLabel.text = [NSString stringWithFormat:@"%.1f %@", [catch.score doubleValue], NSLocalizedString(@" points", nil)];
+    catchCell.scoreLabel.text = [catch scoreString];
     catchCell.photoImageView.image = image;
 }
 

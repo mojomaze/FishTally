@@ -8,9 +8,17 @@
 
 #import "GameDetailViewController.h"
 #import "Game.h"
+#import "GameLocationViewController.h"
+#import "Location.h"
 
-
-@implementation GameDetailViewController
+@implementation GameDetailViewController {
+    NSString *name;
+    double latitude;
+    double longitude;
+    double latitudeDelta;
+    double longitudeDelta;
+    CLPlacemark *placemark;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize gameToEdit = _gameToEdit;
@@ -33,9 +41,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)toggleSaveButtonWithText:(NSString *)text
+- (void)toggleSaveButton
 {
-    if ([text length] > 0) {
+    if ([name length] > 0) {
         [self.navigationItem.rightBarButtonItem setEnabled:YES];
     } else {
         [self.navigationItem.rightBarButtonItem setEnabled:NO];
@@ -55,7 +63,14 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
                                                   action:@selector(done:)];
-        self.nameTextField.text = self.gameToEdit.name;
+        name = self.gameToEdit.name;
+        latitude = [self.gameToEdit.latitude doubleValue];
+        longitude = [self.gameToEdit.longitude doubleValue];
+        latitudeDelta = [self.gameToEdit.latitudeDelta doubleValue];
+        longitudeDelta = [self.gameToEdit.longitudeDelta doubleValue];
+        placemark = self.gameToEdit.placemark;
+        
+        self.nameTextField.text = name;
     }
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
@@ -63,7 +78,7 @@
     
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
-    [self toggleSaveButtonWithText:self.nameTextField.text];
+    [self toggleSaveButton];
     [self.nameTextField becomeFirstResponder];
 }
 
@@ -112,14 +127,15 @@
 
 - (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSString *newText = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
-    [self toggleSaveButtonWithText:newText];
+    name = [theTextField.text stringByReplacingCharactersInRange:range withString:string];
+    [self toggleSaveButton];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)theTextField
 {
-    [self toggleSaveButtonWithText:theTextField.text];
+    name = theTextField.text;
+    [self toggleSaveButton];
 }
 
 - (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
@@ -162,6 +178,35 @@
 - (IBAction)cancel:(id)sender
 {
     [self closeScreen];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EditLocation"]) {
+        GameLocationViewController *controller = segue.destinationViewController;
+        Location *location = [[Location alloc] init];
+        if (self.gameToEdit != nil) {
+            location.latitude = self.gameToEdit.latitude;
+            location.longitude = self.gameToEdit.longitude;
+            location.latitudeDelta = self.gameToEdit.latitudeDelta;
+            location.longitudeDelta = self.gameToEdit.longitudeDelta;
+            location.placemark = self.gameToEdit.placemark;
+            location.name = self.gameToEdit.name;
+            location.detail = self.gameToEdit.dateString;
+        }
+        controller.location = location;
+        controller.delegate = self;
+    }
+}
+
+#pragma mark - GameLocationDelegate
+
+- (void) locationController:(GameLocationViewController *)controller didSetLocation:(Location *)location {
+    latitude = [location.latitude doubleValue];
+    longitude = [location.longitude doubleValue];
+    latitudeDelta = [location.latitudeDelta doubleValue];
+    latitudeDelta = [location.latitudeDelta doubleValue];
+    placemark = location.placemark;
 }
 
 @end

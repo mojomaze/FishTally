@@ -131,13 +131,7 @@
     Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     gameCell.nameLabel.text = game.name;
-    
-    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd 'at' HH:mm" options:0
-                                                              locale:[NSLocale currentLocale]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:formatString];
-    
-    gameCell.dateLabel.text = [dateFormatter stringFromDate:game.date];
+    gameCell.dateLabel.text = [game dateString];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -190,9 +184,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"AddGame"]) {
-        // turn off editing if invoked
-        [self.tableView setEditing:NO animated:YES];
-        self.editing = NO;
         UINavigationController *navigationController = segue.destinationViewController;
         GameDetailViewController *controller = (GameDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
