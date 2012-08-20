@@ -18,11 +18,14 @@
     double latitudeDelta;
     double longitudeDelta;
     CLPlacemark *placemark;
+    BOOL performingReverseGeocoding;
+    CLGeocoder *geocoder;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize gameToEdit = _gameToEdit;
 @synthesize nameTextField = _nameTextField;
+@synthesize locationLabel = _locationLabel;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,11 +46,29 @@
 
 - (void)toggleSaveButton
 {
-    if ([name length] > 0) {
+    if ([name length] > 0 && !performingReverseGeocoding) {
         [self.navigationItem.rightBarButtonItem setEnabled:YES];
     } else {
         [self.navigationItem.rightBarButtonItem setEnabled:NO];
     }
+}
+
+- (void)updateLocationLabel {
+    if (placemark != nil) {
+        if (placemark.locality != nil) {
+            if (placemark.administrativeArea != nil) {
+                self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", placemark.locality, placemark.administrativeArea];
+                return;
+            }
+            self.locationLabel.text = placemark.locality;
+            return;
+        }
+        // no locality - just use lat and long
+        self.locationLabel.text = [NSString stringWithFormat:@"%.1f, %.1f", latitude, longitude];
+    } else {
+        self.locationLabel.text = @"Add Location";
+    }
+    
 }
 
 #pragma mark - View lifecycle
@@ -55,6 +76,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //init name to blank to detect for location
+    name = @"";
 
     if (self.gameToEdit != nil) {
         self.title = @"Edit Game";
@@ -71,6 +95,9 @@
         placemark = self.gameToEdit.placemark;
         
         self.nameTextField.text = name;
+        [self updateLocationLabel];
+    } else {
+        [self.nameTextField becomeFirstResponder];
     }
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
@@ -79,7 +106,7 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
     [self toggleSaveButton];
-    [self.nameTextField becomeFirstResponder];
+    
 }
 
 - (void)viewDidUnload
@@ -165,6 +192,11 @@
         game.date = [NSDate date];
     }
     game.name = self.nameTextField.text;
+    game.placemark = placemark;
+    game.latitude = [NSNumber numberWithDouble:latitude];
+    game.longitude = [NSNumber numberWithDouble:longitude];
+    game.latitudeDelta = [NSNumber numberWithDouble:latitudeDelta];
+    game.longitudeDelta = [NSNumber numberWithDouble:longitudeDelta];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -185,18 +217,51 @@
     if ([segue.identifier isEqualToString:@"EditLocation"]) {
         GameLocationViewController *controller = segue.destinationViewController;
         Location *location = [[Location alloc] init];
-        if (self.gameToEdit != nil) {
-            location.latitude = self.gameToEdit.latitude;
-            location.longitude = self.gameToEdit.longitude;
-            location.latitudeDelta = self.gameToEdit.latitudeDelta;
-            location.longitudeDelta = self.gameToEdit.longitudeDelta;
-            location.placemark = self.gameToEdit.placemark;
-            location.name = self.gameToEdit.name;
+        location.latitude = [NSNumber numberWithDouble:latitude];
+        location.longitude = [NSNumber numberWithDouble:longitude];
+        location.latitudeDelta = [NSNumber numberWithDouble:latitudeDelta];
+        location.longitudeDelta = [NSNumber numberWithDouble:longitudeDelta];
+        if ([name isEqualToString:@""]) {
+            location.name = @"New Game";
+        } else {
+            location.name = name;
+        }
+        
+        if (self.gameToEdit) {
             location.detail = self.gameToEdit.dateString;
         }
         controller.location = location;
         controller.delegate = self;
     }
+}
+
+- (void)reverseGeocodeLocation:(Location *)location {
+    if (!performingReverseGeocoding) {
+        NSLog(@"*** Going to geocode");
+        performingReverseGeocoding = YES;
+        [self toggleSaveButton];
+        
+        if (!geocoder) {
+            geocoder = [[CLGeocoder alloc] init];
+        }
+        CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:[location.latitude doubleValue] longitude:[location.longitude doubleValue]];
+        
+        [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            NSLog(@"*** Found placemarks: %@, error: %@", placemarks, error);
+            
+            
+            if (error == nil && [placemarks count] > 0) {
+                placemark = [placemarks lastObject];
+            } else {
+                placemark = nil;
+            }
+            
+            performingReverseGeocoding = NO;
+            [self updateLocationLabel];
+            [self toggleSaveButton];
+        }];
+    }
+
 }
 
 #pragma mark - GameLocationDelegate
@@ -205,8 +270,13 @@
     latitude = [location.latitude doubleValue];
     longitude = [location.longitude doubleValue];
     latitudeDelta = [location.latitudeDelta doubleValue];
-    latitudeDelta = [location.latitudeDelta doubleValue];
-    placemark = location.placemark;
+    longitudeDelta = [location.longitudeDelta doubleValue];
+    if (location.latitude != nil && location.latitude != nil) {
+        [self reverseGeocodeLocation:location];
+    } else {
+        placemark = nil;
+        [self updateLocationLabel];
+    }
 }
 
 @end

@@ -16,7 +16,6 @@
 @synthesize longitude = _longitude;
 @synthesize latitudeDelta = _latitudeDelta;
 @synthesize longitudeDelta = _longitudeDelta;
-@synthesize placemark = _placemark;
 
 # pragma mark - MKAnnotation
 
@@ -35,5 +34,29 @@
     return self.detail;
 }
 
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
+    self.latitude = [NSNumber numberWithDouble:newCoordinate.latitude];
+    self.longitude = [NSNumber numberWithDouble:newCoordinate.longitude];
+}
+
+- (BOOL)validRegion
+{
+    if ([self.latitudeDelta doubleValue] != 0 && [self.longitudeDelta doubleValue] != 0) {
+        if ([self.longitude doubleValue] != 0 && [self.latitude doubleValue] != 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (MKCoordinateRegion)region {
+    MKCoordinateRegion region;
+    region.center = self.coordinate;
+    MKCoordinateSpan span;
+    span.latitudeDelta =  [self.latitudeDelta doubleValue];
+    span.longitudeDelta = [self.longitudeDelta doubleValue];
+    region.span = span;
+    return region;
+}
 
 @end

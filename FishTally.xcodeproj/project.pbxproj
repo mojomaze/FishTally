@@ -64,6 +64,8 @@
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
+		57E348AB15E2F46E00F34AC9 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E348A915E2F46E00F34AC9 /* Pin.png */; };
+		57E348AC15E2F46E00F34AC9 /* Pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E348AA15E2F46E00F34AC9 /* Pin@2x.png */; };
 		57E998BA15A9D14A00807120 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E998B815A9D14A00807120 /* Default.png */; };
 		57E998BB15A9D14A00807120 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E998B915A9D14A00807120 /* Default@2x.png */; };
 /* End PBXBuildFile section */
@@ -167,6 +169,8 @@
 		57E03A4315A8875700921585 /* CatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchDetailViewController.m; sourceTree = "<group>"; };
 		57E03A4A15A8AB2300921585 /* FishPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishPickerViewController.h; sourceTree = "<group>"; };
 		57E03A4B15A8AB2300921585 /* FishPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishPickerViewController.m; sourceTree = "<group>"; };
+		57E348A915E2F46E00F34AC9 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
+		57E348AA15E2F46E00F34AC9 /* Pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pin@2x.png"; sourceTree = "<group>"; };
 		57E998B815A9D14A00807120 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		57E998B915A9D14A00807120 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +195,8 @@
 		575BD31215A8D756007BC668 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				57E348A915E2F46E00F34AC9 /* Pin.png */,
+				57E348AA15E2F46E00F34AC9 /* Pin@2x.png */,
 				575BD31815A8E6D4007BC668 /* fish.png */,
 				575BD32015A8F743007BC668 /* tacklebox.png */,
 				575BD32115A8F743007BC668 /* tacklebox@2x.png */,
@@ -414,6 +420,8 @@
 				57B67C0015AA368800F20369 /* Icon-Small@2x.png in Resources */,
 				57B67C0115AA368800F20369 /* Icon.png in Resources */,
 				57B67C0215AA368800F20369 /* Icon@2x.png in Resources */,
+				57E348AB15E2F46E00F34AC9 /* Pin.png in Resources */,
+				57E348AC15E2F46E00F34AC9 /* Pin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

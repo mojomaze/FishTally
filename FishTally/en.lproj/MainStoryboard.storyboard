@@ -784,6 +784,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationLabel" destination="yCR-Uc-K4B" id="i55-Wi-GCj"/>
                         <outlet property="nameTextField" destination="GQf-cs-eOR" id="Nof-Pj-k5d"/>
                     </connections>
                 </tableViewController>
@@ -810,7 +811,7 @@
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Set Location" id="jyZ-wQ-bo3">
+                                    <barButtonItem image="Pin.png" id="jyZ-wQ-bo3">
                                         <connections>
                                             <action selector="toggleLocation:" destination="lu2-n6-9u2" id="afl-vU-2IW"/>
                                         </connections>
@@ -2137,6 +2138,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Pin.png" width="24" height="24"/>
         <image name="fish.png" width="30" height="30"/>
         <image name="tacklebox.png" width="30" height="30"/>
     </resources>
@@ -2229,6 +2231,7 @@
             <relationships>
                 <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
             </relationships>
         </class>

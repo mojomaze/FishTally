@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *latitudeDelta;
 @property (nonatomic, strong) NSNumber *longitudeDelta;
-@property (nonatomic, strong) CLPlacemark *placemark;
+
+- (BOOL)validRegion;
+- (MKCoordinateRegion)region;
 
 @end

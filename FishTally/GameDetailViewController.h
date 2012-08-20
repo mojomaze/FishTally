@@ -20,6 +20,7 @@ GameLocationDelegate
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Game *gameToEdit;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
+@property (nonatomic, strong) IBOutlet UILabel *locationLabel;
            
 -(IBAction)done:(id)sender;
 -(IBAction)cancel:(id)sender;
