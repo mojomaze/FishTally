@@ -10,6 +10,7 @@
 #import "LurePickerViewController.h"
 #import "FishPickerViewController.h"
 #import "LocationDetailViewController.h"
+#import "SizeDetailViewController.h"
 
 @class Player, Catch;
 
@@ -21,7 +22,8 @@
     UIActionSheetDelegate,
     LurePickerViewDelegate,
     FishPickerViewDelegate,
-    LocationDetailDelegate
+    LocationDetailDelegate,
+    SizeDetailDelegate
 >
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -32,8 +34,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *photoLabel;
 @property (nonatomic, strong) IBOutlet UILabel *lureLabel;
 @property (nonatomic, strong) IBOutlet UILabel *pointsLabel;
-@property (nonatomic,strong) IBOutlet UISegmentedControl *sizeControl;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *sizeControl;
 @property (nonatomic, strong) IBOutlet UILabel *locationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *sizeLabel;
 
 - (IBAction)changeCatchSize: (UISegmentedControl *) segmentedControl;
 - (IBAction)done:(id)sender;

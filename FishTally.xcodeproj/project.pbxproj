@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57101BB115E336AA00B630EF /* SizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57101BB015E336AA00B630EF /* SizeDetailViewController.m */; };
 		5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */; };
 		5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */; };
 		5723CFEE15A63B1700A5AA13 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFED15A63B1700A5AA13 /* SettingsViewController.m */; };
@@ -71,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57101BAF15E336AA00B630EF /* SizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeDetailViewController.h; sourceTree = "<group>"; };
+		57101BB015E336AA00B630EF /* SizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeDetailViewController.m; sourceTree = "<group>"; };
 		5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailViewController.h; sourceTree = "<group>"; };
 		5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
 		5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57101BAF15E336AA00B630EF /* SizeDetailViewController.h */,
+				57101BB015E336AA00B630EF /* SizeDetailViewController.m */,
 				57D68C8F15DC49D8007657CB /* CatchSizesViewController.h */,
 				57D68C9015DC49D8007657CB /* CatchSizesViewController.m */,
 				57D68C9215DC49F0007657CB /* CatchSizeDetailViewController.h */,
@@ -471,6 +476,7 @@
 				57D68C9415DC49F0007657CB /* CatchSizeDetailViewController.m in Sources */,
 				57A555E415E1585D00D69D99 /* LocationDetailViewController.m in Sources */,
 				57A555E715E16BE700D69D99 /* Location.m in Sources */,
+				57101BB115E336AA00B630EF /* SizeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

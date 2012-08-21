@@ -15,6 +15,7 @@
 #import "Location.h"
 #import "LocationDetailViewController.h"
 #import "Game.h"
+#import "SizeDetailViewController.h"
 
 @interface CatchDetailViewController()
 - (void)showPhotoMenu;
@@ -51,6 +52,7 @@
 @synthesize photoLabel = _photoLabel;
 @synthesize sizeControl = _sizeControl;
 @synthesize locationLabel = _locationLabel;
+@synthesize sizeLabel = _sizeLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -161,6 +163,14 @@
     }
 }
 
+- (void)updateSizeLabel {
+    if (size > 0) {
+        self.sizeLabel.text = [NSString stringWithFormat:@"%.1f in", size];
+    } else {
+        self.sizeLabel.text = @"Add Size";
+    }
+}
+
 - (void)toggleSaveButton
 {
     if (catchFish != nil && catchLure != nil) {
@@ -238,6 +248,7 @@
     self.pointsLabel = nil;
     self.sizeControl = nil;
     self.locationLabel = nil;
+    self.sizeLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -333,6 +344,12 @@
         location.detail = [NSString stringWithFormat:NSLocalizedString(@"%.1f points", nil), score];
         controller.location = location;
         controller.delegate = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"EditSize"]) {
+        SizeDetailViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.size = [NSNumber numberWithDouble:size];
     }
 }
 
@@ -559,7 +576,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - GameLocationDelegate
+#pragma mark - LocationDetailDelegate
 
 - (void) locationController:(LocationDetailViewController *)controller didSetLocation:(Location *)location {
     latitude = [location.latitude doubleValue];
@@ -567,6 +584,13 @@
     latitudeDelta = [location.latitudeDelta doubleValue];
     longitudeDelta = [location.longitudeDelta doubleValue];
     [self updateLocationlabel];
+}
+
+# pragma mark - SizeDetailDelegate
+
+- (void) sizeController:(SizeDetailViewController *)controller didSetSize:(NSNumber *)newSize {
+    size = [newSize doubleValue];
+    [self updateSizeLabel];
 }
      
 @end
