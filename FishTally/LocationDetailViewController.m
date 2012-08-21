@@ -17,7 +17,6 @@
 
 @synthesize location = _location;
 @synthesize mapView = _mapView;
-@synthesize bottomToolbar = _bottomToolbar;
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,12 +37,10 @@
         self.location.detail = @"";
     } else {
         if ([self.location validRegion]) {
-            UIBarButtonItem *btn = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
-                                    target:self
-                                    action:@selector(toggleLocation:)];
-            NSArray *items = [[NSArray alloc] initWithObjects:btn, nil];
-            [self.bottomToolbar setItems:items animated:NO];
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                      initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                      target:self
+                                                      action:@selector(toggleLocation:)];
             [self.mapView setRegion:self.location.region]; 
             [self.mapView addAnnotation:self.location];
         }
@@ -54,7 +51,6 @@
 {
     [super viewDidUnload];
     self.mapView = nil;
-    self.bottomToolbar = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -81,12 +77,10 @@
         self.location.longitude = [NSNumber numberWithDouble:centerCoordinate.longitude];
         [self.mapView addAnnotation:self.location];
     
-        UIBarButtonItem *btn = [[UIBarButtonItem alloc]
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                   target:self
                                                   action:@selector(toggleLocation:)];
-        NSArray *items = [[NSArray alloc] initWithObjects:btn, nil];
-        [self.bottomToolbar setItems:items animated:NO];
         [self locationChanged];
         
     } else {
@@ -98,13 +92,11 @@
         
         [self.mapView removeAnnotation:self.location];
         
-        UIBarButtonItem *btn = [[UIBarButtonItem alloc]
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                 initWithImage:[UIImage imageNamed:@"Pin.png"]
                                 style:UIBarButtonItemStyleBordered
                                 target:self
                                 action:@selector(toggleLocation:)];
-        NSArray *items = [[NSArray alloc] initWithObjects:btn, nil];
-        [self.bottomToolbar setItems:items animated:NO];
         [self.delegate locationController:self didSetLocation:self.location];
     }
 }
