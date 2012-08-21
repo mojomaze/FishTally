@@ -20,6 +20,7 @@
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate,
     UIActionSheetDelegate,
+    UITextViewDelegate,
     LurePickerViewDelegate,
     FishPickerViewDelegate,
     LocationDetailDelegate,
@@ -37,6 +38,7 @@
 @property (nonatomic, strong) IBOutlet UISegmentedControl *sizeControl;
 @property (nonatomic, strong) IBOutlet UILabel *locationLabel;
 @property (nonatomic, strong) IBOutlet UILabel *sizeLabel;
+@property (nonatomic, strong) IBOutlet UITextView *textView;
 
 - (IBAction)changeCatchSize: (UISegmentedControl *) segmentedControl;
 - (IBAction)done:(id)sender;

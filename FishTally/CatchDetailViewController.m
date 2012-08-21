@@ -42,6 +42,7 @@
     double longitudeDelta;
     NSString *units;
     double measurement;
+    NSString *comments;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -55,6 +56,7 @@
 @synthesize sizeControl = _sizeControl;
 @synthesize locationLabel = _locationLabel;
 @synthesize sizeLabel = _sizeLabel;
+@synthesize textView = _textView;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -182,6 +184,18 @@
     }
 }
 
+- (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
+{
+    CGPoint point = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    
+    if (indexPath != nil && indexPath.section == 6 && indexPath.row == 0) {
+        return;
+    }
+    
+    [self.textView resignFirstResponder];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -229,13 +243,15 @@
         [self updateLocationlabel];
         measurement = [[self.catchToEdit measurementWithUnits:units] doubleValue];
         [self updateSizeLabel];
+        comments = self.catchToEdit.comment;
         
     } else {
         if (self.player.lure != nil) {
             catchLure = self.player.lure;
             lureName = catchLure.name;
             // default size to first segment
-            size = 0;;
+            size = 0;
+            comments = @"";
         }
     }
     
@@ -246,8 +262,15 @@
     self.fishLabel.text = fishName;
     self.lureLabel.text = lureName;
     self.sizeControl.selectedSegmentIndex = size;
+    self.textView.text = comments;
     [self displayCatchPointValue];
     [self toggleSaveButton];
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                 initWithTarget:self action:@selector(hideKeyboard:)];
+    
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)viewDidUnload
@@ -260,6 +283,7 @@
     self.sizeControl = nil;
     self.locationLabel = nil;
     self.sizeLabel = nil;
+    self.textView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -306,6 +330,10 @@
     if (indexPath.section == 4 && indexPath.row == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self showPhotoMenu];
+    }
+    
+    if (indexPath.section == 6 && indexPath.row == 0) {
+        [self.textView becomeFirstResponder];
     }
 }
 
@@ -382,6 +410,8 @@
 
 - (IBAction)done:(id)sender
 {
+    [self.textView resignFirstResponder];
+    
     // fish and lure are required
     if (catchFish == nil || catchLure == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete"
@@ -391,7 +421,7 @@
                                               otherButtonTitles:nil ];
         [alert show];
         return;
-    }    
+    }
     
     Catch *catch = nil;
     if (self.catchToEdit != nil) {
@@ -406,6 +436,7 @@
     catch.score = [NSNumber numberWithDouble:score];
     catch.size = [NSNumber numberWithInt:size];
     [catch setMeasurement:[NSNumber numberWithDouble:measurement] withUnits:units];
+    catch.comment = comments;
     
     if (image != nil) {
         if (![catch hasPhoto]) {
@@ -608,5 +639,12 @@
     measurement = [newSize doubleValue];
     [self updateSizeLabel];
 }
+
+# pragma mark - UITextViewDelegate
+
+- (void) textViewDidEndEditing:(UITextView *)textView {
+    comments = textView.text;
+}
+
      
 @end

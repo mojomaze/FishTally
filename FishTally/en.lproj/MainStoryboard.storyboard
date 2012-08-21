@@ -547,7 +547,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Comments" id="Zym-W4-bP2">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="eST-jt-mgW">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="eST-jt-mgW">
                                         <rect key="frame" x="0.0" y="502" width="320" height="202"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -560,6 +560,9 @@
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="nfb-67-VjG" id="137-2T-UN7"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -595,6 +598,7 @@
                         <outlet property="pointsLabel" destination="WjH-5y-8Y0" id="dek-Qs-Cj3"/>
                         <outlet property="sizeControl" destination="XF8-C2-GMz" id="d25-XZ-DhI"/>
                         <outlet property="sizeLabel" destination="s7H-IO-sdG" id="6cv-kO-tJe"/>
+                        <outlet property="textView" destination="Bem-va-M2w" id="vgH-VG-EZh"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -2167,6 +2171,7 @@
                 <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sizeControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="sizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="CatchSizeDetailViewController" superclassName="UITableViewController">
