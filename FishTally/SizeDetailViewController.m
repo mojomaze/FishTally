@@ -9,7 +9,7 @@
 #import "SizeDetailViewController.h"
 
 @interface SizeDetailViewController ()
-
+- (void)initSizeArrays;
 @end
 
 @implementation SizeDetailViewController {
@@ -19,6 +19,7 @@
 @synthesize pickerView = _pickerView;
 @synthesize size = _size;
 @synthesize delegate = _delegate;
+@synthesize units = _units;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,8 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSNumber *initValue = [NSNumber numberWithInt:0];
-	values = [[NSMutableArray alloc] initWithObjects:initValue, initValue, initValue, initValue, nil];
+    if (self.units == nil) {
+        self.units = @"in";
+    }
+    [self initSizeArrays];
 }
 
 - (void)viewDidUnload
@@ -45,6 +48,37 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)initSizeArrays {
+    // Set the size value arrays to zero
+    // parse self.size if set
+    if (self.size != nil) {
+        double setSize = [self.size doubleValue];
+        // hundreds
+        int hundreds = setSize / 100;
+        setSize -= hundreds * 100;
+        // tens
+        int tens = setSize / 10;
+        setSize -= tens * 10;
+        // ones
+        int ones = setSize;
+        setSize -= ones;
+        // tenths - round up decimal
+        int tenths = (setSize + 0.049f) * 10;
+        values = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:hundreds], [NSNumber numberWithInt:tens], [NSNumber numberWithInt:ones], [NSNumber numberWithInt:tenths], nil];
+        for (int i=0; i < [values count]; i++) {
+            int value = [[values objectAtIndex:i] intValue];
+            if (i < 3) {
+                [self.pickerView selectRow:value inComponent:i animated:NO];
+            } else {
+                [self.pickerView selectRow:value inComponent:4 animated:NO];
+            }
+        }
+    } else {
+        NSNumber *initValue = [NSNumber numberWithInt:0];
+        values = [[NSMutableArray alloc] initWithObjects:initValue, initValue, initValue, initValue, nil];
+    }
 }
 
 # pragma mark - UIPickerViewDataSource
@@ -82,7 +116,7 @@
         return @".";
     }
     if (component == 5) {
-        return @"in";
+        return self.units;
     }
 
     return [NSString stringWithFormat:@"%d",row];

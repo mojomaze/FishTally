@@ -25,6 +25,7 @@
 @dynamic longitude;
 @dynamic latitudeDelta;
 @dynamic longitudeDelta;
+@dynamic measurement;
 @dynamic comment;
 
 - (BOOL)hasPhoto
@@ -84,6 +85,27 @@
 - (NSString *)subtitle
 {
     return [self scoreString];
+}
+
+// Storing measurement in centimeters
+// used for converting stored value to inches
+- (NSNumber *)measurementWithUnits:(NSString *)units {
+    if ([[units lowercaseString] isEqualToString:@"in"] || [[units lowercaseString] isEqualToString:@"inches"]) {
+        double length = [self.measurement doubleValue] * 0.393701f;
+        return [NSNumber numberWithDouble:length];
+    }
+    return self.measurement;
+}
+
+// used for storing value as centimeters
+- (void)setMeasurement:(NSNumber *)measurement withUnits:(NSString *)units {
+    if ([[units lowercaseString] isEqualToString:@"in"] || [[units lowercaseString] isEqualToString:@"inches"]) {
+        double length = [measurement doubleValue] / 0.393701f;
+        self.measurement = [NSNumber numberWithDouble:length];
+        
+    } else {
+        self.measurement = measurement;
+    }
 }
 
 @end

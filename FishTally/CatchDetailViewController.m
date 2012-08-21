@@ -31,7 +31,7 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
-    double size;
+    int size;
     Lure *catchLure;
     Fish *catchFish;
     NSMutableArray *sizeNames;
@@ -40,6 +40,8 @@
     double longitude;
     double latitudeDelta;
     double longitudeDelta;
+    NSString *units;
+    double measurement;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -165,7 +167,7 @@
 
 - (void)updateSizeLabel {
     if (size > 0) {
-        self.sizeLabel.text = [NSString stringWithFormat:@"%.1f in", size];
+        self.sizeLabel.text = [NSString stringWithFormat:@"%.1f %@", measurement, units];
     } else {
         self.sizeLabel.text = @"Add Size";
     }
@@ -185,6 +187,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    units = [[NSUserDefaults standardUserDefaults] stringForKey:@"MeasurementUnits"];
+    if ([units isEqualToString:@"Centimeters"]) {
+        units = @"cm";
+    } else {
+        units = @"in";
+    }
     
     [self initSizeControl];
     
@@ -218,6 +227,8 @@
         latitudeDelta = [self.catchToEdit.latitudeDelta doubleValue];
         longitudeDelta = [self.catchToEdit.longitudeDelta doubleValue];
         [self updateLocationlabel];
+        measurement = [[self.catchToEdit measurementWithUnits:units] doubleValue];
+        [self updateSizeLabel];
         
     } else {
         if (self.player.lure != nil) {
@@ -283,9 +294,11 @@
 {
     if (indexPath.section == 4 && indexPath.row == 0 && !self.photoImageView.hidden) {
         return self.photoImageView.frame.size.height+20;
-    } else {
-        return 44;
+    } 
+    if (indexPath.section == 6 && indexPath.row == 0) {
+        return 200;
     }
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -349,7 +362,8 @@
     if ([segue.identifier isEqualToString:@"EditSize"]) {
         SizeDetailViewController *controller = segue.destinationViewController;
         controller.delegate = self;
-        controller.size = [NSNumber numberWithDouble:size];
+        controller.units = units;
+        controller.size = [NSNumber numberWithDouble:measurement];
     }
 }
 
@@ -391,6 +405,7 @@
     catch.lure = catchLure;
     catch.score = [NSNumber numberWithDouble:score];
     catch.size = [NSNumber numberWithInt:size];
+    [catch setMeasurement:[NSNumber numberWithDouble:measurement] withUnits:units];
     
     if (image != nil) {
         if (![catch hasPhoto]) {
@@ -566,11 +581,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - LurePickerViewControllerDelegate
+#pragma mark - FishPickerViewControllerDelegate
 - (void)fishPicker:(FishPickerViewController *)picker didPickFish:(Fish *)fish
 {
     catchFish = fish;
-    self.fishLabel.text = catchFish.name;
+    fishName = catchFish.name;
+    self.fishLabel.text = fishName;
     [self updateCatchPointValue];
     [self toggleSaveButton];
     [self.navigationController popViewControllerAnimated:YES];
@@ -589,7 +605,7 @@
 # pragma mark - SizeDetailDelegate
 
 - (void) sizeController:(SizeDetailViewController *)controller didSetSize:(NSNumber *)newSize {
-    size = [newSize doubleValue];
+    measurement = [newSize doubleValue];
     [self updateSizeLabel];
 }
      

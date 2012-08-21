@@ -19,5 +19,6 @@
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong) NSNumber *size;
 @property (nonatomic, weak) id <SizeDetailDelegate> delegate;
+@property (nonatomic, strong) NSString *units;
 
 @end

@@ -7,9 +7,10 @@
         <attribute name="latitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="measurement" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="fish" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Fish" inverseName="catches" inverseEntity="Fish" syncable="YES"/>
         <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="catches" inverseEntity="Lure" syncable="YES"/>
         <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="catches" inverseEntity="Player" syncable="YES"/>
@@ -62,7 +63,7 @@
         <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="players" inverseEntity="Lure" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Catch" positionX="-36" positionY="450" width="128" height="225"/>
+        <element name="Catch" positionX="-36" positionY="450" width="128" height="240"/>
         <element name="CatchSize" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Fish" positionX="342" positionY="393" width="128" height="135"/>
         <element name="FishFamily" positionX="160" positionY="192" width="128" height="75"/>

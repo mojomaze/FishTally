@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSNumber * latitudeDelta;
 @property (nonatomic, retain) NSNumber * longitudeDelta;
 @property (nonatomic, retain) NSString * comment;
+@property (nonatomic, retain) NSNumber * measurement;
 @property (nonatomic, retain) Lure *lure;
 @property (nonatomic, retain) Fish *fish;
 @property (nonatomic, retain) Player *player;
@@ -31,5 +32,7 @@
 - (UIImage *)photoImage;
 - (void)removePhotoFile;
 - (NSString *)scoreString;
+- (NSNumber *)measurementWithUnits:(NSString *)units;
+- (void)setMeasurement:(NSNumber *)measurement withUnits:(NSString *)units;
 
 @end
