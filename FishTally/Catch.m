@@ -23,6 +23,8 @@
 @dynamic date;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic latitudeDelta;
+@dynamic longitudeDelta;
 @dynamic comment;
 
 - (BOOL)hasPhoto

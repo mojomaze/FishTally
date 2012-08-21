@@ -8,7 +8,7 @@
 
 #import "GameDetailViewController.h"
 #import "Game.h"
-#import "GameLocationViewController.h"
+#import "LocationDetailViewController.h"
 #import "Location.h"
 
 @implementation GameDetailViewController {
@@ -215,7 +215,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"EditLocation"]) {
-        GameLocationViewController *controller = segue.destinationViewController;
+        LocationDetailViewController *controller = segue.destinationViewController;
         Location *location = [[Location alloc] init];
         location.latitude = [NSNumber numberWithDouble:latitude];
         location.longitude = [NSNumber numberWithDouble:longitude];
@@ -266,7 +266,7 @@
 
 #pragma mark - GameLocationDelegate
 
-- (void) locationController:(GameLocationViewController *)controller didSetLocation:(Location *)location {
+- (void) locationController:(LocationDetailViewController *)controller didSetLocation:(Location *)location {
     latitude = [location.latitude doubleValue];
     longitude = [location.longitude doubleValue];
     latitudeDelta = [location.latitudeDelta doubleValue];

@@ -53,8 +53,6 @@
     NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil]];
     
-    [fetchRequest setFetchBatchSize:20];
-    
     NSError *error;
     lures = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     

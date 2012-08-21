@@ -499,8 +499,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y1B-HZ-qvF">
-                                                    <rect key="frame" x="226" y="11" width="44" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y1B-HZ-qvF">
+                                                    <rect key="frame" x="170" y="11" width="100" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
@@ -511,7 +511,7 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="2bt-Vr-osi" kind="push" id="OgI-v6-SAH"/>
+                                            <segue destination="lu2-n6-9u2" kind="push" identifier="EditLocation" id="Iyp-Mw-nFi"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="M2E-G5-R4O" detailTextLabel="mtP-H5-xQN" style="IBUITableViewCellStyleValue1" id="mvi-Ch-B1m">
@@ -528,8 +528,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mtP-H5-xQN">
-                                                    <rect key="frame" x="226" y="11" width="44" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Size" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mtP-H5-xQN">
+                                                    <rect key="frame" x="201" y="11" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -554,8 +554,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="213-f3-V5c">
-                                                    <rect key="frame" x="226" y="11" width="44" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Add Comment" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="213-f3-V5c">
+                                                    <rect key="frame" x="161" y="11" width="109" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -588,6 +588,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="fishLabel" destination="mag-Ho-QjZ" id="2fv-7Q-Mbf"/>
+                        <outlet property="locationLabel" destination="y1B-HZ-qvF" id="BDV-yM-JRd"/>
                         <outlet property="lureLabel" destination="JiZ-gi-deq" id="wFC-Ce-3xZ"/>
                         <outlet property="photoImageView" destination="bsR-s5-cfG" id="yP7-2o-c7P"/>
                         <outlet property="photoLabel" destination="yH3-1n-Ynl" id="Vbf-jE-Sof"/>
@@ -597,27 +598,6 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="3310" y="-110"/>
-        </scene>
-        <!--View Controller - Location-->
-        <scene sceneID="j8H-aG-pYI">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YYo-21-2Mc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="2bt-Vr-osi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="B6t-pe-wtK">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="FX9-RA-2eI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Location" id="zMl-qn-Yvo"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="3855" y="-110"/>
         </scene>
         <!--Fish Picker View Controller - Select Fish-->
         <scene sceneID="frA-0X-GMO">
@@ -791,39 +771,29 @@
             </objects>
             <point key="canvasLocation" x="2315" y="-691"/>
         </scene>
-        <!--Game Location View Controller - Location-->
+        <!--Location Detail View Controller - Location-->
         <scene sceneID="5Ld-fa-8gh">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyC-lS-6ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="lu2-n6-9u2" customClass="GameLocationViewController" sceneMemberID="viewController">
+                <viewController id="lu2-n6-9u2" customClass="LocationDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mlw-ok-Phk">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="agG-x2-lgO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="lu2-n6-9u2" id="LTA-zO-PSm"/>
                                 </connections>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="bod-0l-B2p">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="Pin.png" id="jyZ-wQ-bo3">
-                                        <connections>
-                                            <action selector="toggleLocation:" destination="lu2-n6-9u2" id="afl-vU-2IW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Location" id="NkJ-al-VcR"/>
+                    <navigationItem key="navigationItem" title="Location" id="NkJ-al-VcR">
+                        <barButtonItem key="rightBarButtonItem" image="Pin.png" id="WM5-nq-OY8"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="bottomToolbar" destination="bod-0l-B2p" id="laq-jh-a8a"/>
                         <outlet property="mapView" destination="agG-x2-lgO" id="ZL0-gm-3yz"/>
                     </connections>
                 </viewController>
@@ -2158,6 +2128,7 @@
                 <relationship kind="action" name="changeCatchSize:" candidateClass="UISegmentedControl"/>
                 <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="fishLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lureLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="photoLabel" candidateClass="UILabel"/>
@@ -2235,16 +2206,16 @@
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="GameLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameLocationViewController.h"/>
+        <class className="GamesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamesViewController.h"/>
+        </class>
+        <class className="LocationDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationDetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="toggleLocation:"/>
                 <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
-        </class>
-        <class className="GamesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamesViewController.h"/>
         </class>
         <class className="LureCategoriesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LureCategoriesViewController.h"/>
@@ -2320,14 +2291,15 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rf1-7m-T4K"/>
-        <segue reference="0Hh-4C-ca8"/>
-        <segue reference="ZXZ-eW-zgg"/>
-        <segue reference="JKd-Sk-BDw"/>
-        <segue reference="9bF-ts-QbO"/>
         <segue reference="efb-8Z-CLj"/>
         <segue reference="Xl1-3f-MlF"/>
         <segue reference="k89-qL-IHY"/>
         <segue reference="E1g-Uj-wYM"/>
+        <segue reference="Iyp-Mw-nFi"/>
+        <segue reference="9bF-ts-QbO"/>
+        <segue reference="Rf1-7m-T4K"/>
+        <segue reference="JKd-Sk-BDw"/>
+        <segue reference="ZXZ-eW-zgg"/>
+        <segue reference="0Hh-4C-ca8"/>
     </inferredMetricsTieBreakers>
 </document>

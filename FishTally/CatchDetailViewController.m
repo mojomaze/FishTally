@@ -12,6 +12,9 @@
 #import "Lure.h"
 #import "Fish.h"
 #import "CatchSize.h"
+#import "Location.h"
+#import "LocationDetailViewController.h"
+#import "Game.h"
 
 @interface CatchDetailViewController()
 - (void)showPhotoMenu;
@@ -27,11 +30,15 @@
     UIImage *image;
     UIActionSheet *actionSheet;
     UIImagePickerController *imagePicker;
-    int size;
+    double size;
     Lure *catchLure;
     Fish *catchFish;
     NSMutableArray *sizeNames;
     NSMutableArray *sizeMultipliers;
+    double latitude;
+    double longitude;
+    double latitudeDelta;
+    double longitudeDelta;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -43,6 +50,7 @@
 @synthesize lureLabel = _lureLabel;
 @synthesize photoLabel = _photoLabel;
 @synthesize sizeControl = _sizeControl;
+@synthesize locationLabel = _locationLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -145,6 +153,23 @@
     }
 }
 
+- (void)updateLocationlabel {
+    if (latitude != 0 && longitude != 0) {
+        self.locationLabel.text = [NSString stringWithFormat:@"%.1f, %.1f", latitude, longitude];
+    } else {
+        self.locationLabel.text = @"Add Location";
+    }
+}
+
+- (void)toggleSaveButton
+{
+    if (catchFish != nil && catchLure != nil) {
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    } else {
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -176,7 +201,13 @@
         if (catchFish != nil) {
             lureName= catchLure.name;
         }
-        size = [self.catchToEdit.size intValue];
+        size = [self.catchToEdit.size doubleValue];
+        
+        latitude = [self.catchToEdit.latitude doubleValue];
+        longitude = [self.catchToEdit.longitude doubleValue];
+        latitudeDelta = [self.catchToEdit.latitudeDelta doubleValue];
+        longitudeDelta = [self.catchToEdit.longitudeDelta doubleValue];
+        [self updateLocationlabel];
         
     } else {
         if (self.player.lure != nil) {
@@ -195,6 +226,7 @@
     self.lureLabel.text = lureName;
     self.sizeControl.selectedSegmentIndex = size;
     [self displayCatchPointValue];
+    [self toggleSaveButton];
 }
 
 - (void)viewDidUnload
@@ -205,6 +237,7 @@
     self.photoImageView = nil;
     self.pointsLabel = nil;
     self.sizeControl = nil;
+    self.locationLabel = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -266,6 +299,40 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.delegate = self;
         controller.selectedFish = catchFish;
+    }
+    
+    if ([segue.identifier isEqualToString:@"EditLocation"]) {
+        LocationDetailViewController *controller = segue.destinationViewController;
+        Location *location = [[Location alloc] init];
+        Game *game = self.player.game;
+        
+        if (latitude == 0 && longitude == 0) {
+            // use the game coordinates if catch not set
+            location.latitude = game.latitude;
+            location.longitude = game.longitude;
+        } else {
+            location.latitude = [NSNumber numberWithDouble:latitude];
+            location.longitude = [NSNumber numberWithDouble:longitude];
+        }
+        
+        if (latitudeDelta == 0 && longitudeDelta == 0) {
+            // use the game delta if catch is not set
+            location.latitudeDelta = game.latitudeDelta;
+            location.longitudeDelta = game.longitudeDelta;
+        } else {
+            location.latitudeDelta = [NSNumber numberWithDouble:latitudeDelta];
+            location.longitudeDelta = [NSNumber numberWithDouble:longitudeDelta];
+        }
+        
+        if (fishName != nil) {
+            location.name = fishName;
+        } else {
+            location.name = @"New Catch";
+        }
+        
+        location.detail = [NSString stringWithFormat:NSLocalizedString(@"%.1f points", nil), score];
+        controller.location = location;
+        controller.delegate = self;
     }
 }
 
@@ -339,6 +406,10 @@
     if (catchLure != nil) {
         [catchLure addCatchesObject:catch];   
     }
+    catch.latitude = [NSNumber numberWithDouble:latitude];
+    catch.longitude = [NSNumber numberWithDouble:longitude];
+    catch.latitudeDelta = [NSNumber numberWithDouble:latitudeDelta];
+    catch.longitudeDelta = [NSNumber numberWithDouble:longitudeDelta];
     
     [self.player addCatchesObject:catch];
     [self.player calculatePlayerScore];
@@ -474,6 +545,7 @@
     catchLure = lure;
     self.lureLabel.text = catchLure.name;
     [self updateCatchPointValue];
+    [self toggleSaveButton];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -483,7 +555,18 @@
     catchFish = fish;
     self.fishLabel.text = catchFish.name;
     [self updateCatchPointValue];
+    [self toggleSaveButton];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - GameLocationDelegate
+
+- (void) locationController:(LocationDetailViewController *)controller didSetLocation:(Location *)location {
+    latitude = [location.latitude doubleValue];
+    longitude = [location.longitude doubleValue];
+    latitudeDelta = [location.latitudeDelta doubleValue];
+    longitudeDelta = [location.longitudeDelta doubleValue];
+    [self updateLocationlabel];
 }
      
 @end

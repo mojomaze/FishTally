@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameLocationViewController.h"
+#import "LocationDetailViewController.h"
 #import "Location.h"
 
-@interface GameLocationViewController ()
+@interface LocationDetailViewController ()
 
 @end
 
-@implementation GameLocationViewController
+@implementation LocationDetailViewController
 
 @synthesize location = _location;
 @synthesize mapView = _mapView;

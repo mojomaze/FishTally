@@ -42,7 +42,7 @@
 		57952A4C15A347E900D1682C /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A4B15A347E800D1682C /* GamesViewController.m */; };
 		57952A5215A360DA00D1682C /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A5115A360DA00D1682C /* GameCell.m */; };
 		57A555E015E147D200D69D99 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A555DF15E147D200D69D99 /* CoreLocation.framework */; };
-		57A555E415E1585D00D69D99 /* GameLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A555E315E1585D00D69D99 /* GameLocationViewController.m */; };
+		57A555E415E1585D00D69D99 /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A555E315E1585D00D69D99 /* LocationDetailViewController.m */; };
 		57A555E715E16BE700D69D99 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A555E615E16BE600D69D99 /* Location.m */; };
 		57B67BFD15AA368800F20369 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B67BF715AA368800F20369 /* Icon-72.png */; };
 		57B67BFE15AA368800F20369 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B67BF815AA368800F20369 /* Icon-Small-50.png */; };
@@ -131,8 +131,8 @@
 		57952A5015A360DA00D1682C /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
 		57952A5115A360DA00D1682C /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		57A555DF15E147D200D69D99 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		57A555E215E1585D00D69D99 /* GameLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLocationViewController.h; sourceTree = "<group>"; };
-		57A555E315E1585D00D69D99 /* GameLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLocationViewController.m; sourceTree = "<group>"; };
+		57A555E215E1585D00D69D99 /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
+		57A555E315E1585D00D69D99 /* LocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailViewController.m; sourceTree = "<group>"; };
 		57A555E515E16BE600D69D99 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		57A555E615E16BE600D69D99 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		57B67BF715AA368800F20369 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 				57952A4B15A347E800D1682C /* GamesViewController.m */,
 				576E92BF15A373F600C93BAB /* GameDetailViewController.h */,
 				576E92C015A373F600C93BAB /* GameDetailViewController.m */,
-				57A555E215E1585D00D69D99 /* GameLocationViewController.h */,
-				57A555E315E1585D00D69D99 /* GameLocationViewController.m */,
+				57A555E215E1585D00D69D99 /* LocationDetailViewController.h */,
+				57A555E315E1585D00D69D99 /* LocationDetailViewController.m */,
 				57E03A3715A885C400921585 /* CatchesViewController.h */,
 				57E03A3815A885C400921585 /* CatchesViewController.m */,
 				57E03A4215A8875700921585 /* CatchDetailViewController.h */,
@@ -469,7 +469,7 @@
 				57D68C8E15DC3612007657CB /* CatchSize.m in Sources */,
 				57D68C9115DC49D8007657CB /* CatchSizesViewController.m in Sources */,
 				57D68C9415DC49F0007657CB /* CatchSizeDetailViewController.m in Sources */,
-				57A555E415E1585D00D69D99 /* GameLocationViewController.m in Sources */,
+				57A555E415E1585D00D69D99 /* LocationDetailViewController.m in Sources */,
 				57A555E715E16BE700D69D99 /* Location.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

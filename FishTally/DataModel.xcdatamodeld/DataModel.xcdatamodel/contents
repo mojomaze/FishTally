@@ -4,7 +4,9 @@
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
@@ -60,7 +62,7 @@
         <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="players" inverseEntity="Lure" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Catch" positionX="-36" positionY="450" width="128" height="150"/>
+        <element name="Catch" positionX="-36" positionY="450" width="128" height="225"/>
         <element name="CatchSize" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Fish" positionX="342" positionY="393" width="128" height="135"/>
         <element name="FishFamily" positionX="160" positionY="192" width="128" height="75"/>

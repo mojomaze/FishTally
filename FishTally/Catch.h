@@ -19,6 +19,8 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * latitudeDelta;
+@property (nonatomic, retain) NSNumber * longitudeDelta;
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) Lure *lure;
 @property (nonatomic, retain) Fish *fish;
