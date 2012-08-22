@@ -8,6 +8,7 @@
 
 #import "Game.h"
 #import "Player.h"
+#import "Catch.h"
 
 
 @implementation Game
@@ -66,6 +67,15 @@
         player = [players objectAtIndex:0];
     }
     return player;
+}
+
+- (NSArray *)allCatches {
+    NSMutableArray *catches = [[NSMutableArray alloc] init];
+    NSSet *players = self.players;
+    for (Player *player in players) {
+        [catches addObjectsFromArray:[player.catches allObjects]];
+    }
+    return catches;
 }
 
 @end

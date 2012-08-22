@@ -162,6 +162,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="fPi-k6-EV4" kind="modal" identifier="EditPlayer" modalTransitionStyle="flipHorizontal" id="Xl1-3f-MlF"/>
+                        <segue destination="HEx-ic-yCG" kind="push" identifier="ShowLocations" id="zdT-06-MSc"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -2378,15 +2379,16 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Rf1-7m-T4K"/>
-        <segue reference="9bF-ts-QbO"/>
-        <segue reference="0Hh-4C-ca8"/>
         <segue reference="ZXZ-eW-zgg"/>
+        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="9bF-ts-QbO"/>
         <segue reference="JKd-Sk-BDw"/>
-        <segue reference="fy9-xe-Wf2"/>
         <segue reference="efb-8Z-CLj"/>
+        <segue reference="fy9-xe-Wf2"/>
+        <segue reference="zdT-06-MSc"/>
         <segue reference="Xl1-3f-MlF"/>
         <segue reference="k89-qL-IHY"/>
-        <segue reference="E1g-Uj-wYM"/>
         <segue reference="Iyp-Mw-nFi"/>
+        <segue reference="E1g-Uj-wYM"/>
     </inferredMetricsTieBreakers>
 </document>

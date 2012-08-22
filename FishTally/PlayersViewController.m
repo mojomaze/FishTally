@@ -13,7 +13,7 @@
 #import "PlayerDetailViewController.h"
 #import "CatchesViewController.h"
 #import "UIImage+Resize.h"
-
+#import "LocationsViewController.h"
 
 @implementation PlayersViewController {
     NSFetchedResultsController *fetchedResultsController;
@@ -85,6 +85,15 @@
 {
     [super viewDidLoad];
     [self performFetch];
+    UIToolbar *toolbar = [self.navigationController toolbar];
+    toolbar.barStyle = UIBarStyleBlack;
+    toolbar.translucent = YES;
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map.png"]
+                                                                  style:UIBarButtonItemStyleBordered
+                                                                 target:self
+                                                                 action:@selector(showLocations:)];
+    [self setToolbarItems:[NSArray arrayWithObjects:mapButton, nil]];
+
 }
 
 - (void)viewDidUnload
@@ -102,6 +111,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -123,6 +133,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)showLocations:(id)sender {
+    [self performSegueWithIdentifier:@"ShowLocations"
+                              sender:sender]; 
 }
 
 #pragma mark - Table view data source
@@ -212,6 +227,14 @@
         viewController.managedObjectContext = self.managedObjectContext;
         viewController.player = player;
         [viewController setTitle:player.name];
+    }
+    
+    if ([segue.identifier isEqualToString:@"ShowLocations"]) {
+        LocationsViewController *controller = segue.destinationViewController;
+        [controller setTitle:@"Catch Locations"];
+        NSArray *catches = [self.game allCatches];
+        controller.annotations = catches;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 

@@ -11,6 +11,7 @@
 #import "PlayersViewController.h"
 #import "Player.h"
 #import "UIImage+Resize.h"
+#import "Catch.h"
 
 @interface LocationsViewController ()
 - (MKCoordinateRegion)regionForAnnotations:(NSArray *)annotations;
@@ -34,7 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setToolbarHidden:YES animated:YES];
 	if ([self.annotations count] > 0) {
         MKCoordinateRegion region = [self regionForAnnotations:self.annotations];
         [self.mapView setRegion:region animated:YES];
@@ -46,6 +46,11 @@
 {
     [super viewDidUnload];
     self.mapView = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -110,6 +115,21 @@
     return image;
 }
 
+- (UIImage *)playerPhotoForCatch:(Catch *)catch {
+    // get the leading player to show picture
+    UIImage *image;
+    Player *player = catch.player;
+    if (player != nil) {
+        if ([player hasPhoto]) {
+            image = [player photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(32, 32) withAspectType:ImageAspectTypeFill];
+            }
+        }
+    }
+    return image;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[Game class]]) {
@@ -119,7 +139,6 @@
         UIImage *image = [self leadingPlayerImageForGame:game];
         if (image != nil) {
             imageView = [[UIImageView alloc] initWithImage:image];
-            
         }
         
         static NSString *identifier = @"Game";
@@ -143,6 +162,41 @@
         
         UIButton *button = (UIButton *)annotationView.rightCalloutAccessoryView;
         button.tag = [self.annotations indexOfObject:(Game *)annotation];
+        
+        return annotationView;
+    }
+    
+    if ([annotation isKindOfClass:[Catch class]]) {
+        
+        Catch *catch = annotation;
+        
+        UIImageView *imageView;
+        UIImage *image = [self playerPhotoForCatch:catch];
+        if (image != nil) {
+            imageView = [[UIImageView alloc] initWithImage:image];
+        }
+        
+        static NSString *identifier = @"Catch";
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.animatesDrop = YES;
+            annotationView.draggable = NO;
+            annotationView.pinColor = MKPinAnnotationColorGreen;
+            
+//            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//            [rightButton addTarget:self action:@selector(showGame:) forControlEvents:UIControlEventTouchUpInside];
+//            annotationView.rightCalloutAccessoryView = rightButton;
+            annotationView.leftCalloutAccessoryView = imageView;
+            
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+//        UIButton *button = (UIButton *)annotationView.rightCalloutAccessoryView;
+//        button.tag = [self.annotations indexOfObject:(Game *)annotation];
         
         return annotationView;
     }

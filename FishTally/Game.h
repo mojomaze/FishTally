@@ -24,6 +24,7 @@
 
 - (NSString *)dateString;
 - (Player *)leadingPlayer;
+- (NSArray *)allCatches;
 
 @end
 
