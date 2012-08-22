@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		57101BB115E336AA00B630EF /* SizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57101BB015E336AA00B630EF /* SizeDetailViewController.m */; };
+		5718933B15E45386000748C4 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5718933915E45386000748C4 /* Map.png */; };
+		5718933C15E45386000748C4 /* Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5718933A15E45386000748C4 /* Map@2x.png */; };
+		5718934015E45D69000748C4 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5718933F15E45D69000748C4 /* LocationsViewController.m */; };
 		5723CFDF15A5DB1700A5AA13 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */; };
 		5723CFEB15A62CFF00A5AA13 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */; };
 		5723CFEE15A63B1700A5AA13 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723CFED15A63B1700A5AA13 /* SettingsViewController.m */; };
@@ -74,6 +77,10 @@
 /* Begin PBXFileReference section */
 		57101BAF15E336AA00B630EF /* SizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeDetailViewController.h; sourceTree = "<group>"; };
 		57101BB015E336AA00B630EF /* SizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeDetailViewController.m; sourceTree = "<group>"; };
+		5718933915E45386000748C4 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		5718933A15E45386000748C4 /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map@2x.png"; sourceTree = "<group>"; };
+		5718933E15E45D69000748C4 /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		5718933F15E45D69000748C4 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		5723CFDD15A5DB1700A5AA13 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailViewController.h; sourceTree = "<group>"; };
 		5723CFDE15A5DB1700A5AA13 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
 		5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -198,6 +205,8 @@
 		575BD31215A8D756007BC668 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5718933915E45386000748C4 /* Map.png */,
+				5718933A15E45386000748C4 /* Map@2x.png */,
 				57E348A915E2F46E00F34AC9 /* Pin.png */,
 				57E348AA15E2F46E00F34AC9 /* Pin@2x.png */,
 				575BD31815A8E6D4007BC668 /* fish.png */,
@@ -247,6 +256,8 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				5718933E15E45D69000748C4 /* LocationsViewController.h */,
+				5718933F15E45D69000748C4 /* LocationsViewController.m */,
 				57101BAF15E336AA00B630EF /* SizeDetailViewController.h */,
 				57101BB015E336AA00B630EF /* SizeDetailViewController.m */,
 				57D68C8F15DC49D8007657CB /* CatchSizesViewController.h */,
@@ -427,6 +438,8 @@
 				57B67C0215AA368800F20369 /* Icon@2x.png in Resources */,
 				57E348AB15E2F46E00F34AC9 /* Pin.png in Resources */,
 				57E348AC15E2F46E00F34AC9 /* Pin@2x.png in Resources */,
+				5718933B15E45386000748C4 /* Map.png in Resources */,
+				5718933C15E45386000748C4 /* Map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +490,7 @@
 				57A555E415E1585D00D69D99 /* LocationDetailViewController.m in Sources */,
 				57A555E715E16BE700D69D99 /* Location.m in Sources */,
 				57101BB115E336AA00B630EF /* SizeDetailViewController.m in Sources */,
+				5718934015E45D69000748C4 /* LocationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

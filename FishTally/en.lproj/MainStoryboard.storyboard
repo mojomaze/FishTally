@@ -6,6 +6,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Locations View Controller - Locations-->
+        <scene sceneID="z4y-z0-g61">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMs-c5-m2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="HEx-ic-yCG" customClass="LocationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rEY-Sm-X5K">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="39s-zw-sfA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HEx-ic-yCG" id="SBe-s4-QDM"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Locations" id="K2I-GP-d1d"/>
+                    <connections>
+                        <outlet property="mapView" destination="39s-zw-sfA" id="oUw-qj-B6r"/>
+                        <segue destination="9yw-eo-Ddd" kind="push" identifier="GamePlayers" id="CKQ-9Z-5mF"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1186" y="-713"/>
+        </scene>
         <!--Games View Controller - Games-->
         <scene sceneID="vFR-zS-EW3">
             <objects>
@@ -24,16 +52,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Name" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="56c-kO-4jc">
-                                            <rect key="frame" x="20" y="9" width="192" height="21"/>
+                                            <rect key="frame" x="14" y="12" width="198" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="date" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="aY4-qo-1El">
-                                            <rect key="frame" x="20" y="32" width="192" height="21"/>
+                                            <rect key="frame" x="14" y="32" width="198" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -65,6 +93,7 @@
                     <connections>
                         <segue destination="SN6-fx-Rn2" kind="modal" identifier="EditGame" modalTransitionStyle="flipHorizontal" id="efb-8Z-CLj"/>
                         <segue destination="9yw-eo-Ddd" kind="push" identifier="GamePlayers" id="fy9-xe-Wf2"/>
+                        <segue destination="HEx-ic-yCG" kind="push" identifier="ShowLocations" id="LP3-eq-Ktc"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -122,6 +151,7 @@
                             <outlet property="delegate" destination="9yw-eo-Ddd" id="xiq-z5-rNr"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Players" id="4L3-8D-ESL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L6x-Xg-Zyo">
                             <connections>
@@ -134,7 +164,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1796" y="-110"/>
+            <point key="canvasLocation" x="1789" y="-110"/>
         </scene>
         <!--Player Detail View Controller - Add Player-->
         <scene sceneID="RA4-FE-XcT">
@@ -668,7 +698,7 @@
                     <navigationItem key="navigationItem" title="Select Fish" id="Ybt-9a-Fhd"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3310" y="-691"/>
+            <point key="canvasLocation" x="3836" y="-691"/>
         </scene>
         <!--Lure Picker View Controller - Select Lure-->
         <scene sceneID="wq9-12-JCG">
@@ -801,7 +831,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2315" y="-691"/>
+            <point key="canvasLocation" x="2841" y="-691"/>
         </scene>
         <!--Location Detail View Controller - Location-->
         <scene sceneID="5Ld-fa-8gh">
@@ -834,7 +864,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2775" y="-691"/>
+            <point key="canvasLocation" x="3301" y="-691"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -1077,11 +1107,16 @@
                 <navigationController id="CYT-f1-ebi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Games" image="fish.png" id="Q7I-Ro-kYb"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="m3u-JN-ayq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d88-zG-OMd">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="5rF-OP-aaH" kind="relationship" relationship="rootViewController" id="gta-4E-Pez"/>
                     </connections>
@@ -1105,7 +1140,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1789" y="-691"/>
+            <point key="canvasLocation" x="2315" y="-691"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bsr-dh-Toc">
@@ -2254,6 +2289,12 @@
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
+        <class className="LocationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="LureCategoriesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LureCategoriesViewController.h"/>
         </class>
@@ -2334,15 +2375,16 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="efb-8Z-CLj"/>
-        <segue reference="Xl1-3f-MlF"/>
-        <segue reference="k89-qL-IHY"/>
-        <segue reference="E1g-Uj-wYM"/>
-        <segue reference="Iyp-Mw-nFi"/>
+        <segue reference="0Hh-4C-ca8"/>
         <segue reference="9bF-ts-QbO"/>
         <segue reference="Rf1-7m-T4K"/>
         <segue reference="JKd-Sk-BDw"/>
         <segue reference="ZXZ-eW-zgg"/>
-        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="efb-8Z-CLj"/>
+        <segue reference="CKQ-9Z-5mF"/>
+        <segue reference="Xl1-3f-MlF"/>
+        <segue reference="k89-qL-IHY"/>
+        <segue reference="Iyp-Mw-nFi"/>
+        <segue reference="E1g-Uj-wYM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,7 @@
 #import "GameCell.h"
 #import "GameDetailViewController.h"
 #import "PlayersViewController.h"
+#import "LocationsViewController.h"
 
 
 @implementation GamesViewController {
@@ -78,6 +79,14 @@
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //self.tableView.allowsSelectionDuringEditing = YES;
     [self performFetch];
+    UIToolbar *toolbar = [self.navigationController toolbar];
+    toolbar.barStyle = UIBarStyleBlack;
+    toolbar.translucent = YES;
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map.png"]
+                                                                  style:UIBarButtonItemStyleBordered
+                                                                 target:self
+                                                                 action:@selector(showLocations:)];
+    [self setToolbarItems:[NSArray arrayWithObjects:mapButton, nil]];
 }
 
 - (void)viewDidUnload
@@ -95,6 +104,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -118,6 +128,11 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)showLocations:(id)sender {
+    [self performSegueWithIdentifier:@"ShowLocations"
+                              sender:sender]; 
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -130,8 +145,8 @@
     GameCell *gameCell = (GameCell *)cell;
     Game *game = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    gameCell.nameLabel.text = game.name;
-    gameCell.dateLabel.text = [game dateString];
+    gameCell.nameLabel.text = game.title;
+    gameCell.dateLabel.text = game.subtitle;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,7 +180,6 @@
         
     }
 }
-
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -208,6 +222,19 @@
         viewController.game = game;
         // using Players for title
         //[viewController setTitle:[NSString stringWithFormat:@"Players:%@", game.name]];
+    }
+    if ([segue.identifier isEqualToString:@"ShowLocations"]) {
+        LocationsViewController *controller = segue.destinationViewController;
+        [controller setTitle:@"Game Locations"];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError *error;
+        NSArray *games;
+        games = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        controller.annotations = games;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 

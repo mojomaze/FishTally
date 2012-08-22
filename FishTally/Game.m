@@ -22,7 +22,7 @@
 @dynamic placemark;
 
 - (NSString *)dateString {
-    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd 'at' HH:mm" options:0
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0
                                                               locale:[NSLocale currentLocale]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:formatString];
@@ -43,6 +43,14 @@
 
 - (NSString *)subtitle
 {
+    if (self.placemark != nil) {
+        if (self.placemark.locality != nil) {
+            if (self.placemark.administrativeArea != nil) {
+                return [NSString stringWithFormat:@"%@ %@, %@", [self dateString], self.placemark.locality, self.placemark.administrativeArea];
+            }
+            return [NSString stringWithFormat:@"%@ %@", [self dateString], self.placemark.locality];
+        }
+    }         
     return [self dateString];
 }
 
