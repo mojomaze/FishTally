@@ -65,7 +65,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hz0-0C-vjU">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" id="hz0-0C-vjU">
                                             <rect key="frame" x="220" y="3" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -75,6 +75,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="aY4-qo-1El" id="bh8-aT-nYc"/>
                                     <outlet property="nameLabel" destination="56c-kO-4jc" id="nXt-p6-XAj"/>
+                                    <outlet property="playerImageView" destination="hz0-0C-vjU" id="bql-Q9-NQd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2268,6 +2269,7 @@
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="GameDetailViewController" superclassName="UITableViewController">
@@ -2375,16 +2377,16 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Hh-4C-ca8"/>
-        <segue reference="9bF-ts-QbO"/>
         <segue reference="Rf1-7m-T4K"/>
-        <segue reference="JKd-Sk-BDw"/>
+        <segue reference="9bF-ts-QbO"/>
+        <segue reference="0Hh-4C-ca8"/>
         <segue reference="ZXZ-eW-zgg"/>
+        <segue reference="JKd-Sk-BDw"/>
+        <segue reference="fy9-xe-Wf2"/>
         <segue reference="efb-8Z-CLj"/>
-        <segue reference="CKQ-9Z-5mF"/>
         <segue reference="Xl1-3f-MlF"/>
         <segue reference="k89-qL-IHY"/>
-        <segue reference="Iyp-Mw-nFi"/>
         <segue reference="E1g-Uj-wYM"/>
+        <segue reference="Iyp-Mw-nFi"/>
     </inferredMetricsTieBreakers>
 </document>

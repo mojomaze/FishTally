@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSSet * players;
 
 - (NSString *)dateString;
+- (Player *)leadingPlayer;
 
 @end
 

@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *playerImageView;
 
 @end

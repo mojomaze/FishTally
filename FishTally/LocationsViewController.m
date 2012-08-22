@@ -9,6 +9,8 @@
 #import "LocationsViewController.h"
 #import "Game.h"
 #import "PlayersViewController.h"
+#import "Player.h"
+#import "UIImage+Resize.h"
 
 @interface LocationsViewController ()
 - (MKCoordinateRegion)regionForAnnotations:(NSArray *)annotations;
@@ -93,9 +95,32 @@
     [self performSegueWithIdentifier:@"GamePlayers" sender:button];
 }
 
+- (UIImage *)leadingPlayerImageForGame:(Game *)game {
+    // get the leading player to show picture
+    UIImage *image;
+    Player *player = [game leadingPlayer];
+    if (player != nil) {
+        if ([player hasPhoto]) {
+            image = [player photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(32, 32) withAspectType:ImageAspectTypeFill];
+            }
+        }
+    }
+    return image;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[Game class]]) {
+        
+        Game *game = annotation;
+        UIImageView *imageView;
+        UIImage *image = [self leadingPlayerImageForGame:game];
+        if (image != nil) {
+            imageView = [[UIImageView alloc] initWithImage:image];
+            
+        }
         
         static NSString *identifier = @"Game";
         MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
@@ -110,6 +135,8 @@
             UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             [rightButton addTarget:self action:@selector(showGame:) forControlEvents:UIControlEventTouchUpInside];
             annotationView.rightCalloutAccessoryView = rightButton;
+            annotationView.leftCalloutAccessoryView = imageView;
+            
         } else {
             annotationView.annotation = annotation;
         }
@@ -132,6 +159,5 @@
         viewController.game = game;
     }
 }
-
 
 @end

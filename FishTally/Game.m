@@ -54,4 +54,18 @@
     return [self dateString];
 }
 
+- (Player *)leadingPlayer {
+    Player *player;
+    
+    NSSortDescriptor *descriptor1 = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
+    NSSortDescriptor *descriptor2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:descriptor1, descriptor2, nil];
+    
+    NSArray *players = [self.players sortedArrayUsingDescriptors:sortDescriptors];
+    if ([players count] > 0) {
+        player = [players objectAtIndex:0];
+    }
+    return player;
+}
+
 @end

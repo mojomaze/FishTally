@@ -12,6 +12,8 @@
 #import "GameDetailViewController.h"
 #import "PlayersViewController.h"
 #import "LocationsViewController.h"
+#import "Player.h"
+#import "UIImage+Resize.h"
 
 
 @implementation GamesViewController {
@@ -133,12 +135,30 @@
                               sender:sender]; 
 }
 
+- (UIImage *)leadingPlayerImageForGame:(Game *)game {
+    // get the leading player to show picture
+    UIImage *image;
+    Player *player = [game leadingPlayer];
+    if (player != nil) {
+        if ([player hasPhoto]) {
+            image = [player photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(60, 60) withAspectType:ImageAspectTypeFit];
+            }
+        }
+    }
+   
+    return image;
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];}
+    return [sectionInfo numberOfObjects];
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -147,6 +167,10 @@
     
     gameCell.nameLabel.text = game.title;
     gameCell.dateLabel.text = game.subtitle;
+    UIImage *playerImage = [self leadingPlayerImageForGame:game];
+    if (playerImage != nil) {
+        gameCell.playerImageView.image = playerImage;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

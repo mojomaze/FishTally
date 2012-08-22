@@ -12,6 +12,7 @@
 
 @synthesize nameLabel = _nameLabel;
 @synthesize dateLabel = _dateLabel;
+@synthesize playerImageView = _playerImageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
