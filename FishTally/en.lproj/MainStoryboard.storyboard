@@ -29,10 +29,11 @@
                     <connections>
                         <outlet property="mapView" destination="39s-zw-sfA" id="oUw-qj-B6r"/>
                         <segue destination="9yw-eo-Ddd" kind="push" identifier="GamePlayers" id="CKQ-9Z-5mF"/>
+                        <segue destination="CDC-38-W6d" kind="push" identifier="ShowCatch" id="ena-ph-wDY"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1186" y="-713"/>
+            <point key="canvasLocation" x="1178" y="-729"/>
         </scene>
         <!--Games View Controller - Games-->
         <scene sceneID="vFR-zS-EW3">
@@ -333,6 +334,7 @@
                                     <outlet property="nameLabel" destination="EXH-A2-kLV" id="yFF-N6-XZJ"/>
                                     <outlet property="photoImageView" destination="pRq-PW-MdC" id="uhQ-dv-pR1"/>
                                     <outlet property="scoreLabel" destination="qB4-WC-Cme" id="zMQ-0b-dcu"/>
+                                    <segue destination="CDC-38-W6d" kind="push" identifier="ShowCatch" id="Ltp-RF-k3e"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -663,6 +665,105 @@
             </objects>
             <point key="canvasLocation" x="3838" y="-110"/>
         </scene>
+        <!--Catch Dislay View Controller - Catch-->
+        <scene sceneID="Llb-9S-UqY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eb6-0H-zaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="CDC-38-W6d" customClass="CatchDislayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B4L-0J-ISq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" id="ec2-ry-1XN">
+                                <rect key="frame" x="20" y="20" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="JdP-Sn-GJQ">
+                                <rect key="frame" x="20" y="236" width="280" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ZO7-8Q-iEd">
+                                <rect key="frame" x="148" y="20" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DWQ-Jv-Eu3">
+                                <rect key="frame" x="148" y="49" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QEX-pc-qEc">
+                                <rect key="frame" x="148" y="78" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gYz-Vf-s21">
+                                <rect key="frame" x="148" y="107" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" id="6Lw-r7-4Fe">
+                                <rect key="frame" x="20" y="148" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1VN-2P-aRL">
+                                <rect key="frame" x="88" y="148" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yHy-X0-nJ6">
+                                <rect key="frame" x="88" y="177" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="34w-x9-mZL">
+                                <rect key="frame" x="20" y="216" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Catch" id="YZa-Km-Bn6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="f4N-K2-0k0">
+                            <connections>
+                                <action selector="edit:" destination="CDC-38-W6d" id="N6u-mu-1En"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateLabel" destination="DWQ-Jv-Eu3" id="6Zt-fp-xmy"/>
+                        <outlet property="fishImageView" destination="ec2-ry-1XN" id="dPt-VM-vJI"/>
+                        <outlet property="fishLabel" destination="ZO7-8Q-iEd" id="RYH-yW-jdP"/>
+                        <outlet property="locationLabel" destination="gYz-Vf-s21" id="4bd-Lx-UfA"/>
+                        <outlet property="lureImageView" destination="6Lw-r7-4Fe" id="m91-S2-ifp"/>
+                        <outlet property="lureLabel" destination="1VN-2P-aRL" id="MjU-mc-Jlw"/>
+                        <outlet property="scoreLabel" destination="yHy-X0-nJ6" id="L6C-Km-jTl"/>
+                        <outlet property="sizeLabel" destination="QEX-pc-qEc" id="CQh-1R-Yg6"/>
+                        <outlet property="textView" destination="JdP-Sn-GJQ" id="1vO-Jd-mFQ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="4265" y="-110"/>
+        </scene>
         <!--Fish Picker View Controller - Select Fish-->
         <scene sceneID="frA-0X-GMO">
             <objects>
@@ -833,7 +934,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2841" y="-691"/>
+            <point key="canvasLocation" x="2315" y="-691"/>
         </scene>
         <!--Location Detail View Controller - Location-->
         <scene sceneID="5Ld-fa-8gh">
@@ -1142,7 +1243,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2315" y="-691"/>
+            <point key="canvasLocation" x="1789" y="-691"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bsr-dh-Toc">
@@ -2211,6 +2312,21 @@
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
+        <class className="CatchDislayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CatchDislayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="edit:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fishImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="fishLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lureImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
         <class className="CatchSizeDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CatchSizeDetailViewController.h"/>
             <relationships>
@@ -2378,17 +2494,12 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rf1-7m-T4K"/>
+        <segue reference="efb-8Z-CLj"/>
+        <segue reference="nJH-9R-MxR"/>
         <segue reference="ZXZ-eW-zgg"/>
         <segue reference="0Hh-4C-ca8"/>
         <segue reference="9bF-ts-QbO"/>
         <segue reference="JKd-Sk-BDw"/>
-        <segue reference="efb-8Z-CLj"/>
-        <segue reference="fy9-xe-Wf2"/>
-        <segue reference="zdT-06-MSc"/>
-        <segue reference="Xl1-3f-MlF"/>
-        <segue reference="k89-qL-IHY"/>
-        <segue reference="Iyp-Mw-nFi"/>
-        <segue reference="E1g-Uj-wYM"/>
+        <segue reference="Rf1-7m-T4K"/>
     </inferredMetricsTieBreakers>
 </document>

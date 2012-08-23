@@ -13,7 +13,7 @@
 #import "CatchCell.h"
 #import "CatchDetailViewController.h"
 #import "UIImage+Resize.h"
-
+#import "CatchDislayViewController.h"
 
 @implementation CatchesViewController {
     NSFetchedResultsController *fetchedResultsController;
@@ -210,6 +210,15 @@
         Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
         controller.catchToEdit = catch;
         controller.player = self.player;
+    }
+    
+    if ([segue.identifier isEqualToString:@"ShowCatch"]) {
+        CatchDislayViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.catch = catch;
     }
 }
 

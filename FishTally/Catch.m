@@ -10,7 +10,7 @@
 #import "Lure.h"
 #import "Player.h"
 #import "Fish.h"
-
+#import "Game.h"
 
 @implementation Catch
 
@@ -70,10 +70,24 @@
    return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" points", nil)];
 }
 
+- (NSString *)dateString {
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0
+                                                              locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatString];
+    return [dateFormatter stringFromDate:self.date];
+}
+
 # pragma mark - MKAnnotation
 
 - (CLLocationCoordinate2D)coordinate
 {
+    double latitude = [self.latitude doubleValue];
+    double longitute = [self.longitude doubleValue];
+    if (latitude == 0 && longitute == 0) {
+        //try game coordinates
+       return CLLocationCoordinate2DMake([self.player.game.latitude doubleValue], [self.player.game.longitude doubleValue]); 
+    }
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
 }
 

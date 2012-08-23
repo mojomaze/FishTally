@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "UIImage+Resize.h"
 #import "Catch.h"
+#import "CatchDislayViewController.h"
 
 @interface LocationsViewController ()
 - (MKCoordinateRegion)regionForAnnotations:(NSArray *)annotations;
@@ -100,6 +101,11 @@
     [self performSegueWithIdentifier:@"GamePlayers" sender:button];
 }
 
+- (void)showCatch:(UIButton *)button
+{
+    [self performSegueWithIdentifier:@"ShowCatch" sender:button];
+}
+
 - (UIImage *)leadingPlayerImageForGame:(Game *)game {
     // get the leading player to show picture
     UIImage *image;
@@ -186,17 +192,17 @@
             annotationView.draggable = NO;
             annotationView.pinColor = MKPinAnnotationColorGreen;
             
-//            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//            [rightButton addTarget:self action:@selector(showGame:) forControlEvents:UIControlEventTouchUpInside];
-//            annotationView.rightCalloutAccessoryView = rightButton;
+            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            [rightButton addTarget:self action:@selector(showCatch:) forControlEvents:UIControlEventTouchUpInside];
+            annotationView.rightCalloutAccessoryView = rightButton;
             annotationView.leftCalloutAccessoryView = imageView;
             
         } else {
             annotationView.annotation = annotation;
         }
         
-//        UIButton *button = (UIButton *)annotationView.rightCalloutAccessoryView;
-//        button.tag = [self.annotations indexOfObject:(Game *)annotation];
+        UIButton *button = (UIButton *)annotationView.rightCalloutAccessoryView;
+        button.tag = [self.annotations indexOfObject:(Catch *)annotation];
         
         return annotationView;
     }
@@ -211,6 +217,13 @@
         PlayersViewController *viewController = segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
         viewController.game = game;
+    }
+    
+    if ([segue.identifier isEqualToString:@"ShowCatch"]) {
+        Catch *catch = [self.annotations objectAtIndex:((UIButton *)sender).tag];
+        CatchDislayViewController *viewController = segue.destinationViewController;
+        viewController.managedObjectContext = self.managedObjectContext;
+        viewController.catch = catch;
     }
 }
 

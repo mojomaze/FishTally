@@ -34,5 +34,6 @@
 - (NSString *)scoreString;
 - (NSNumber *)measurementWithUnits:(NSString *)units;
 - (void)setMeasurement:(NSNumber *)measurement withUnits:(NSString *)units;
+- (NSString *)dateString;
 
 @end
