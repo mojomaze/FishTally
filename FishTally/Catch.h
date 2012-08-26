@@ -23,6 +23,11 @@
 @property (nonatomic, retain) NSNumber * longitudeDelta;
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSNumber * measurement;
+@property (nonatomic, retain) NSNumber * fishPoints;
+@property (nonatomic, retain) NSNumber * sizeMultiplier;
+@property (nonatomic, retain) NSNumber * lureMultiplier;
+@property (nonatomic, retain) NSString * sizeName;
+
 @property (nonatomic, retain) Lure *lure;
 @property (nonatomic, retain) Fish *fish;
 @property (nonatomic, retain) Player *player;

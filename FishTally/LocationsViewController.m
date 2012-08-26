@@ -12,7 +12,7 @@
 #import "Player.h"
 #import "UIImage+Resize.h"
 #import "Catch.h"
-#import "CatchDislayViewController.h"
+#import "CatchDisplayViewController.h"
 
 @interface LocationsViewController ()
 - (MKCoordinateRegion)regionForAnnotations:(NSArray *)annotations;
@@ -221,7 +221,7 @@
     
     if ([segue.identifier isEqualToString:@"ShowCatch"]) {
         Catch *catch = [self.annotations objectAtIndex:((UIButton *)sender).tag];
-        CatchDislayViewController *viewController = segue.destinationViewController;
+        CatchDisplayViewController *viewController = segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
         viewController.catch = catch;
     }

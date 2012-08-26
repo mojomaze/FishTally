@@ -435,6 +435,13 @@
     catch.lure = catchLure;
     catch.score = [NSNumber numberWithDouble:score];
     catch.size = [NSNumber numberWithInt:size];
+    
+    // storing size name and multipliers denormalized - settings can change!
+    catch.sizeName = [sizeNames objectAtIndex:size];
+    catch.sizeMultiplier = [sizeMultipliers objectAtIndex:size];
+    catch.fishPoints = self.catchToEdit.fish.points;
+    catch.lureMultiplier = self.catchToEdit.lure.multiplier;
+    
     [catch setMeasurement:[NSNumber numberWithDouble:measurement] withUnits:units];
     catch.comment = comments;
     
@@ -645,6 +652,5 @@
 - (void) textViewDidEndEditing:(UITextView *)textView {
     comments = textView.text;
 }
-
      
 @end

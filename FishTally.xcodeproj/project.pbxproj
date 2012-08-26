@@ -20,6 +20,10 @@
 		5723D00815A6526500A5AA13 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00715A6526500A5AA13 /* Fish.m */; };
 		5723D00B15A653DA00A5AA13 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5723D00A15A653DA00A5AA13 /* Player.m */; };
 		573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573A6C6A15DC902200DF6F8B /* MapKit.framework */; };
+		573EB17E15E997460042EAEA /* Panel-black-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 573EB17A15E997460042EAEA /* Panel-black-light.png */; };
+		573EB17F15E997460042EAEA /* Panel-black-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 573EB17B15E997460042EAEA /* Panel-black-light@2x.png */; };
+		573EB18015E997460042EAEA /* Panel-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 573EB17C15E997460042EAEA /* Panel-black.png */; };
+		573EB18115E997460042EAEA /* Panel-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 573EB17D15E997460042EAEA /* Panel-black@2x.png */; };
 		57417A8515D6B45B0003910D /* FishFamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417A8415D6B45B0003910D /* FishFamiliesViewController.m */; };
 		57417A8915D6B4980003910D /* FishFamilyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417A8815D6B4980003910D /* FishFamilyDetailViewController.m */; };
 		575A3A3515B1F0A2005349B8 /* CategoryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 575A3A3415B1F0A2005349B8 /* CategoryPickerViewController.m */; };
@@ -33,6 +37,8 @@
 		5775E26915A75E0A00E302CE /* LureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775E26815A75E0A00E302CE /* LureDetailViewController.m */; };
 		5775E27115A7795300E302CE /* FishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775E27015A7795200E302CE /* FishViewController.m */; };
 		5775E27415A7796600E302CE /* FishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775E27315A7796600E302CE /* FishDetailViewController.m */; };
+		578C85CD15E921B400504F65 /* Panel-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 578C85CB15E921B400504F65 /* Panel-grey.png */; };
+		578C85CE15E921B400504F65 /* Panel-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 578C85CC15E921B400504F65 /* Panel-grey@2x.png */; };
 		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
 		57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1215A3302A00D1682C /* Foundation.framework */; };
 		57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1415A3302A00D1682C /* CoreGraphics.framework */; };
@@ -65,7 +71,7 @@
 		57D68C8E15DC3612007657CB /* CatchSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C8D15DC3612007657CB /* CatchSize.m */; };
 		57D68C9115DC49D8007657CB /* CatchSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C9015DC49D8007657CB /* CatchSizesViewController.m */; };
 		57D68C9415DC49F0007657CB /* CatchSizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D68C9315DC49F0007657CB /* CatchSizeDetailViewController.m */; };
-		57DE6A7B15E6B8EF000F678F /* CatchDislayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DE6A7A15E6B8EF000F678F /* CatchDislayViewController.m */; };
+		57DE6A7B15E6B8EF000F678F /* CatchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DE6A7A15E6B8EF000F678F /* CatchDisplayViewController.m */; };
 		57E03A3915A885C400921585 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A3815A885C400921585 /* CatchesViewController.m */; };
 		57E03A4415A8875700921585 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4315A8875700921585 /* CatchDetailViewController.m */; };
 		57E03A4C15A8AB2400921585 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E03A4B15A8AB2300921585 /* FishPickerViewController.m */; };
@@ -99,6 +105,10 @@
 		5723D00915A653DA00A5AA13 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		5723D00A15A653DA00A5AA13 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		573A6C6A15DC902200DF6F8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		573EB17A15E997460042EAEA /* Panel-black-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-black-light.png"; sourceTree = "<group>"; };
+		573EB17B15E997460042EAEA /* Panel-black-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-black-light@2x.png"; sourceTree = "<group>"; };
+		573EB17C15E997460042EAEA /* Panel-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-black.png"; sourceTree = "<group>"; };
+		573EB17D15E997460042EAEA /* Panel-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-black@2x.png"; sourceTree = "<group>"; };
 		57417A8315D6B45B0003910D /* FishFamiliesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamiliesViewController.h; sourceTree = "<group>"; };
 		57417A8415D6B45B0003910D /* FishFamiliesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishFamiliesViewController.m; sourceTree = "<group>"; };
 		57417A8715D6B4980003910D /* FishFamilyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishFamilyDetailViewController.h; sourceTree = "<group>"; };
@@ -122,6 +132,8 @@
 		5775E27015A7795200E302CE /* FishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishViewController.m; sourceTree = "<group>"; };
 		5775E27215A7796600E302CE /* FishDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishDetailViewController.h; sourceTree = "<group>"; };
 		5775E27315A7796600E302CE /* FishDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishDetailViewController.m; sourceTree = "<group>"; };
+		578C85CB15E921B400504F65 /* Panel-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-grey.png"; sourceTree = "<group>"; };
+		578C85CC15E921B400504F65 /* Panel-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panel-grey@2x.png"; sourceTree = "<group>"; };
 		57952A0C15A3302A00D1682C /* FishTally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishTally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57952A1015A3302A00D1682C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57952A1215A3302A00D1682C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -174,8 +186,8 @@
 		57D68C9015DC49D8007657CB /* CatchSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSizesViewController.m; sourceTree = "<group>"; };
 		57D68C9215DC49F0007657CB /* CatchSizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchSizeDetailViewController.h; sourceTree = "<group>"; };
 		57D68C9315DC49F0007657CB /* CatchSizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchSizeDetailViewController.m; sourceTree = "<group>"; };
-		57DE6A7915E6B8EF000F678F /* CatchDislayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDislayViewController.h; sourceTree = "<group>"; };
-		57DE6A7A15E6B8EF000F678F /* CatchDislayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchDislayViewController.m; sourceTree = "<group>"; };
+		57DE6A7915E6B8EF000F678F /* CatchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDisplayViewController.h; sourceTree = "<group>"; };
+		57DE6A7A15E6B8EF000F678F /* CatchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchDisplayViewController.m; sourceTree = "<group>"; };
 		57E03A3715A885C400921585 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchesViewController.h; sourceTree = "<group>"; };
 		57E03A3815A885C400921585 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchesViewController.m; sourceTree = "<group>"; };
 		57E03A4215A8875700921585 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchDetailViewController.h; sourceTree = "<group>"; };
@@ -208,6 +220,12 @@
 		575BD31215A8D756007BC668 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				573EB17A15E997460042EAEA /* Panel-black-light.png */,
+				573EB17B15E997460042EAEA /* Panel-black-light@2x.png */,
+				573EB17C15E997460042EAEA /* Panel-black.png */,
+				573EB17D15E997460042EAEA /* Panel-black@2x.png */,
+				578C85CB15E921B400504F65 /* Panel-grey.png */,
+				578C85CC15E921B400504F65 /* Panel-grey@2x.png */,
 				5718933915E45386000748C4 /* Map.png */,
 				5718933A15E45386000748C4 /* Map@2x.png */,
 				57E348A915E2F46E00F34AC9 /* Pin.png */,
@@ -259,8 +277,8 @@
 				5723CFE915A62CFF00A5AA13 /* UIImage+Resize.h */,
 				5723CFEA15A62CFF00A5AA13 /* UIImage+Resize.m */,
 				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
-				57DE6A7915E6B8EF000F678F /* CatchDislayViewController.h */,
-				57DE6A7A15E6B8EF000F678F /* CatchDislayViewController.m */,
+				57DE6A7915E6B8EF000F678F /* CatchDisplayViewController.h */,
+				57DE6A7A15E6B8EF000F678F /* CatchDisplayViewController.m */,
 				5718933E15E45D69000748C4 /* LocationsViewController.h */,
 				5718933F15E45D69000748C4 /* LocationsViewController.m */,
 				57101BAF15E336AA00B630EF /* SizeDetailViewController.h */,
@@ -445,6 +463,12 @@
 				57E348AC15E2F46E00F34AC9 /* Pin@2x.png in Resources */,
 				5718933B15E45386000748C4 /* Map.png in Resources */,
 				5718933C15E45386000748C4 /* Map@2x.png in Resources */,
+				578C85CD15E921B400504F65 /* Panel-grey.png in Resources */,
+				578C85CE15E921B400504F65 /* Panel-grey@2x.png in Resources */,
+				573EB17E15E997460042EAEA /* Panel-black-light.png in Resources */,
+				573EB17F15E997460042EAEA /* Panel-black-light@2x.png in Resources */,
+				573EB18015E997460042EAEA /* Panel-black.png in Resources */,
+				573EB18115E997460042EAEA /* Panel-black@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +520,7 @@
 				57A555E715E16BE700D69D99 /* Location.m in Sources */,
 				57101BB115E336AA00B630EF /* SizeDetailViewController.m in Sources */,
 				5718934015E45D69000748C4 /* LocationsViewController.m in Sources */,
-				57DE6A7B15E6B8EF000F678F /* CatchDislayViewController.m in Sources */,
+				57DE6A7B15E6B8EF000F678F /* CatchDisplayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,10 @@
 @dynamic longitudeDelta;
 @dynamic measurement;
 @dynamic comment;
+@dynamic sizeName;
+@dynamic sizeMultiplier;
+@dynamic lureMultiplier;
+@dynamic fishPoints;
 
 - (BOOL)hasPhoto
 {
@@ -67,6 +71,9 @@
 }
 
 - (NSString *)scoreString {
+    if ([self.score doubleValue] == 1.0f) {
+        return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" point", nil)];
+    }
    return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" points", nil)];
 }
 
