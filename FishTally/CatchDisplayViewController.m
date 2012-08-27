@@ -15,10 +15,14 @@
 #import "Player.h"
 
 @interface CatchDisplayViewController ()
-
+- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration;
+- (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration;
+- (void)createLandscapeCommentViewWithRotation:(BOOL)rotation;
 @end
 
-@implementation CatchDisplayViewController
+@implementation CatchDisplayViewController {
+    UIView *landscapeCommentView;
+}
 
 @synthesize fishLabel = _fishLabel;
 @synthesize familyLabel = _familyLabel;
@@ -33,6 +37,7 @@
 @synthesize textView = _textView;
 @synthesize fishImageView = _fishImageView;
 @synthesize playerImageView = _playerImageView;
+@synthesize portraitCommentView = _portraitCommentView;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize catch = _catch;
 
@@ -84,7 +89,7 @@
         self.locationLabel.text = [NSString stringWithFormat:@"%.1f, %.1f", [self.catch.latitude doubleValue], [self.catch.longitude doubleValue]];
         self.lureLabel.text = self.catch.lure.name;
         
-        self.pointsLabel.text = [NSString stringWithFormat:@"%d", [self.catch.fish.points integerValue]];
+        self.pointsLabel.text = [NSString stringWithFormat:@"%d.0", [self.catch.fish.points integerValue]];
         self.lureMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.lure.multiplier doubleValue]];
         self.sizeMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.sizeMultiplier doubleValue]];
         self.scoreLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.score doubleValue]];;
@@ -102,6 +107,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:YES animated:YES];
+    
+    NSTimeInterval duration = 0.0f;
+    if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self hideLandscapeViewWithDuration:duration];
+    } else {
+        [self showLandscapeViewWithDuration:duration];
+
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -109,8 +122,86 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (IBAction)edit:(id)sender {
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self hideLandscapeViewWithDuration:duration];
+    } else {
+        [self showLandscapeViewWithDuration:duration];
+    }
+}
+
+- (void)createLandscapeCommentViewWithRotation:(BOOL)rotation {
+    // rotation is portait going to landscape
+    CGRect  viewRect;
+    if (rotation) {
+        viewRect = CGRectMake(160, 160, 140, 200); // portrait to landscape position
+    } else {
+        viewRect = CGRectMake(320, 10, 140, 200); // initial landscape position
+    }
+    
+    // parent view
+    landscapeCommentView = [[UIView alloc] initWithFrame:viewRect];
+    landscapeCommentView.alpha = 0.0f;
+    //landscapeCommentView.backgroundColor = [[UIColor alloc] initWithWhite:1.0f alpha:1.0f];
+    landscapeCommentView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    // child UIImageView for styling
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Panel-black-light.png"]];
+    imageView.frame = landscapeCommentView.bounds;
+    [landscapeCommentView addSubview:imageView];
+    // child UITextView for comments
+    UITextView *textView = [[UITextView alloc] initWithFrame:landscapeCommentView.bounds];
+    textView.backgroundColor = [UIColor clearColor];
+    textView.editable = NO;
+    textView.textColor = [UIColor whiteColor];
+    textView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    textView.text = self.catch.comment;
+    [landscapeCommentView addSubview:textView];
+    [self.view addSubview:landscapeCommentView];
+}
+
+- (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration {
+    if (landscapeCommentView) {
+        self.portraitCommentView.hidden = NO;
+        [UIView animateWithDuration:duration animations:^{
+            landscapeCommentView.alpha = 0.0f;
+            self.portraitCommentView.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            landscapeCommentView.hidden = YES;
+        }];
+    } else {
+        self.portraitCommentView.hidden = NO;
+    }
+    
+}
+
+- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration {
+    if (!landscapeCommentView) {
+        [self createLandscapeCommentViewWithRotation:duration > 0.0f];
+    } else {
+        landscapeCommentView.hidden = NO;
+    }
+    [UIView animateWithDuration:duration animations:^{
+        landscapeCommentView.alpha = 1.0f;
+        self.portraitCommentView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        self.portraitCommentView.hidden = YES;
+    }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // edit catch called from accessory button
+    if ([segue.identifier isEqualToString:@"EditCatch"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        CatchDetailViewController *controller = (CatchDetailViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        
+        controller.catchToEdit = self.catch;
+        controller.player = self.catch.player;
+    }
 }
 
 @end

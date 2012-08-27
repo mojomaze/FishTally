@@ -25,9 +25,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *lureMultiplierLabel;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UITextView *textView;
+@property (nonatomic, strong) IBOutlet UIView *portraitCommentView;
 @property (nonatomic, strong) Catch *catch;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
-- (IBAction)edit:(id)sender;
 
 @end
