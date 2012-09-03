@@ -181,10 +181,15 @@
     self.sizeMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.sizeMultiplier doubleValue]];
     self.scoreLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.score doubleValue]];;
     
-    self.textView.text = self.catch.comment;
+    NSString *comment = self.catch.comment;
+    if (comment == nil || [comment isEqualToString:@""]) {
+        comment = @"No Comment";
+    }
+    
+    self.textView.text = comment;
     
     if (landscapeTextView) {
-        landscapeTextView.text = self.catch.comment;
+        landscapeTextView.text = comment;
     }
 }
 
@@ -212,7 +217,13 @@
     landscapeTextView.editable = NO;
     landscapeTextView.textColor = [UIColor whiteColor];
     landscapeTextView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    landscapeTextView.text = self.catch.comment;
+    
+    NSString *comment = self.catch.comment;
+    if (comment == nil || [comment isEqualToString:@""]) {
+        comment = @"No Comment";
+    }
+    
+    landscapeTextView.text = comment;
     [landscapeCommentView addSubview:landscapeTextView];
     [self.view addSubview:landscapeCommentView];
 }

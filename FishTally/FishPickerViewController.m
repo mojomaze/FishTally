@@ -61,7 +61,7 @@
     // setup sections using fish.family property
     families = [[NSMutableArray alloc] init];
     for (Fish *fish in fishs) {
-        if(![families containsObject:fish.fishFamily]) {
+        if(![families containsObject:fish.fishFamily.name]) {
             [families addObject:fish.fishFamily.name];
         }
     }
