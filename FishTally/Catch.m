@@ -72,9 +72,9 @@
 
 - (NSString *)scoreString {
     if ([self.score doubleValue] == 1.0f) {
-        return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" point", nil)];
+        return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@"point", nil)];
     }
-   return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@" points", nil)];
+   return [NSString stringWithFormat:@"%.1f %@", [self.score doubleValue], NSLocalizedString(@"points", nil)];
 }
 
 - (NSString *)dateString {

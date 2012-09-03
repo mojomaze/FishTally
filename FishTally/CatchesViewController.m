@@ -14,6 +14,7 @@
 #import "CatchDetailViewController.h"
 #import "UIImage+Resize.h"
 #import "CatchDisplayViewController.h"
+#import "LocationsViewController.h"
 
 @implementation CatchesViewController {
     NSFetchedResultsController *fetchedResultsController;
@@ -84,6 +85,15 @@
 {
     [super viewDidLoad];
     [self performFetch];
+    UIToolbar *toolbar = [self.navigationController toolbar];
+    toolbar.barStyle = UIBarStyleBlack;
+    toolbar.translucent = YES;
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map.png"]
+                                                                  style:UIBarButtonItemStyleBordered
+                                                                 target:self
+                                                                 action:@selector(showLocations:)];
+    [self setToolbarItems:[NSArray arrayWithObjects:mapButton, nil]];
+
 }
 
 - (void)viewDidUnload
@@ -101,8 +111,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -122,6 +132,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)showLocations:(id)sender {
+    [self performSegueWithIdentifier:@"ShowLocations"
+                              sender:sender]; 
 }
 
 #pragma mark - Table view data source
@@ -219,6 +234,14 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Catch *catch = [self.fetchedResultsController objectAtIndexPath:indexPath];
         controller.catch = catch;
+    }
+    
+    if ([segue.identifier isEqualToString:@"ShowLocations"]) {
+        LocationsViewController *controller = segue.destinationViewController;
+        [controller setTitle:@"Catch Locations"];
+        NSArray *catches = [self.player.catches allObjects];
+        controller.annotations = catches;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 

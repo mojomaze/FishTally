@@ -68,7 +68,7 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="center" id="hz0-0C-vjU">
                                             <rect key="frame" x="220" y="3" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -352,6 +352,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Qma-yP-oZV" kind="modal" identifier="EditCatch" modalTransitionStyle="flipHorizontal" id="k89-qL-IHY"/>
+                        <segue destination="HEx-ic-yCG" kind="push" identifier="ShowLocations" id="IwD-go-uch"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -411,7 +412,7 @@
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="XF8-C2-GMz">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="Small Fry"/>
                                                         <segment title="Whopper"/>
@@ -805,7 +806,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(lure)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="krl-UO-uDv">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(lure)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" id="krl-UO-uDv">
                                         <rect key="frame" x="38" y="37" width="70" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -2417,7 +2418,6 @@
         <class className="CatchDisplayViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CatchDisplayViewController.h"/>
             <relationships>
-                <relationship kind="action" name="edit:"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="familyLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fishImageView" candidateClass="UIImageView"/>
@@ -2602,17 +2602,17 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Rf1-7m-T4K"/>
-        <segue reference="JKd-Sk-BDw"/>
         <segue reference="ZXZ-eW-zgg"/>
-        <segue reference="0Hh-4C-ca8"/>
         <segue reference="9bF-ts-QbO"/>
+        <segue reference="0Hh-4C-ca8"/>
+        <segue reference="JKd-Sk-BDw"/>
         <segue reference="efb-8Z-CLj"/>
+        <segue reference="LP3-eq-Ktc"/>
         <segue reference="fy9-xe-Wf2"/>
         <segue reference="nJH-9R-MxR"/>
-        <segue reference="zdT-06-MSc"/>
+        <segue reference="ena-ph-wDY"/>
+        <segue reference="qlW-85-Tbe"/>
         <segue reference="c67-in-7qe"/>
         <segue reference="uUM-1f-Ic1"/>
-        <segue reference="Ltp-RF-k3e"/>
-        <segue reference="qlW-85-Tbe"/>
     </inferredMetricsTieBreakers>
 </document>

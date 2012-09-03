@@ -15,6 +15,7 @@
 #import "Player.h"
 
 @interface CatchDisplayViewController ()
+- (void)updateLabels;
 - (void)showLandscapeViewWithDuration:(NSTimeInterval)duration;
 - (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration;
 - (void)createLandscapeCommentViewWithRotation:(BOOL)rotation;
@@ -22,6 +23,7 @@
 
 @implementation CatchDisplayViewController {
     UIView *landscapeCommentView;
+    UITextView *landscapeTextView;
 }
 
 @synthesize fishLabel = _fishLabel;
@@ -54,54 +56,59 @@
 {
     [super viewDidLoad];
 	if (self.catch) {
-        UIImage *image = nil;
-        if ([self.catch hasPhoto]) {
-            image = [self.catch photoImage];
-            if (image != nil) {
-                image = [image resizedImageWithBounds:CGSizeMake(160, 120) withAspectType:ImageAspectTypeFit];
-            }
-        } else {
-            if ([self.catch.fish hasPhoto]) {
-                image = [self.catch.fish photoImage];
-                if (image != nil) {
-                    image = [image resizedImageWithBounds:CGSizeMake(160, 120) withAspectType:ImageAspectTypeFit];
-                }
-            }
-        }
-        self.fishImageView.image = image;
         
-        image = nil;
+        [self updateLabels];
         
-        if ([self.catch.player hasPhoto]) {
-            image = [self.catch.player photoImage];
-            if (image != nil) {
-                image = [image resizedImageWithBounds:CGSizeMake(60, 60) withAspectType:ImageAspectTypeFill];
-            }
-        }
-        self.playerImageView.image = image;
-        
-        self.fishLabel.text = self.catch.fish.name;
-        self.familyLabel.text = self.catch.fish.familyName;
-        self.sizeLabel.text = [NSString stringWithFormat:@"%@ %@", self.catch.sizeName, self.catch.scoreString];
-        
-        self.dateLabel.text = self.catch.dateString;
-        
-        self.locationLabel.text = [NSString stringWithFormat:@"%.1f, %.1f", [self.catch.latitude doubleValue], [self.catch.longitude doubleValue]];
-        self.lureLabel.text = self.catch.lure.name;
-        
-        self.pointsLabel.text = [NSString stringWithFormat:@"%d.0", [self.catch.fish.points integerValue]];
-        self.lureMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.lure.multiplier doubleValue]];
-        self.sizeMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.sizeMultiplier doubleValue]];
-        self.scoreLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.score doubleValue]];;
-        
-        self.textView.text = self.catch.comment;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(contextDidChange:)
+                                                     name:NSManagedObjectContextObjectsDidChangeNotification
+                                                   object:self.managedObjectContext];
     }
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    self.fishLabel = nil;
+    self.familyLabel = nil;
+    self.dateLabel = nil;
+    self.sizeLabel = nil;
+    self.locationLabel = nil;
+    self.lureLabel = nil;
+    self.scoreLabel = nil;
+    self.lureMultiplierLabel = nil;
+    self.sizeMultiplierLabel = nil;
+    self.pointsLabel = nil;
+    self.textView = nil;
+    self.fishImageView = nil;
+    self.playerImageView = nil;
+    self.portraitCommentView = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSManagedObjectContextObjectsDidChangeNotification
+                                                  object:self.managedObjectContext];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSManagedObjectContextObjectsDidChangeNotification
+                                                  object:self.managedObjectContext];
+}
+
+- (void)contextDidChange:(NSNotification *)notification
+{
+    NSSet *updated = [[notification userInfo] objectForKey:NSUpdatedObjectsKey];
+    if (updated != nil) {
+        NSArray *catches = [updated allObjects];
+        
+        for (Catch *catch in catches) {
+            if ([catch isEqual:self.catch]) {
+                self.catch = catch;
+                [self updateLabels];
+            }
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -133,6 +140,54 @@
     }
 }
 
+- (void)updateLabels {
+    UIImage *image = nil;
+    if ([self.catch hasPhoto]) {
+        image = [self.catch photoImage];
+        if (image != nil) {
+            image = [image resizedImageWithBounds:CGSizeMake(160, 120) withAspectType:ImageAspectTypeFit];
+        }
+    } else {
+        if ([self.catch.fish hasPhoto]) {
+            image = [self.catch.fish photoImage];
+            if (image != nil) {
+                image = [image resizedImageWithBounds:CGSizeMake(160, 120) withAspectType:ImageAspectTypeFit];
+            }
+        }
+    }
+    self.fishImageView.image = image;
+    
+    image = nil;
+    
+    if ([self.catch.player hasPhoto]) {
+        image = [self.catch.player photoImage];
+        if (image != nil) {
+            image = [image resizedImageWithBounds:CGSizeMake(60, 60) withAspectType:ImageAspectTypeFill];
+        }
+    }
+    self.playerImageView.image = image;
+    
+    self.fishLabel.text = self.catch.fish.name;
+    self.familyLabel.text = self.catch.fish.familyName;
+    self.sizeLabel.text = [NSString stringWithFormat:@"%@ %@", self.catch.sizeName, self.catch.scoreString];
+    
+    self.dateLabel.text = self.catch.dateString;
+    
+    self.locationLabel.text = [NSString stringWithFormat:@"%.1f, %.1f", [self.catch.latitude doubleValue], [self.catch.longitude doubleValue]];
+    self.lureLabel.text = self.catch.lure.name;
+    
+    self.pointsLabel.text = [NSString stringWithFormat:@"%d.0", [self.catch.fish.points integerValue]];
+    self.lureMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.lure.multiplier doubleValue]];
+    self.sizeMultiplierLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.sizeMultiplier doubleValue]];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%.1f", [self.catch.score doubleValue]];;
+    
+    self.textView.text = self.catch.comment;
+    
+    if (landscapeTextView) {
+        landscapeTextView.text = self.catch.comment;
+    }
+}
+
 - (void)createLandscapeCommentViewWithRotation:(BOOL)rotation {
     // rotation is portait going to landscape
     CGRect  viewRect;
@@ -152,13 +207,13 @@
     imageView.frame = landscapeCommentView.bounds;
     [landscapeCommentView addSubview:imageView];
     // child UITextView for comments
-    UITextView *textView = [[UITextView alloc] initWithFrame:landscapeCommentView.bounds];
-    textView.backgroundColor = [UIColor clearColor];
-    textView.editable = NO;
-    textView.textColor = [UIColor whiteColor];
-    textView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    textView.text = self.catch.comment;
-    [landscapeCommentView addSubview:textView];
+    landscapeTextView = [[UITextView alloc] initWithFrame:landscapeCommentView.bounds];
+    landscapeTextView.backgroundColor = [UIColor clearColor];
+    landscapeTextView.editable = NO;
+    landscapeTextView.textColor = [UIColor whiteColor];
+    landscapeTextView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    landscapeTextView.text = self.catch.comment;
+    [landscapeCommentView addSubview:landscapeTextView];
     [self.view addSubview:landscapeCommentView];
 }
 
