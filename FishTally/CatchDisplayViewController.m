@@ -205,12 +205,13 @@
     // parent view
     landscapeCommentView = [[UIView alloc] initWithFrame:viewRect];
     landscapeCommentView.alpha = 0.0f;
-    //landscapeCommentView.backgroundColor = [[UIColor alloc] initWithWhite:1.0f alpha:1.0f];
     landscapeCommentView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    
     // child UIImageView for styling
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Panel-black-light.png"]];
     imageView.frame = landscapeCommentView.bounds;
     [landscapeCommentView addSubview:imageView];
+    
     // child UITextView for comments
     landscapeTextView = [[UITextView alloc] initWithFrame:landscapeCommentView.bounds];
     landscapeTextView.backgroundColor = [UIColor clearColor];
