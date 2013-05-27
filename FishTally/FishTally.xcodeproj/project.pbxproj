@@ -77,9 +77,12 @@
 		57952A2115A3302A00D1682C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2015A3302A00D1682C /* AppDelegate.m */; };
 		57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2215A3302A00D1682C /* MainStoryboard.storyboard */; };
 		57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A3815A33B6400D1682C /* CoreData.framework */; };
-		57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */; };
 		57A555E015E147D200D69D99 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A555DF15E147D200D69D99 /* CoreLocation.framework */; };
-		57B25CDB1753B4E1001C53A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */; };
+		57B25CDD1753B96F001C53A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B25CDC1753B96F001C53A8 /* Default-568h@2x.png */; };
+		57FE57E81753BCB8002AE74E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57E61753BCB8002AE74E /* DataModel.xcdatamodeld */; };
+		57FE57EB1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57EA1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		57FE57EE1753C2E8002AE74E /* AssetsLibraryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57ED1753C2E8002AE74E /* AssetsLibraryFactory.m */; };
+		57FE57F01753C725002AE74E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FE57EF1753C725002AE74E /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,9 +200,14 @@
 		57952A2015A3302A00D1682C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		57952A2315A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		57952A3815A33B6400D1682C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		57A555DF15E147D200D69D99 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		57B25CDC1753B96F001C53A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Icon/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		57FE57E71753BCB8002AE74E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		57FE57E91753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALAssetsLibrary+CustomPhotoAlbum.h"; path = "Classes/ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		57FE57EA1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALAssetsLibrary+CustomPhotoAlbum.m"; path = "Classes/ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		57FE57EC1753C2E8002AE74E /* AssetsLibraryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetsLibraryFactory.h; path = Classes/AssetsLibraryFactory.h; sourceTree = "<group>"; };
+		57FE57ED1753C2E8002AE74E /* AssetsLibraryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetsLibraryFactory.m; path = Classes/AssetsLibraryFactory.m; sourceTree = "<group>"; };
+		57FE57EF1753C725002AE74E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57FE57F01753C725002AE74E /* AssetsLibrary.framework in Frameworks */,
 				57A555E015E147D200D69D99 /* CoreLocation.framework in Frameworks */,
 				573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */,
 				57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */,
@@ -222,9 +231,9 @@
 		570FB9A81709494E006D2D25 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				57B25CDC1753B96F001C53A8 /* Default-568h@2x.png */,
 				570FB9C7170949CE006D2D25 /* Default.png */,
 				570FB9C8170949CE006D2D25 /* Default@2x.png */,
-				57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */,
 				570FB9C9170949CE006D2D25 /* Icon-72.png */,
 				570FB9CA170949CE006D2D25 /* Icon-Small-50.png */,
 				570FB9CB170949CE006D2D25 /* Icon-Small.png */,
@@ -267,6 +276,7 @@
 		570FB9D717094AD2006D2D25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				57FE57E61753BCB8002AE74E /* DataModel.xcdatamodeld */,
 				570FB9D817094B5D006D2D25 /* Catch.h */,
 				570FB9D917094B5D006D2D25 /* Catch.m */,
 				570FB9DA17094B5D006D2D25 /* CatchSize.h */,
@@ -285,7 +295,6 @@
 				570FB9E717094B5D006D2D25 /* LureType.m */,
 				570FB9E817094B5D006D2D25 /* Player.h */,
 				570FB9E917094B5D006D2D25 /* Player.m */,
-				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -293,6 +302,10 @@
 		570FBA4E17094BE2006D2D25 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				57FE57EC1753C2E8002AE74E /* AssetsLibraryFactory.h */,
+				57FE57ED1753C2E8002AE74E /* AssetsLibraryFactory.m */,
+				57FE57E91753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				57FE57EA1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				570FBA4317094BCC006D2D25 /* UIImage+Resize.h */,
 				570FBA4417094BCC006D2D25 /* UIImage+Resize.m */,
 			);
@@ -420,6 +433,7 @@
 		57952A0115A3302A00D1682C = {
 			isa = PBXGroup;
 			children = (
+				57FE57EF1753C725002AE74E /* AssetsLibrary.framework */,
 				570FBA5617094D3C006D2D25 /* Lures */,
 				570FBA5517094D14006D2D25 /* Locations */,
 				570FBA5417094CF0006D2D25 /* Game */,
@@ -554,7 +568,7 @@
 				570FB9D4170949CE006D2D25 /* Icon-Small@2x.png in Resources */,
 				570FB9D5170949CE006D2D25 /* Icon.png in Resources */,
 				570FB9D6170949CE006D2D25 /* Icon@2x.png in Resources */,
-				57B25CDB1753B4E1001C53A8 /* Default-568h@2x.png in Resources */,
+				57B25CDD1753B96F001C53A8 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +581,6 @@
 			files = (
 				57952A1D15A3302A00D1682C /* main.m in Sources */,
 				57952A2115A3302A00D1682C /* AppDelegate.m in Sources */,
-				57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */,
 				570FB9EA17094B5D006D2D25 /* Catch.m in Sources */,
 				570FB9EB17094B5D006D2D25 /* CatchSize.m in Sources */,
 				570FB9EC17094B5D006D2D25 /* Fish.m in Sources */,
@@ -607,6 +620,9 @@
 				570FBA4B17094BCC006D2D25 /* SizeDetailViewController.m in Sources */,
 				570FBA4C17094BCC006D2D25 /* UIImage+Resize.m in Sources */,
 				570FBA4D17094BCC006D2D25 /* UnitsPickerViewController.m in Sources */,
+				57FE57E81753BCB8002AE74E /* DataModel.xcdatamodeld in Sources */,
+				57FE57EB1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				57FE57EE1753C2E8002AE74E /* AssetsLibraryFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,14 +749,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */ = {
+		57FE57E61753BCB8002AE74E /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */,
+				57FE57E71753BCB8002AE74E /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */;
-			name = DataModel.xcdatamodeld;
-			path = FishTally/DataModel.xcdatamodeld;
+			currentVersion = 57FE57E71753BCB8002AE74E /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

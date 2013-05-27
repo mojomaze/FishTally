@@ -2394,18 +2394,18 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fy9-xe-Wf2"/>
         <segue reference="LP3-eq-Ktc"/>
         <segue reference="efb-8Z-CLj"/>
-        <segue reference="fy9-xe-Wf2"/>
-        <segue reference="nJH-9R-MxR"/>
         <segue reference="c67-in-7qe"/>
         <segue reference="Ltp-RF-k3e"/>
         <segue reference="qlW-85-Tbe"/>
-        <segue reference="uUM-1f-Ic1"/>
-        <segue reference="Rf1-7m-T4K"/>
-        <segue reference="0Hh-4C-ca8"/>
-        <segue reference="JKd-Sk-BDw"/>
+        <segue reference="Iyp-Mw-nFi"/>
+        <segue reference="E1g-Uj-wYM"/>
         <segue reference="9bF-ts-QbO"/>
+        <segue reference="0Hh-4C-ca8"/>
         <segue reference="ZXZ-eW-zgg"/>
+        <segue reference="JKd-Sk-BDw"/>
+        <segue reference="Rf1-7m-T4K"/>
     </inferredMetricsTieBreakers>
 </document>

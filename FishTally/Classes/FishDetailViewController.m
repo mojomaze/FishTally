@@ -283,7 +283,7 @@
         if (![fish hasPhoto]) {
             fish.photoId = [NSNumber numberWithInt:[self nextPhotoId]];
         }
-        
+        [AssetsLibraryFactory createAssetFromImage:image];
         NSData *data = UIImagePNGRepresentation(image);
         NSError *error;
         if (![data writeToFile:[fish photoPath] options:NSDataWritingAtomic error:&error]) {
@@ -325,8 +325,7 @@
 
 - (void)showPhotoMenu
 {
-    //if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-    if (YES) {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         actionSheet = [[UIActionSheet alloc]
                        initWithTitle:nil
                        delegate:self

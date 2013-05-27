@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Catch" representedClassName="Catch" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -67,13 +67,13 @@
         <relationship name="lure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lure" inverseName="players" inverseEntity="Lure" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Catch" positionX="-36" positionY="450" width="128" height="240"/>
+        <element name="Catch" positionX="160" positionY="192" width="128" height="300"/>
         <element name="CatchSize" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Fish" positionX="342" positionY="393" width="128" height="135"/>
+        <element name="Fish" positionX="160" positionY="192" width="128" height="120"/>
         <element name="FishFamily" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Game" positionX="-54" positionY="63" width="128" height="90"/>
-        <element name="Lure" positionX="342" positionY="234" width="128" height="135"/>
+        <element name="Game" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Lure" positionX="160" positionY="192" width="128" height="135"/>
         <element name="LureType" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Player" positionX="-45" positionY="234" width="117" height="90"/>
+        <element name="Player" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>
