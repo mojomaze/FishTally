@@ -92,8 +92,11 @@
                                                                   style:UIBarButtonItemStyleBordered
                                                                  target:self
                                                                  action:@selector(showLocations:)];
-    [self setToolbarItems:[NSArray arrayWithObjects:mapButton, nil]];
-
+    UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(about:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* aboutButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    [self setToolbarItems:[NSArray arrayWithObjects:mapButton, spaceButton, aboutButton, nil]];
 }
 
 - (void)viewDidUnload
@@ -137,6 +140,13 @@
 - (void)showLocations:(id)sender {
     [self performSegueWithIdentifier:@"ShowLocations"
                               sender:sender]; 
+}
+
+- (void)about:(id)sender
+{
+    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:controller animated:YES];
 }
 
 #pragma mark - Table view data source

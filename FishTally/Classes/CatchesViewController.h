@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Player *player;
 
+-(void)about:(id)sender;
+
 @end

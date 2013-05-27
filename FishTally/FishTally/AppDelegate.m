@@ -102,7 +102,7 @@
 
 - (NSString *)dataStorePath
 {
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"DataStore.sqlite"];
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"FishTally.sqlite"];
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
@@ -112,6 +112,8 @@
         
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
+        [self copyDatabase];
+        
         NSError *error;
         if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
             NSLog(@"Error adding persistent store %@, %@", error, [error userInfo]);
@@ -119,6 +121,25 @@
         }
     }
     return _persistentStoreCoordinator;
+}
+
+- (void)copyDatabase
+{
+    NSString* docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString* dbPath = [docPath stringByAppendingPathComponent:@"FishTally.sqlite"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    // Check if the database is existed.
+    if(![fm fileExistsAtPath:dbPath])
+    {
+        // If database is not existed, copy from the database template in the bundle
+        NSString* dbTemplatePath = [[NSBundle mainBundle] pathForResource:@"FishTally" ofType:@"sqlite"];
+        NSError* error = nil;
+        [fm copyItemAtPath:dbTemplatePath toPath:dbPath error:&error];
+        if(error){
+            NSLog(@"can't copy db template.");
+        }
+    }
 }
 
 - (NSManagedObjectContext *)managedObjectContext

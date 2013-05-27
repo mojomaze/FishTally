@@ -83,6 +83,8 @@
 		57FE57EB1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57EA1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		57FE57EE1753C2E8002AE74E /* AssetsLibraryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57ED1753C2E8002AE74E /* AssetsLibraryFactory.m */; };
 		57FE57F01753C725002AE74E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FE57EF1753C725002AE74E /* AssetsLibrary.framework */; };
+		57FE57F31753D099002AE74E /* FishTally.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 57FE57F21753D099002AE74E /* FishTally.sqlite */; };
+		57FE57F71753DAD0002AE74E /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FE57F61753DAD0002AE74E /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +210,9 @@
 		57FE57EC1753C2E8002AE74E /* AssetsLibraryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetsLibraryFactory.h; path = Classes/AssetsLibraryFactory.h; sourceTree = "<group>"; };
 		57FE57ED1753C2E8002AE74E /* AssetsLibraryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetsLibraryFactory.m; path = Classes/AssetsLibraryFactory.m; sourceTree = "<group>"; };
 		57FE57EF1753C725002AE74E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		57FE57F21753D099002AE74E /* FishTally.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FishTally.sqlite; sourceTree = "<group>"; };
+		57FE57F51753DAD0002AE74E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = "<group>"; };
+		57FE57F61753DAD0002AE74E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,7 +438,8 @@
 		57952A0115A3302A00D1682C = {
 			isa = PBXGroup;
 			children = (
-				57FE57EF1753C725002AE74E /* AssetsLibrary.framework */,
+				57FE57F41753DAB5002AE74E /* About */,
+				57FE57F11753D099002AE74E /* Data */,
 				570FBA5617094D3C006D2D25 /* Lures */,
 				570FBA5517094D14006D2D25 /* Locations */,
 				570FBA5417094CF0006D2D25 /* Game */,
@@ -462,6 +468,7 @@
 		57952A0F15A3302A00D1682C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57FE57EF1753C725002AE74E /* AssetsLibrary.framework */,
 				57A555DF15E147D200D69D99 /* CoreLocation.framework */,
 				573A6C6A15DC902200DF6F8B /* MapKit.framework */,
 				57952A3815A33B6400D1682C /* CoreData.framework */,
@@ -492,6 +499,23 @@
 				57952A1E15A3302A00D1682C /* FishTally-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57FE57F11753D099002AE74E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57FE57F21753D099002AE74E /* FishTally.sqlite */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		57FE57F41753DAB5002AE74E /* About */ = {
+			isa = PBXGroup;
+			children = (
+				57FE57F51753DAD0002AE74E /* AboutViewController.h */,
+				57FE57F61753DAD0002AE74E /* AboutViewController.m */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +593,7 @@
 				570FB9D5170949CE006D2D25 /* Icon.png in Resources */,
 				570FB9D6170949CE006D2D25 /* Icon@2x.png in Resources */,
 				57B25CDD1753B96F001C53A8 /* Default-568h@2x.png in Resources */,
+				57FE57F31753D099002AE74E /* FishTally.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +648,7 @@
 				57FE57E81753BCB8002AE74E /* DataModel.xcdatamodeld in Sources */,
 				57FE57EB1753C093002AE74E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				57FE57EE1753C2E8002AE74E /* AssetsLibraryFactory.m in Sources */,
+				57FE57F71753DAD0002AE74E /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

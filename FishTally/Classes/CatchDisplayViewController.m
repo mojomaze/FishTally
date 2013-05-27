@@ -194,12 +194,21 @@
 }
 
 - (void)createLandscapeCommentViewWithRotation:(BOOL)rotation {
-    // rotation is portait going to landscape
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    int offset = 0;
+    int xOffset = 0;
+    int yOffset = 0;
+    if (screenBound.size.height > 480) {
+        offset = 100;
+        xOffset = offset + 10;
+        yOffset = offset - 10;
+    }
     CGRect  viewRect;
-    if (rotation) {
-        viewRect = CGRectMake(160, 160, 140, 200); // portrait to landscape position
+    if (rotation) { // rotation is portait going to landscape
+        viewRect = CGRectMake(160 - offset + xOffset, 160 + yOffset, 140 + offset, 200); // portrait to landscape position
     } else {
-        viewRect = CGRectMake(320, 10, 140, 200); // initial landscape position
+        viewRect = CGRectMake(320, 10, 140 + offset, 200); // initial landscape position
     }
     
     // parent view
