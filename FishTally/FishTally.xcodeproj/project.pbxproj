@@ -1,0 +1,750 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		570FB9B2170949AE006D2D25 /* fish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9AB170949AE006D2D25 /* fish@2x.png */; };
+		570FB9B3170949AE006D2D25 /* Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9AC170949AE006D2D25 /* Map@2x.png */; };
+		570FB9B4170949AE006D2D25 /* Panel-black-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9AD170949AE006D2D25 /* Panel-black-light@2x.png */; };
+		570FB9B5170949AE006D2D25 /* Panel-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9AE170949AE006D2D25 /* Panel-black@2x.png */; };
+		570FB9B6170949AE006D2D25 /* Panel-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9AF170949AE006D2D25 /* Panel-grey@2x.png */; };
+		570FB9B7170949AE006D2D25 /* Pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9B0170949AE006D2D25 /* Pin@2x.png */; };
+		570FB9B8170949AE006D2D25 /* tacklebox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9B1170949AE006D2D25 /* tacklebox@2x.png */; };
+		570FB9C0170949BD006D2D25 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9B9170949BD006D2D25 /* fish.png */; };
+		570FB9C1170949BD006D2D25 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BA170949BD006D2D25 /* Map.png */; };
+		570FB9C2170949BD006D2D25 /* Panel-black-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BB170949BD006D2D25 /* Panel-black-light.png */; };
+		570FB9C3170949BD006D2D25 /* Panel-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BC170949BD006D2D25 /* Panel-black.png */; };
+		570FB9C4170949BD006D2D25 /* Panel-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BD170949BD006D2D25 /* Panel-grey.png */; };
+		570FB9C5170949BD006D2D25 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BE170949BD006D2D25 /* Pin.png */; };
+		570FB9C6170949BD006D2D25 /* tacklebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9BF170949BD006D2D25 /* tacklebox.png */; };
+		570FB9CF170949CE006D2D25 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9C7170949CE006D2D25 /* Default.png */; };
+		570FB9D0170949CE006D2D25 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9C8170949CE006D2D25 /* Default@2x.png */; };
+		570FB9D1170949CE006D2D25 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9C9170949CE006D2D25 /* Icon-72.png */; };
+		570FB9D2170949CE006D2D25 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9CA170949CE006D2D25 /* Icon-Small-50.png */; };
+		570FB9D3170949CE006D2D25 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9CB170949CE006D2D25 /* Icon-Small.png */; };
+		570FB9D4170949CE006D2D25 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9CC170949CE006D2D25 /* Icon-Small@2x.png */; };
+		570FB9D5170949CE006D2D25 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9CD170949CE006D2D25 /* Icon.png */; };
+		570FB9D6170949CE006D2D25 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 570FB9CE170949CE006D2D25 /* Icon@2x.png */; };
+		570FB9EA17094B5D006D2D25 /* Catch.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9D917094B5D006D2D25 /* Catch.m */; };
+		570FB9EB17094B5D006D2D25 /* CatchSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9DB17094B5D006D2D25 /* CatchSize.m */; };
+		570FB9EC17094B5D006D2D25 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9DD17094B5D006D2D25 /* Fish.m */; };
+		570FB9ED17094B5D006D2D25 /* FishFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9DF17094B5D006D2D25 /* FishFamily.m */; };
+		570FB9EE17094B5D006D2D25 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9E117094B5D006D2D25 /* Game.m */; };
+		570FB9EF17094B5D006D2D25 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9E317094B5D006D2D25 /* Location.m */; };
+		570FB9F017094B5D006D2D25 /* Lure.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9E517094B5D006D2D25 /* Lure.m */; };
+		570FB9F117094B5D006D2D25 /* LureType.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9E717094B5D006D2D25 /* LureType.m */; };
+		570FB9F217094B5D006D2D25 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9E917094B5D006D2D25 /* Player.m */; };
+		570FBA2117094BB2006D2D25 /* CatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9F417094BB1006D2D25 /* CatchCell.m */; };
+		570FBA2217094BB2006D2D25 /* CatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9F617094BB1006D2D25 /* CatchDetailViewController.m */; };
+		570FBA2317094BB2006D2D25 /* CatchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9F817094BB1006D2D25 /* CatchDisplayViewController.m */; };
+		570FBA2417094BB2006D2D25 /* CatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9FA17094BB1006D2D25 /* CatchesViewController.m */; };
+		570FBA2517094BB2006D2D25 /* CatchSizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9FC17094BB1006D2D25 /* CatchSizeDetailViewController.m */; };
+		570FBA2617094BB2006D2D25 /* CatchSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FB9FE17094BB1006D2D25 /* CatchSizesViewController.m */; };
+		570FBA2717094BB2006D2D25 /* CategoryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0017094BB1006D2D25 /* CategoryPickerViewController.m */; };
+		570FBA2817094BB2006D2D25 /* FamilyPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0217094BB1006D2D25 /* FamilyPickerViewController.m */; };
+		570FBA2917094BB2006D2D25 /* FishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0417094BB1006D2D25 /* FishDetailViewController.m */; };
+		570FBA2A17094BB2006D2D25 /* FishFamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0617094BB1006D2D25 /* FishFamiliesViewController.m */; };
+		570FBA2B17094BB2006D2D25 /* FishFamilyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0817094BB2006D2D25 /* FishFamilyDetailViewController.m */; };
+		570FBA2C17094BB2006D2D25 /* FishPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0A17094BB2006D2D25 /* FishPickerViewController.m */; };
+		570FBA2D17094BB2006D2D25 /* FishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0C17094BB2006D2D25 /* FishViewController.m */; };
+		570FBA2E17094BB2006D2D25 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA0E17094BB2006D2D25 /* GameCell.m */; };
+		570FBA2F17094BB2006D2D25 /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1017094BB2006D2D25 /* GameDetailViewController.m */; };
+		570FBA3017094BB2006D2D25 /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1217094BB2006D2D25 /* GamesViewController.m */; };
+		570FBA3117094BB2006D2D25 /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1417094BB2006D2D25 /* LocationDetailViewController.m */; };
+		570FBA3217094BB2006D2D25 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1617094BB2006D2D25 /* LocationsViewController.m */; };
+		570FBA3317094BB2006D2D25 /* LureCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1817094BB2006D2D25 /* LureCategoriesViewController.m */; };
+		570FBA3417094BB2006D2D25 /* LureCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1A17094BB2006D2D25 /* LureCategoryDetailViewController.m */; };
+		570FBA3517094BB2006D2D25 /* LureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1C17094BB2006D2D25 /* LureDetailViewController.m */; };
+		570FBA3617094BB2006D2D25 /* LurePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA1E17094BB2006D2D25 /* LurePickerViewController.m */; };
+		570FBA3717094BB2006D2D25 /* LuresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA2017094BB2006D2D25 /* LuresViewController.m */; };
+		570FBA4717094BCC006D2D25 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA3917094BCB006D2D25 /* PlayerCell.m */; };
+		570FBA4817094BCC006D2D25 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA3B17094BCB006D2D25 /* PlayerDetailViewController.m */; };
+		570FBA4917094BCC006D2D25 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA3D17094BCB006D2D25 /* PlayersViewController.m */; };
+		570FBA4A17094BCC006D2D25 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA4017094BCC006D2D25 /* SettingsViewController.m */; };
+		570FBA4B17094BCC006D2D25 /* SizeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA4217094BCC006D2D25 /* SizeDetailViewController.m */; };
+		570FBA4C17094BCC006D2D25 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA4417094BCC006D2D25 /* UIImage+Resize.m */; };
+		570FBA4D17094BCC006D2D25 /* UnitsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570FBA4617094BCC006D2D25 /* UnitsPickerViewController.m */; };
+		573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573A6C6A15DC902200DF6F8B /* MapKit.framework */; };
+		57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1015A3302A00D1682C /* UIKit.framework */; };
+		57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1215A3302A00D1682C /* Foundation.framework */; };
+		57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A1415A3302A00D1682C /* CoreGraphics.framework */; };
+		57952A1B15A3302A00D1682C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57952A1915A3302A00D1682C /* InfoPlist.strings */; };
+		57952A1D15A3302A00D1682C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A1C15A3302A00D1682C /* main.m */; };
+		57952A2115A3302A00D1682C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57952A2015A3302A00D1682C /* AppDelegate.m */; };
+		57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57952A2215A3302A00D1682C /* MainStoryboard.storyboard */; };
+		57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57952A3815A33B6400D1682C /* CoreData.framework */; };
+		57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */; };
+		57A555E015E147D200D69D99 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A555DF15E147D200D69D99 /* CoreLocation.framework */; };
+		57B25CDB1753B4E1001C53A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		570FB9AB170949AE006D2D25 /* fish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fish@2x.png"; path = "Images/@2x/fish@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9AC170949AE006D2D25 /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map@2x.png"; path = "Images/@2x/Map@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9AD170949AE006D2D25 /* Panel-black-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-black-light@2x.png"; path = "Images/@2x/Panel-black-light@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9AE170949AE006D2D25 /* Panel-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-black@2x.png"; path = "Images/@2x/Panel-black@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9AF170949AE006D2D25 /* Panel-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-grey@2x.png"; path = "Images/@2x/Panel-grey@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9B0170949AE006D2D25 /* Pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pin@2x.png"; path = "Images/@2x/Pin@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9B1170949AE006D2D25 /* tacklebox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tacklebox@2x.png"; path = "Images/@2x/tacklebox@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9B9170949BD006D2D25 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fish.png; path = Images/Standard/fish.png; sourceTree = SOURCE_ROOT; };
+		570FB9BA170949BD006D2D25 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map.png; path = Images/Standard/Map.png; sourceTree = SOURCE_ROOT; };
+		570FB9BB170949BD006D2D25 /* Panel-black-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-black-light.png"; path = "Images/Standard/Panel-black-light.png"; sourceTree = SOURCE_ROOT; };
+		570FB9BC170949BD006D2D25 /* Panel-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-black.png"; path = "Images/Standard/Panel-black.png"; sourceTree = SOURCE_ROOT; };
+		570FB9BD170949BD006D2D25 /* Panel-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panel-grey.png"; path = "Images/Standard/Panel-grey.png"; sourceTree = SOURCE_ROOT; };
+		570FB9BE170949BD006D2D25 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pin.png; path = Images/Standard/Pin.png; sourceTree = SOURCE_ROOT; };
+		570FB9BF170949BD006D2D25 /* tacklebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tacklebox.png; path = Images/Standard/tacklebox.png; sourceTree = SOURCE_ROOT; };
+		570FB9C7170949CE006D2D25 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Icon/Default.png; sourceTree = SOURCE_ROOT; };
+		570FB9C8170949CE006D2D25 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Icon/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9C9170949CE006D2D25 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Icon/Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		570FB9CA170949CE006D2D25 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Icon/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		570FB9CB170949CE006D2D25 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Icon/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		570FB9CC170949CE006D2D25 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Icon/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9CD170949CE006D2D25 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Icon/Icon.png; sourceTree = SOURCE_ROOT; };
+		570FB9CE170949CE006D2D25 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Icon/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		570FB9D817094B5D006D2D25 /* Catch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Catch.h; path = Classes/Catch.h; sourceTree = "<group>"; };
+		570FB9D917094B5D006D2D25 /* Catch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Catch.m; path = Classes/Catch.m; sourceTree = "<group>"; };
+		570FB9DA17094B5D006D2D25 /* CatchSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchSize.h; path = Classes/CatchSize.h; sourceTree = "<group>"; };
+		570FB9DB17094B5D006D2D25 /* CatchSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchSize.m; path = Classes/CatchSize.m; sourceTree = "<group>"; };
+		570FB9DC17094B5D006D2D25 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fish.h; path = Classes/Fish.h; sourceTree = "<group>"; };
+		570FB9DD17094B5D006D2D25 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fish.m; path = Classes/Fish.m; sourceTree = "<group>"; };
+		570FB9DE17094B5D006D2D25 /* FishFamily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishFamily.h; path = Classes/FishFamily.h; sourceTree = "<group>"; };
+		570FB9DF17094B5D006D2D25 /* FishFamily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishFamily.m; path = Classes/FishFamily.m; sourceTree = "<group>"; };
+		570FB9E017094B5D006D2D25 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Classes/Game.h; sourceTree = "<group>"; };
+		570FB9E117094B5D006D2D25 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Classes/Game.m; sourceTree = "<group>"; };
+		570FB9E217094B5D006D2D25 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Classes/Location.h; sourceTree = "<group>"; };
+		570FB9E317094B5D006D2D25 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Classes/Location.m; sourceTree = "<group>"; };
+		570FB9E417094B5D006D2D25 /* Lure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lure.h; path = Classes/Lure.h; sourceTree = "<group>"; };
+		570FB9E517094B5D006D2D25 /* Lure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lure.m; path = Classes/Lure.m; sourceTree = "<group>"; };
+		570FB9E617094B5D006D2D25 /* LureType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LureType.h; path = Classes/LureType.h; sourceTree = "<group>"; };
+		570FB9E717094B5D006D2D25 /* LureType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LureType.m; path = Classes/LureType.m; sourceTree = "<group>"; };
+		570FB9E817094B5D006D2D25 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Classes/Player.h; sourceTree = "<group>"; };
+		570FB9E917094B5D006D2D25 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Classes/Player.m; sourceTree = "<group>"; };
+		570FB9F317094BB1006D2D25 /* CatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchCell.h; path = Classes/CatchCell.h; sourceTree = "<group>"; };
+		570FB9F417094BB1006D2D25 /* CatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchCell.m; path = Classes/CatchCell.m; sourceTree = "<group>"; };
+		570FB9F517094BB1006D2D25 /* CatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchDetailViewController.h; path = Classes/CatchDetailViewController.h; sourceTree = "<group>"; };
+		570FB9F617094BB1006D2D25 /* CatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchDetailViewController.m; path = Classes/CatchDetailViewController.m; sourceTree = "<group>"; };
+		570FB9F717094BB1006D2D25 /* CatchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchDisplayViewController.h; path = Classes/CatchDisplayViewController.h; sourceTree = "<group>"; };
+		570FB9F817094BB1006D2D25 /* CatchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchDisplayViewController.m; path = Classes/CatchDisplayViewController.m; sourceTree = "<group>"; };
+		570FB9F917094BB1006D2D25 /* CatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchesViewController.h; path = Classes/CatchesViewController.h; sourceTree = "<group>"; };
+		570FB9FA17094BB1006D2D25 /* CatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchesViewController.m; path = Classes/CatchesViewController.m; sourceTree = "<group>"; };
+		570FB9FB17094BB1006D2D25 /* CatchSizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchSizeDetailViewController.h; path = Classes/CatchSizeDetailViewController.h; sourceTree = "<group>"; };
+		570FB9FC17094BB1006D2D25 /* CatchSizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchSizeDetailViewController.m; path = Classes/CatchSizeDetailViewController.m; sourceTree = "<group>"; };
+		570FB9FD17094BB1006D2D25 /* CatchSizesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchSizesViewController.h; path = Classes/CatchSizesViewController.h; sourceTree = "<group>"; };
+		570FB9FE17094BB1006D2D25 /* CatchSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchSizesViewController.m; path = Classes/CatchSizesViewController.m; sourceTree = "<group>"; };
+		570FB9FF17094BB1006D2D25 /* CategoryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryPickerViewController.h; path = Classes/CategoryPickerViewController.h; sourceTree = "<group>"; };
+		570FBA0017094BB1006D2D25 /* CategoryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryPickerViewController.m; path = Classes/CategoryPickerViewController.m; sourceTree = "<group>"; };
+		570FBA0117094BB1006D2D25 /* FamilyPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyPickerViewController.h; path = Classes/FamilyPickerViewController.h; sourceTree = "<group>"; };
+		570FBA0217094BB1006D2D25 /* FamilyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyPickerViewController.m; path = Classes/FamilyPickerViewController.m; sourceTree = "<group>"; };
+		570FBA0317094BB1006D2D25 /* FishDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishDetailViewController.h; path = Classes/FishDetailViewController.h; sourceTree = "<group>"; };
+		570FBA0417094BB1006D2D25 /* FishDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishDetailViewController.m; path = Classes/FishDetailViewController.m; sourceTree = "<group>"; };
+		570FBA0517094BB1006D2D25 /* FishFamiliesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishFamiliesViewController.h; path = Classes/FishFamiliesViewController.h; sourceTree = "<group>"; };
+		570FBA0617094BB1006D2D25 /* FishFamiliesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishFamiliesViewController.m; path = Classes/FishFamiliesViewController.m; sourceTree = "<group>"; };
+		570FBA0717094BB2006D2D25 /* FishFamilyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishFamilyDetailViewController.h; path = Classes/FishFamilyDetailViewController.h; sourceTree = "<group>"; };
+		570FBA0817094BB2006D2D25 /* FishFamilyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishFamilyDetailViewController.m; path = Classes/FishFamilyDetailViewController.m; sourceTree = "<group>"; };
+		570FBA0917094BB2006D2D25 /* FishPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishPickerViewController.h; path = Classes/FishPickerViewController.h; sourceTree = "<group>"; };
+		570FBA0A17094BB2006D2D25 /* FishPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishPickerViewController.m; path = Classes/FishPickerViewController.m; sourceTree = "<group>"; };
+		570FBA0B17094BB2006D2D25 /* FishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FishViewController.h; path = Classes/FishViewController.h; sourceTree = "<group>"; };
+		570FBA0C17094BB2006D2D25 /* FishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FishViewController.m; path = Classes/FishViewController.m; sourceTree = "<group>"; };
+		570FBA0D17094BB2006D2D25 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCell.h; path = Classes/GameCell.h; sourceTree = "<group>"; };
+		570FBA0E17094BB2006D2D25 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCell.m; path = Classes/GameCell.m; sourceTree = "<group>"; };
+		570FBA0F17094BB2006D2D25 /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDetailViewController.h; path = Classes/GameDetailViewController.h; sourceTree = "<group>"; };
+		570FBA1017094BB2006D2D25 /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDetailViewController.m; path = Classes/GameDetailViewController.m; sourceTree = "<group>"; };
+		570FBA1117094BB2006D2D25 /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamesViewController.h; path = Classes/GamesViewController.h; sourceTree = "<group>"; };
+		570FBA1217094BB2006D2D25 /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamesViewController.m; path = Classes/GamesViewController.m; sourceTree = "<group>"; };
+		570FBA1317094BB2006D2D25 /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationDetailViewController.h; path = Classes/LocationDetailViewController.h; sourceTree = "<group>"; };
+		570FBA1417094BB2006D2D25 /* LocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationDetailViewController.m; path = Classes/LocationDetailViewController.m; sourceTree = "<group>"; };
+		570FBA1517094BB2006D2D25 /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationsViewController.h; path = Classes/LocationsViewController.h; sourceTree = "<group>"; };
+		570FBA1617094BB2006D2D25 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Classes/LocationsViewController.m; sourceTree = "<group>"; };
+		570FBA1717094BB2006D2D25 /* LureCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LureCategoriesViewController.h; path = Classes/LureCategoriesViewController.h; sourceTree = "<group>"; };
+		570FBA1817094BB2006D2D25 /* LureCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LureCategoriesViewController.m; path = Classes/LureCategoriesViewController.m; sourceTree = "<group>"; };
+		570FBA1917094BB2006D2D25 /* LureCategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LureCategoryDetailViewController.h; path = Classes/LureCategoryDetailViewController.h; sourceTree = "<group>"; };
+		570FBA1A17094BB2006D2D25 /* LureCategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LureCategoryDetailViewController.m; path = Classes/LureCategoryDetailViewController.m; sourceTree = "<group>"; };
+		570FBA1B17094BB2006D2D25 /* LureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LureDetailViewController.h; path = Classes/LureDetailViewController.h; sourceTree = "<group>"; };
+		570FBA1C17094BB2006D2D25 /* LureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LureDetailViewController.m; path = Classes/LureDetailViewController.m; sourceTree = "<group>"; };
+		570FBA1D17094BB2006D2D25 /* LurePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LurePickerViewController.h; path = Classes/LurePickerViewController.h; sourceTree = "<group>"; };
+		570FBA1E17094BB2006D2D25 /* LurePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LurePickerViewController.m; path = Classes/LurePickerViewController.m; sourceTree = "<group>"; };
+		570FBA1F17094BB2006D2D25 /* LuresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuresViewController.h; path = Classes/LuresViewController.h; sourceTree = "<group>"; };
+		570FBA2017094BB2006D2D25 /* LuresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LuresViewController.m; path = Classes/LuresViewController.m; sourceTree = "<group>"; };
+		570FBA3817094BCB006D2D25 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerCell.h; path = Classes/PlayerCell.h; sourceTree = "<group>"; };
+		570FBA3917094BCB006D2D25 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerCell.m; path = Classes/PlayerCell.m; sourceTree = "<group>"; };
+		570FBA3A17094BCB006D2D25 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerDetailViewController.h; path = Classes/PlayerDetailViewController.h; sourceTree = "<group>"; };
+		570FBA3B17094BCB006D2D25 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerDetailViewController.m; path = Classes/PlayerDetailViewController.m; sourceTree = "<group>"; };
+		570FBA3C17094BCB006D2D25 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayersViewController.h; path = Classes/PlayersViewController.h; sourceTree = "<group>"; };
+		570FBA3D17094BCB006D2D25 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayersViewController.m; path = Classes/PlayersViewController.m; sourceTree = "<group>"; };
+		570FBA3E17094BCB006D2D25 /* SettingsListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsListViewDelegate.h; path = Classes/SettingsListViewDelegate.h; sourceTree = "<group>"; };
+		570FBA3F17094BCC006D2D25 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Classes/SettingsViewController.h; sourceTree = "<group>"; };
+		570FBA4017094BCC006D2D25 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Classes/SettingsViewController.m; sourceTree = "<group>"; };
+		570FBA4117094BCC006D2D25 /* SizeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SizeDetailViewController.h; path = Classes/SizeDetailViewController.h; sourceTree = "<group>"; };
+		570FBA4217094BCC006D2D25 /* SizeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SizeDetailViewController.m; path = Classes/SizeDetailViewController.m; sourceTree = "<group>"; };
+		570FBA4317094BCC006D2D25 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
+		570FBA4417094BCC006D2D25 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize.m"; sourceTree = "<group>"; };
+		570FBA4517094BCC006D2D25 /* UnitsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitsPickerViewController.h; path = Classes/UnitsPickerViewController.h; sourceTree = "<group>"; };
+		570FBA4617094BCC006D2D25 /* UnitsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitsPickerViewController.m; path = Classes/UnitsPickerViewController.m; sourceTree = "<group>"; };
+		573A6C6A15DC902200DF6F8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		57952A0C15A3302A00D1682C /* FishTally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishTally.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57952A1015A3302A00D1682C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		57952A1215A3302A00D1682C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		57952A1415A3302A00D1682C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		57952A1815A3302A00D1682C /* FishTally-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FishTally-Info.plist"; sourceTree = "<group>"; };
+		57952A1A15A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		57952A1C15A3302A00D1682C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		57952A1E15A3302A00D1682C /* FishTally-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FishTally-Prefix.pch"; sourceTree = "<group>"; };
+		57952A1F15A3302A00D1682C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		57952A2015A3302A00D1682C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		57952A2315A3302A00D1682C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		57952A3815A33B6400D1682C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		57A555DF15E147D200D69D99 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57952A0915A3302A00D1682C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A555E015E147D200D69D99 /* CoreLocation.framework in Frameworks */,
+				573A6C6B15DC902200DF6F8B /* MapKit.framework in Frameworks */,
+				57952A3915A33B6400D1682C /* CoreData.framework in Frameworks */,
+				57952A1115A3302A00D1682C /* UIKit.framework in Frameworks */,
+				57952A1315A3302A00D1682C /* Foundation.framework in Frameworks */,
+				57952A1515A3302A00D1682C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		570FB9A81709494E006D2D25 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9C7170949CE006D2D25 /* Default.png */,
+				570FB9C8170949CE006D2D25 /* Default@2x.png */,
+				57B25CDA1753B4E1001C53A8 /* Default-568h@2x.png */,
+				570FB9C9170949CE006D2D25 /* Icon-72.png */,
+				570FB9CA170949CE006D2D25 /* Icon-Small-50.png */,
+				570FB9CB170949CE006D2D25 /* Icon-Small.png */,
+				570FB9CC170949CE006D2D25 /* Icon-Small@2x.png */,
+				570FB9CD170949CE006D2D25 /* Icon.png */,
+				570FB9CE170949CE006D2D25 /* Icon@2x.png */,
+			);
+			name = Icon;
+			path = FishTally;
+			sourceTree = "<group>";
+		};
+		570FB9A91709495C006D2D25 /* @2x */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9AB170949AE006D2D25 /* fish@2x.png */,
+				570FB9AC170949AE006D2D25 /* Map@2x.png */,
+				570FB9AD170949AE006D2D25 /* Panel-black-light@2x.png */,
+				570FB9AE170949AE006D2D25 /* Panel-black@2x.png */,
+				570FB9AF170949AE006D2D25 /* Panel-grey@2x.png */,
+				570FB9B0170949AE006D2D25 /* Pin@2x.png */,
+				570FB9B1170949AE006D2D25 /* tacklebox@2x.png */,
+			);
+			name = "@2x";
+			sourceTree = "<group>";
+		};
+		570FB9AA17094969006D2D25 /* Standard */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9B9170949BD006D2D25 /* fish.png */,
+				570FB9BA170949BD006D2D25 /* Map.png */,
+				570FB9BB170949BD006D2D25 /* Panel-black-light.png */,
+				570FB9BC170949BD006D2D25 /* Panel-black.png */,
+				570FB9BD170949BD006D2D25 /* Panel-grey.png */,
+				570FB9BE170949BD006D2D25 /* Pin.png */,
+				570FB9BF170949BD006D2D25 /* tacklebox.png */,
+			);
+			name = Standard;
+			sourceTree = "<group>";
+		};
+		570FB9D717094AD2006D2D25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9D817094B5D006D2D25 /* Catch.h */,
+				570FB9D917094B5D006D2D25 /* Catch.m */,
+				570FB9DA17094B5D006D2D25 /* CatchSize.h */,
+				570FB9DB17094B5D006D2D25 /* CatchSize.m */,
+				570FB9DC17094B5D006D2D25 /* Fish.h */,
+				570FB9DD17094B5D006D2D25 /* Fish.m */,
+				570FB9DE17094B5D006D2D25 /* FishFamily.h */,
+				570FB9DF17094B5D006D2D25 /* FishFamily.m */,
+				570FB9E017094B5D006D2D25 /* Game.h */,
+				570FB9E117094B5D006D2D25 /* Game.m */,
+				570FB9E217094B5D006D2D25 /* Location.h */,
+				570FB9E317094B5D006D2D25 /* Location.m */,
+				570FB9E417094B5D006D2D25 /* Lure.h */,
+				570FB9E517094B5D006D2D25 /* Lure.m */,
+				570FB9E617094B5D006D2D25 /* LureType.h */,
+				570FB9E717094B5D006D2D25 /* LureType.m */,
+				570FB9E817094B5D006D2D25 /* Player.h */,
+				570FB9E917094B5D006D2D25 /* Player.m */,
+				57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		570FBA4E17094BE2006D2D25 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA4317094BCC006D2D25 /* UIImage+Resize.h */,
+				570FBA4417094BCC006D2D25 /* UIImage+Resize.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		570FBA5017094C39006D2D25 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA3817094BCB006D2D25 /* PlayerCell.h */,
+				570FBA3917094BCB006D2D25 /* PlayerCell.m */,
+				570FBA3A17094BCB006D2D25 /* PlayerDetailViewController.h */,
+				570FBA3B17094BCB006D2D25 /* PlayerDetailViewController.m */,
+				570FBA3C17094BCB006D2D25 /* PlayersViewController.h */,
+				570FBA3D17094BCB006D2D25 /* PlayersViewController.m */,
+			);
+			name = Players;
+			sourceTree = "<group>";
+		};
+		570FBA5117094C82006D2D25 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA3E17094BCB006D2D25 /* SettingsListViewDelegate.h */,
+				570FBA3F17094BCC006D2D25 /* SettingsViewController.h */,
+				570FBA4017094BCC006D2D25 /* SettingsViewController.m */,
+				570FBA4117094BCC006D2D25 /* SizeDetailViewController.h */,
+				570FBA4217094BCC006D2D25 /* SizeDetailViewController.m */,
+				570FBA4517094BCC006D2D25 /* UnitsPickerViewController.h */,
+				570FBA4617094BCC006D2D25 /* UnitsPickerViewController.m */,
+				570FB9FF17094BB1006D2D25 /* CategoryPickerViewController.h */,
+				570FBA0017094BB1006D2D25 /* CategoryPickerViewController.m */,
+				570FBA0117094BB1006D2D25 /* FamilyPickerViewController.h */,
+				570FBA0217094BB1006D2D25 /* FamilyPickerViewController.m */,
+				570FBA1717094BB2006D2D25 /* LureCategoriesViewController.h */,
+				570FBA1817094BB2006D2D25 /* LureCategoriesViewController.m */,
+				570FBA1917094BB2006D2D25 /* LureCategoryDetailViewController.h */,
+				570FBA1A17094BB2006D2D25 /* LureCategoryDetailViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		570FBA5217094CA4006D2D25 /* Catches */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9F317094BB1006D2D25 /* CatchCell.h */,
+				570FB9F417094BB1006D2D25 /* CatchCell.m */,
+				570FB9F517094BB1006D2D25 /* CatchDetailViewController.h */,
+				570FB9F617094BB1006D2D25 /* CatchDetailViewController.m */,
+				570FB9F717094BB1006D2D25 /* CatchDisplayViewController.h */,
+				570FB9F817094BB1006D2D25 /* CatchDisplayViewController.m */,
+				570FB9F917094BB1006D2D25 /* CatchesViewController.h */,
+				570FB9FA17094BB1006D2D25 /* CatchesViewController.m */,
+				570FB9FB17094BB1006D2D25 /* CatchSizeDetailViewController.h */,
+				570FB9FC17094BB1006D2D25 /* CatchSizeDetailViewController.m */,
+				570FB9FD17094BB1006D2D25 /* CatchSizesViewController.h */,
+				570FB9FE17094BB1006D2D25 /* CatchSizesViewController.m */,
+			);
+			name = Catches;
+			sourceTree = "<group>";
+		};
+		570FBA5317094CD5006D2D25 /* Fish */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA0317094BB1006D2D25 /* FishDetailViewController.h */,
+				570FBA0417094BB1006D2D25 /* FishDetailViewController.m */,
+				570FBA0517094BB1006D2D25 /* FishFamiliesViewController.h */,
+				570FBA0617094BB1006D2D25 /* FishFamiliesViewController.m */,
+				570FBA0717094BB2006D2D25 /* FishFamilyDetailViewController.h */,
+				570FBA0817094BB2006D2D25 /* FishFamilyDetailViewController.m */,
+				570FBA0917094BB2006D2D25 /* FishPickerViewController.h */,
+				570FBA0A17094BB2006D2D25 /* FishPickerViewController.m */,
+				570FBA0B17094BB2006D2D25 /* FishViewController.h */,
+				570FBA0C17094BB2006D2D25 /* FishViewController.m */,
+			);
+			name = Fish;
+			sourceTree = "<group>";
+		};
+		570FBA5417094CF0006D2D25 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA0D17094BB2006D2D25 /* GameCell.h */,
+				570FBA0E17094BB2006D2D25 /* GameCell.m */,
+				570FBA0F17094BB2006D2D25 /* GameDetailViewController.h */,
+				570FBA1017094BB2006D2D25 /* GameDetailViewController.m */,
+				570FBA1117094BB2006D2D25 /* GamesViewController.h */,
+				570FBA1217094BB2006D2D25 /* GamesViewController.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		570FBA5517094D14006D2D25 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA1317094BB2006D2D25 /* LocationDetailViewController.h */,
+				570FBA1417094BB2006D2D25 /* LocationDetailViewController.m */,
+				570FBA1517094BB2006D2D25 /* LocationsViewController.h */,
+				570FBA1617094BB2006D2D25 /* LocationsViewController.m */,
+			);
+			name = Locations;
+			sourceTree = "<group>";
+		};
+		570FBA5617094D3C006D2D25 /* Lures */ = {
+			isa = PBXGroup;
+			children = (
+				570FBA1B17094BB2006D2D25 /* LureDetailViewController.h */,
+				570FBA1C17094BB2006D2D25 /* LureDetailViewController.m */,
+				570FBA1D17094BB2006D2D25 /* LurePickerViewController.h */,
+				570FBA1E17094BB2006D2D25 /* LurePickerViewController.m */,
+				570FBA1F17094BB2006D2D25 /* LuresViewController.h */,
+				570FBA2017094BB2006D2D25 /* LuresViewController.m */,
+			);
+			name = Lures;
+			sourceTree = "<group>";
+		};
+		575BD31215A8D756007BC668 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				570FB9A91709495C006D2D25 /* @2x */,
+				570FB9AA17094969006D2D25 /* Standard */,
+			);
+			name = Images;
+			path = FishTally/images;
+			sourceTree = "<group>";
+		};
+		57952A0115A3302A00D1682C = {
+			isa = PBXGroup;
+			children = (
+				570FBA5617094D3C006D2D25 /* Lures */,
+				570FBA5517094D14006D2D25 /* Locations */,
+				570FBA5417094CF0006D2D25 /* Game */,
+				570FBA5317094CD5006D2D25 /* Fish */,
+				570FBA5217094CA4006D2D25 /* Catches */,
+				570FBA5117094C82006D2D25 /* Settings */,
+				570FBA5017094C39006D2D25 /* Players */,
+				570FBA4E17094BE2006D2D25 /* Util */,
+				570FB9A81709494E006D2D25 /* Icon */,
+				575BD31215A8D756007BC668 /* Images */,
+				570FB9D717094AD2006D2D25 /* Models */,
+				57952A1615A3302A00D1682C /* FishTally */,
+				57952A0F15A3302A00D1682C /* Frameworks */,
+				57952A0D15A3302A00D1682C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57952A0D15A3302A00D1682C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57952A0C15A3302A00D1682C /* FishTally.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57952A0F15A3302A00D1682C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57A555DF15E147D200D69D99 /* CoreLocation.framework */,
+				573A6C6A15DC902200DF6F8B /* MapKit.framework */,
+				57952A3815A33B6400D1682C /* CoreData.framework */,
+				57952A1015A3302A00D1682C /* UIKit.framework */,
+				57952A1215A3302A00D1682C /* Foundation.framework */,
+				57952A1415A3302A00D1682C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57952A1615A3302A00D1682C /* FishTally */ = {
+			isa = PBXGroup;
+			children = (
+				57952A1F15A3302A00D1682C /* AppDelegate.h */,
+				57952A2015A3302A00D1682C /* AppDelegate.m */,
+				57952A2215A3302A00D1682C /* MainStoryboard.storyboard */,
+				57952A1715A3302A00D1682C /* Supporting Files */,
+			);
+			path = FishTally;
+			sourceTree = "<group>";
+		};
+		57952A1715A3302A00D1682C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				57952A1815A3302A00D1682C /* FishTally-Info.plist */,
+				57952A1915A3302A00D1682C /* InfoPlist.strings */,
+				57952A1C15A3302A00D1682C /* main.m */,
+				57952A1E15A3302A00D1682C /* FishTally-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57952A0B15A3302A00D1682C /* FishTally */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57952A3515A3302A00D1682C /* Build configuration list for PBXNativeTarget "FishTally" */;
+			buildPhases = (
+				57952A0815A3302A00D1682C /* Sources */,
+				57952A0915A3302A00D1682C /* Frameworks */,
+				57952A0A15A3302A00D1682C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FishTally;
+			productName = FishTally;
+			productReference = 57952A0C15A3302A00D1682C /* FishTally.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57952A0315A3302A00D1682C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 57952A0615A3302A00D1682C /* Build configuration list for PBXProject "FishTally" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 57952A0115A3302A00D1682C;
+			productRefGroup = 57952A0D15A3302A00D1682C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57952A0B15A3302A00D1682C /* FishTally */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57952A0A15A3302A00D1682C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57952A1B15A3302A00D1682C /* InfoPlist.strings in Resources */,
+				57952A2415A3302A00D1682C /* MainStoryboard.storyboard in Resources */,
+				570FB9B2170949AE006D2D25 /* fish@2x.png in Resources */,
+				570FB9B3170949AE006D2D25 /* Map@2x.png in Resources */,
+				570FB9B4170949AE006D2D25 /* Panel-black-light@2x.png in Resources */,
+				570FB9B5170949AE006D2D25 /* Panel-black@2x.png in Resources */,
+				570FB9B6170949AE006D2D25 /* Panel-grey@2x.png in Resources */,
+				570FB9B7170949AE006D2D25 /* Pin@2x.png in Resources */,
+				570FB9B8170949AE006D2D25 /* tacklebox@2x.png in Resources */,
+				570FB9C0170949BD006D2D25 /* fish.png in Resources */,
+				570FB9C1170949BD006D2D25 /* Map.png in Resources */,
+				570FB9C2170949BD006D2D25 /* Panel-black-light.png in Resources */,
+				570FB9C3170949BD006D2D25 /* Panel-black.png in Resources */,
+				570FB9C4170949BD006D2D25 /* Panel-grey.png in Resources */,
+				570FB9C5170949BD006D2D25 /* Pin.png in Resources */,
+				570FB9C6170949BD006D2D25 /* tacklebox.png in Resources */,
+				570FB9CF170949CE006D2D25 /* Default.png in Resources */,
+				570FB9D0170949CE006D2D25 /* Default@2x.png in Resources */,
+				570FB9D1170949CE006D2D25 /* Icon-72.png in Resources */,
+				570FB9D2170949CE006D2D25 /* Icon-Small-50.png in Resources */,
+				570FB9D3170949CE006D2D25 /* Icon-Small.png in Resources */,
+				570FB9D4170949CE006D2D25 /* Icon-Small@2x.png in Resources */,
+				570FB9D5170949CE006D2D25 /* Icon.png in Resources */,
+				570FB9D6170949CE006D2D25 /* Icon@2x.png in Resources */,
+				57B25CDB1753B4E1001C53A8 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57952A0815A3302A00D1682C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57952A1D15A3302A00D1682C /* main.m in Sources */,
+				57952A2115A3302A00D1682C /* AppDelegate.m in Sources */,
+				57952A3C15A33C0800D1682C /* DataModel.xcdatamodeld in Sources */,
+				570FB9EA17094B5D006D2D25 /* Catch.m in Sources */,
+				570FB9EB17094B5D006D2D25 /* CatchSize.m in Sources */,
+				570FB9EC17094B5D006D2D25 /* Fish.m in Sources */,
+				570FB9ED17094B5D006D2D25 /* FishFamily.m in Sources */,
+				570FB9EE17094B5D006D2D25 /* Game.m in Sources */,
+				570FB9EF17094B5D006D2D25 /* Location.m in Sources */,
+				570FB9F017094B5D006D2D25 /* Lure.m in Sources */,
+				570FB9F117094B5D006D2D25 /* LureType.m in Sources */,
+				570FB9F217094B5D006D2D25 /* Player.m in Sources */,
+				570FBA2117094BB2006D2D25 /* CatchCell.m in Sources */,
+				570FBA2217094BB2006D2D25 /* CatchDetailViewController.m in Sources */,
+				570FBA2317094BB2006D2D25 /* CatchDisplayViewController.m in Sources */,
+				570FBA2417094BB2006D2D25 /* CatchesViewController.m in Sources */,
+				570FBA2517094BB2006D2D25 /* CatchSizeDetailViewController.m in Sources */,
+				570FBA2617094BB2006D2D25 /* CatchSizesViewController.m in Sources */,
+				570FBA2717094BB2006D2D25 /* CategoryPickerViewController.m in Sources */,
+				570FBA2817094BB2006D2D25 /* FamilyPickerViewController.m in Sources */,
+				570FBA2917094BB2006D2D25 /* FishDetailViewController.m in Sources */,
+				570FBA2A17094BB2006D2D25 /* FishFamiliesViewController.m in Sources */,
+				570FBA2B17094BB2006D2D25 /* FishFamilyDetailViewController.m in Sources */,
+				570FBA2C17094BB2006D2D25 /* FishPickerViewController.m in Sources */,
+				570FBA2D17094BB2006D2D25 /* FishViewController.m in Sources */,
+				570FBA2E17094BB2006D2D25 /* GameCell.m in Sources */,
+				570FBA2F17094BB2006D2D25 /* GameDetailViewController.m in Sources */,
+				570FBA3017094BB2006D2D25 /* GamesViewController.m in Sources */,
+				570FBA3117094BB2006D2D25 /* LocationDetailViewController.m in Sources */,
+				570FBA3217094BB2006D2D25 /* LocationsViewController.m in Sources */,
+				570FBA3317094BB2006D2D25 /* LureCategoriesViewController.m in Sources */,
+				570FBA3417094BB2006D2D25 /* LureCategoryDetailViewController.m in Sources */,
+				570FBA3517094BB2006D2D25 /* LureDetailViewController.m in Sources */,
+				570FBA3617094BB2006D2D25 /* LurePickerViewController.m in Sources */,
+				570FBA3717094BB2006D2D25 /* LuresViewController.m in Sources */,
+				570FBA4717094BCC006D2D25 /* PlayerCell.m in Sources */,
+				570FBA4817094BCC006D2D25 /* PlayerDetailViewController.m in Sources */,
+				570FBA4917094BCC006D2D25 /* PlayersViewController.m in Sources */,
+				570FBA4A17094BCC006D2D25 /* SettingsViewController.m in Sources */,
+				570FBA4B17094BCC006D2D25 /* SizeDetailViewController.m in Sources */,
+				570FBA4C17094BCC006D2D25 /* UIImage+Resize.m in Sources */,
+				570FBA4D17094BCC006D2D25 /* UnitsPickerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		57952A1915A3302A00D1682C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57952A1A15A3302A00D1682C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		57952A2215A3302A00D1682C /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57952A2315A3302A00D1682C /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		57952A3315A3302A00D1682C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		57952A3415A3302A00D1682C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57952A3615A3302A00D1682C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishTally/FishTally-Prefix.pch";
+				INFOPLIST_FILE = "FishTally/FishTally-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		57952A3715A3302A00D1682C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishTally/FishTally-Prefix.pch";
+				INFOPLIST_FILE = "FishTally/FishTally-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57952A0615A3302A00D1682C /* Build configuration list for PBXProject "FishTally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57952A3315A3302A00D1682C /* Debug */,
+				57952A3415A3302A00D1682C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57952A3515A3302A00D1682C /* Build configuration list for PBXNativeTarget "FishTally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57952A3615A3302A00D1682C /* Debug */,
+				57952A3715A3302A00D1682C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57952A3A15A33C0800D1682C /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 57952A3B15A33C0800D1682C /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = FishTally/DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 57952A0315A3302A00D1682C /* Project object */;
+}

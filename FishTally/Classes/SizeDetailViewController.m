@@ -95,7 +95,7 @@
 }
 
 - (void)calculateSizeFromValues {
-    double newSize;
+    double newSize = 0;
     NSArray *multipliers = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:100], [NSNumber numberWithInt:10], [NSNumber numberWithInt:1],[NSNumber numberWithInt:0], nil];
     for (int i=0; i < [values count]; i++) {
         int multiplier = [[multipliers objectAtIndex:i] intValue];

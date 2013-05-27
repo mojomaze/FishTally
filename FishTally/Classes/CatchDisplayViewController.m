@@ -244,7 +244,8 @@
     
 }
 
-- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration {
+- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration 
+{
     if (!landscapeCommentView) {
         [self createLandscapeCommentViewWithRotation:duration > 0.0f];
     } else {

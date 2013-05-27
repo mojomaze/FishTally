@@ -154,20 +154,20 @@
 
 - (void)updateCountLabelForEntity:(NSString *)entityName
 {    
-    if (entityName == @"Fish") {
+    if ([entityName isEqualToString:@"Fish"]) {
         self.fishLabel.text = [NSString stringWithFormat:@"%d", fishCount];
     }
-    if (entityName == @"FishFamily") {
+    if ([entityName isEqualToString:@"FishFamily"]) {
         self.fishFamiliesLabel.text = [NSString stringWithFormat:@"%d", familyCount];
     }
-    if (entityName == @"Lure") {
+    if ([entityName isEqualToString:@"Lure"]) {
         self.luresLabel.text = [NSString stringWithFormat:@"%d", lureCount];
     }
-    if (entityName == @"LureType") {
+    if ([entityName isEqualToString:@"LureType"]) {
         self.lureCategoriesLabel.text = [NSString stringWithFormat:@"%d", categoryCount];
     }
     
-    if (entityName == @"CatchSize") {
+    if ([entityName isEqualToString:@"CatchSize"]) {
         self.catchSizesLabel.text = [NSString stringWithFormat:@"%d", sizeCount];
     }
 }
@@ -223,20 +223,20 @@
     NSError *error;    
     NSUInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
     if (count != NSNotFound) {
-        if (entityName == @"Fish") {
+        if ([entityName isEqualToString:@"Fish"]) {
             fishCount = count;
         }
-        if (entityName == @"FishFamily") {
+        if ([entityName isEqualToString:@"FishFamily"]) {
             familyCount = count;
         }
-        if (entityName == @"Lure") {
+        if ([entityName isEqualToString:@"Lure"]) {
             lureCount = count;
         }
-        if (entityName == @"LureType") {
+        if ([entityName isEqualToString:@"LureType"]) {
             categoryCount = count;
         }
         
-        if (entityName == @"CatchSize") {
+        if ([entityName isEqualToString:@"CatchSize"]) {
             sizeCount = count;
         }
         
